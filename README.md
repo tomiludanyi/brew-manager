@@ -1,27 +1,105 @@
-# BrewManager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+Sörfőző alkalmazást szeretnénk fejleszteni.
 
-## Development server
+A fő funkciók:
+- alapanyagkezelés
+- raktárkészletkezelés
+- receptkezelés
+- főzetkezelés
+- jogosultságkezelés
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+A backend legyen `json-server`: [https://github.com/typicode/json-server](https://github.com/typicode/json-server)
+- kommitolj egy `db.json` fájlt értelmes tesztadatokkal
+- a bekommitolt `db.json` fájl mindig legyen konzisztens
+    - a mentor ezt fogja használni a review során
 
-## Code scaffolding
+__implementációs követelmények__
+- service rétegbe izolált http kommunikáció
+- lazy loading használata
+- minél reaktívabb kód (async pipe, .subscribe() kerülése, ...)
+    - de nem feltétlenül minden áron
+- reszponzív dizájn
+- külső komponenskönyvtár, css keretrendszer nem használható
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## munkarend
 
-## Running unit tests
+- a megoldásodat egy saját privát repóban írd meg
+- a repó nevét a projekt azonosítóból és a nevedből konstruáld, pl. `brew-manager-frontend-gipsz-jakab`
+- a feladatok mappákba vannak csoportosítva és sorrendezve vannak
+- sorszámozott mappánként egy külön branch
+    - a branch nevét a feladatkiírás elérési útvonala alapján konstruáljuk, pl.
+        - `01-alapanyagok-01-alapanyag-felvitel`
+- minden nap végén pusholj
+- pull request irányelvek
+    - [The (written) unwritten guide to pull requests](https://www.atlassian.com/blog/git/written-unwritten-guide-pull-requests)
+- code review irányelvek
+    - [Effective Code Reviews](https://addyosmani.com/blog/code-reviews/)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## code review
 
-## Running end-to-end tests
+- nem szeniorokat képezünk
+    - nem kell 100%-ban ragaszkodni a tökéletes megoldáshoz
+    - a cél, hogy a mentorált értse, amit csinál és gyakorlatot szerezzen
+- code review irányelvek
+    - [Effective Code Reviews](https://addyosmani.com/blog/code-reviews/)
+    - nem kell mindenre kiterjedő review
+        - a lényeg, hogy tanuljon a mentorált valamit
+    - ha nem találsz javítanivalót, adj pozitív visszajelzést a jó megoldásra
+    - review linkjét másold be az értékelő táblázatba
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## értékelés
 
-## Further help
+- szempontonként 0-2 pont
+- minden red flag -1 pont
+- 2 pontról indulunk, ha a mentor elfogadhatónak ítéli a megoldást
+- 1 pontról indulunk, ha részben megfelel a követelményeknek a megoldás, de van
+  olyan javaslat, amit feltétlenül fontosnak tart a mentor
+- angular patternek használata
+    - jól felismerhetően, helyesen használja-e a közismert angular patterneket?
+        - service with subject
+        - lifting state up
+        - smart és dumb component
+        - shared modul és feature modulok
+        - lazy loading
+    - red flag
+        - alapvető ismeret hiányából eredő egzotikus/túlbonyolított megoldás
+- typescript használat
+    - jól felismerhetően, helyesen használja-e a közismert typescript patterneket?
+        - interface használata generikus típusparaméterként
+        - típusinformáció, ahol csak lehet
+    - red flag
+        - any
+- reaktív gondolkodásmód
+    - jól felismerhetően, helyesen alkalmazza-e a közismert reaktív patterneket?
+    - red flag
+        - async pipe helyett subscribe + értékadás
+        - tap operátor túlhasználata; tap + értékadás
+- olvasható, igényes kód
+    - red flag
+        - kikommentelt kód
+        - csálé, inkonzisztens formázás
+        - semmitmondó azonosítók, rövidítések
+- karbantartható kód
+    - jól felismerhetően, helyesen alkalmazza-e a közismert alapvetéseket?
+        - SOLID elvek
+        - rétegelt, moduláris architektúra
+        - feature slice-ok használata
+        - konstansok használata magic value helyett
+        - egy függvény egy dolgot csinál
+        - minél kevesebb mellékhatás
+        -
+    - red flag
+        - copy paste, duplikált kód
+        - stackoverflow kód
+- tesztek: TODO
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<!--
+- értékelés
+    - értékelő táblázat: https://kriszoft-my.sharepoint.com/:x:/g/personal/szucs_laszlo_novaservices_hu/ES4TJjkEShhPiZJg5ZT4FOkB5kwV1mKWLoXokGrcgGi1BQ?e=fUqUQL
+    - ha valamely témakörrel kapcsolatban az az érzésed, hogy még erősíteni kell,
+      tüntesd fel az értékelő táblázatban
+-->
+
+01-alapanyagok/01-alapanyag-felvitel
