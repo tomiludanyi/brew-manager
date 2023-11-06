@@ -1,9 +1,9 @@
-<form [formGroup]="ingredientForm">
+<form [formGroup]="ingredientForm" (ngSubmit)="onSubmit()">
     <div>
         <label for="name">Ingredient Name: </label>
-        <input type="text" id="name" formControlName="name">
-        <span *ngIf="ingredientForm.get('name')?.touched"> | This field can not be empty!</span>
+        <input type="text" id="name" formControlName="name" [placeholder]="ingredientForm.get('name')?.touched ? '' : 'Enter ingredient name'">
+        <span *ngIf="ingredientForm.get('name')?.touched && !ingredientForm.valid"> | This field can not be empty!</span>
     </div>
     <hr>
-    <button type="submit" [disabled]="!ingredientForm.valid">Add</button>
+    <button type="submit" [disabled]="!ingredientForm.valid">{{ editMode ? 'Update' : 'Add' }}</button>
 </form>
