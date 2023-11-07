@@ -1,4 +1,4 @@
-<input type="text" [(ngModel)]="filterText" placeholder="Filter ingredients" (input)="filterIngredients()">
+<input type="text" [(ngModel)]="filterText" placeholder="Filter ingredients" (input)="onFilterChange()">
 <table>
     <thead>
     <tr>
@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let ingredient of (ingredients$ | async)">
+    <tr *ngFor="let ingredient of ingredients | slice:(currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
         <td>{{ ingredient.id }}</td>
         <td>{{ ingredient.name }}</td>
         <td><button (click)="onEditItem(ingredient)">Edit</button></td>
@@ -15,3 +15,4 @@
     </tr>
     </tbody>
 </table>
+<app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>

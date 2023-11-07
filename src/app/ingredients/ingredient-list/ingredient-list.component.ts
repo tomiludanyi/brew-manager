@@ -12,13 +12,18 @@ import { IngredientService } from "../ingredient.service";
 export class IngredientListComponent implements OnInit {
     @Input() confirmed?: boolean;
     ingredients$!: Observable<Ingredient[]>;
+    ingredients: Ingredient[] = [];
     filterText: string = '';
+    currentPage: number = 1;
+    itemsPerPage: number = 10;
+    totalPages: number = 0;
     
     constructor(private ingredientService: IngredientService, private router: Router) {
     }
     
     ngOnInit(): void {
         this.ingredients$ = this.ingredientService.getIngredients();
+        this.loadIngredients();
     }
     
     filterIngredients() {
@@ -27,6 +32,26 @@ export class IngredientListComponent implements OnInit {
                 return ingredients.filter(ingredient => ingredient.name.toLowerCase().includes(this.filterText.toLowerCase()));
             })
         );
+    }
+    
+    loadIngredients() {
+        this.ingredientService.getIngredients().subscribe((data: Ingredient[]) => {
+            this.ingredients = data;
+            this.totalPages = Math.ceil(this.ingredients.length / this.itemsPerPage);
+        });
+    }
+    
+    onPageChanged(newPage: number) {
+        this.currentPage = newPage;
+    }
+    
+    onFilterChange() {
+        this.currentPage = 1; // Reset to the first page when filtering
+        this.ingredients$ = this.ingredientService.getFilteredIngredients(this.filterText);
+        this.ingredients$.subscribe((data: Ingredient[]) => {
+            this.ingredients = data;
+            this.totalPages = Math.ceil(this.ingredients.length / this.itemsPerPage);
+        });
     }
     
     onEditItem(ingredient: Ingredient) {

@@ -1,0 +1,13 @@
+<div>
+    <ng-container *ngIf="currentPage !== 1">
+        <button (click)="goToPage(1)">First Page</button>
+    </ng-container>
+    
+    <ng-container *ngFor="let page of visiblePages">
+        <button (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+    </ng-container>
+    
+    <ng-container *ngIf="currentPage !== totalPages">
+        <button (click)="goToPage(totalPages)">Last Page</button>
+    </ng-container>
+</div>
