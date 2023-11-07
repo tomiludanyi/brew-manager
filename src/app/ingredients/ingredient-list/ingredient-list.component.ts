@@ -18,6 +18,8 @@ export class IngredientListComponent implements OnInit {
     currentPage: number = 1;
     itemsPerPage: number = 10;
     totalPages: number = 0;
+    defaultSortField: string = 'id';
+    asc: boolean = true;
     
     constructor(private ingredientService: IngredientService, private router: Router, private queryParamService: QueryParamService) {
     }
@@ -42,6 +44,14 @@ export class IngredientListComponent implements OnInit {
     
     loadIngredients() {
         this.ingredientService.getIngredients().subscribe((data: Ingredient[]) => {
+            this.ingredients = data;
+            this.totalPages = Math.ceil(this.ingredients.length / this.itemsPerPage);
+        });
+    }
+    
+    loadIngredientsSortedBy(field: string, isAscending: boolean) {
+        const order = isAscending ? 'asc' : 'desc';
+        this.ingredientService.getIngredientsSortedBy(field, order).subscribe((data: Ingredient[]) => {
             this.ingredients = data;
             this.totalPages = Math.ceil(this.ingredients.length / this.itemsPerPage);
         });
@@ -73,5 +83,16 @@ export class IngredientListComponent implements OnInit {
         this.itemsPerPage = +value;
         this.currentPage = 1;
         this.loadIngredients();
+    }
+    
+    onSort(field: string) {
+        if (field === this.defaultSortField) {
+            // Toggle the sorting order
+            this.asc = !this.asc;
+        } else {
+            this.asc = true;
+            this.defaultSortField = field;
+        }
+        this.loadIngredientsSortedBy(field, this.asc);
     }
 }
