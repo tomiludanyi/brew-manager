@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { Ingredient } from "../ingredient.model";
@@ -10,6 +10,7 @@ import { IngredientService } from "../ingredient.service";
     styleUrls: ['./ingredient-list.component.css']
 })
 export class IngredientListComponent implements OnInit {
+    @Input() confirmed?: boolean;
     ingredients$!: Observable<Ingredient[]>;
     
     constructor(private ingredientService: IngredientService, private router: Router) {
@@ -21,5 +22,9 @@ export class IngredientListComponent implements OnInit {
     
     onEditItem(ingredient: Ingredient) {
         this.router.navigate(['ingredient-edit', ingredient.id]).then(r => r);
+    }
+    
+    onDeleteItem(ingredient: Ingredient) {
+        this.router.navigate(['ingredient-delete', ingredient.id]).then(r => r);
     }
 }

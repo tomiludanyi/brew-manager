@@ -20,4 +20,8 @@ export class IngredientService {
     updateIngredient(newIngredient: Ingredient) {
         return this.http.put(`${this.ingredientsUrl}/ingredients/${newIngredient.id}`, newIngredient);
     }
+    
+    deleteIngredient(id: number) {
+        return this.http.delete(`${this.ingredientsUrl}/ingredients/${id}`);
+    }
 }

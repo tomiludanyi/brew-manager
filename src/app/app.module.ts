@@ -7,18 +7,22 @@ import { RouterLink, RouterModule, RouterOutlet, Routes } from "@angular/router"
 import { AppComponent } from './app.component';
 import { IngredientEditComponent } from "./ingredients/ingredient-edit/ingredient-edit.component";
 import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
+import { IngredientDeleteComponent } from './ingredients/ingredient-delete/ingredient-delete.component';
 
 const routes: Routes = [
     { path: 'ingredient-edit', component: IngredientEditComponent },
     { path: 'ingredient-edit/:id', component: IngredientEditComponent },
-    { path: 'ingredient-list', component: IngredientListComponent }
+    { path: 'ingredient-list', component: IngredientListComponent },
+    { path: 'ingredient-delete', component: IngredientDeleteComponent },
+    { path: 'ingredient-delete/:id', component: IngredientDeleteComponent }
 ];
 
 @NgModule({
     declarations: [
         AppComponent,
         IngredientEditComponent,
-        IngredientListComponent
+        IngredientListComponent,
+        IngredientDeleteComponent
     ],
     imports: [
         BrowserModule,
