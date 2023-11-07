@@ -67,4 +67,11 @@ export class IngredientListComponent implements OnInit {
     onDeleteItem(ingredient: Ingredient) {
         this.router.navigate(['ingredient-delete', ingredient.id]).then(r => r);
     }
+    
+    onItemsPerPageChange(event: Event) {
+        const value = (event.target as HTMLSelectElement).value;
+        this.itemsPerPage = +value;
+        this.currentPage = 1;
+        this.loadIngredients();
+    }
 }
