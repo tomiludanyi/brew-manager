@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { map, Observable } from "rxjs";
+import { QueryParamService } from "../../shared/query-param.service";
 import { Ingredient } from "../ingredient.model";
 import { IngredientService } from "../ingredient.service";
 
@@ -18,12 +19,17 @@ export class IngredientListComponent implements OnInit {
     itemsPerPage: number = 10;
     totalPages: number = 0;
     
-    constructor(private ingredientService: IngredientService, private router: Router) {
+    constructor(private ingredientService: IngredientService, private router: Router, private queryParamService: QueryParamService) {
     }
     
     ngOnInit(): void {
+        this.queryParamService.getQueryParam('page').subscribe((page) => {
+            if (page) {
+                this.currentPage = +page; // Convert page to a number
+            }
+            this.loadIngredients();
+        });
         this.ingredients$ = this.ingredientService.getIngredients();
-        this.loadIngredients();
     }
     
     filterIngredients() {
@@ -42,7 +48,7 @@ export class IngredientListComponent implements OnInit {
     }
     
     onPageChanged(newPage: number) {
-        this.currentPage = newPage;
+        this.queryParamService.setQueryParam('page', newPage.toString());
     }
     
     onFilterChange() {
