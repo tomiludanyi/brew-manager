@@ -27,7 +27,7 @@ export class IngredientListComponent implements OnInit {
     ngOnInit(): void {
         this.queryParamService.getQueryParam('page').subscribe((page) => {
             if (page) {
-                this.currentPage = +page; // Convert page to a number
+                this.currentPage = +page;
             }
             this.loadIngredients();
         });
@@ -62,7 +62,7 @@ export class IngredientListComponent implements OnInit {
     }
     
     onFilterChange() {
-        this.currentPage = 1; // Reset to the first page when filtering
+        this.currentPage = 1;
         this.ingredients$ = this.ingredientService.getFilteredIngredients(this.filterText);
         this.ingredients$.subscribe((data: Ingredient[]) => {
             this.ingredients = data;
@@ -87,7 +87,6 @@ export class IngredientListComponent implements OnInit {
     
     onSort(field: string) {
         if (field === this.defaultSortField) {
-            // Toggle the sorting order
             this.asc = !this.asc;
         } else {
             this.asc = true;

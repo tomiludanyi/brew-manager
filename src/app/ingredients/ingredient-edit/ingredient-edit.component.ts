@@ -61,6 +61,16 @@ export class IngredientEditComponent implements OnInit {
                     return of(null);
                 })
             ).subscribe();
+        } else {
+            const newIngredient = this.ingredientForm.value;
+            this.ingredientService.addIngredient(newIngredient).pipe(switchMap(() => {
+                    return this.router.navigate(['ingredient-list']);
+                }),
+                catchError(error => {
+                    console.error('Error adding ingredient:', error);
+                    return of(null);
+                })
+            ).subscribe();
         }
     }
 }

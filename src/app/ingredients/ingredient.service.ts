@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map, Observable } from "rxjs";
+import { map } from "rxjs";
 import { Ingredient } from "./ingredient.model";
 
 @Injectable({ providedIn: 'root' })
@@ -12,6 +12,10 @@ export class IngredientService {
     
     getIngredient(id: number) {
         return this.http.get<Ingredient>(`${ this.ingredientsUrl }/${ id }`);
+    }
+    
+    addIngredient(ingredient: Ingredient) {
+        return this.http.post(`${ this.ingredientsUrl }/`, ingredient);
     }
     
     getIngredients() {
@@ -28,7 +32,7 @@ export class IngredientService {
         );
     }
     
-    getIngredientsSortedBy(field: string, order: string): Observable<Ingredient[]> {
+    getIngredientsSortedBy(field: string, order: string) {
         const url = `${this.ingredientsUrl}?_sort=${field}&_order=${order}`;
         return this.http.get<Ingredient[]>(url);
     }
