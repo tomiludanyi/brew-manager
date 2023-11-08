@@ -29,7 +29,7 @@ export class IngredientListComponent implements OnInit {
             if (page) {
                 this.currentPage = +page;
             }
-            this.loadIngredients();
+            this.loadIngredientsSortedBy(this.defaultSortField, this.asc);
         });
         this.ingredients$ = this.ingredientService.getIngredients();
     }
@@ -82,7 +82,7 @@ export class IngredientListComponent implements OnInit {
         const value = (event.target as HTMLSelectElement).value;
         this.itemsPerPage = +value;
         this.currentPage = 1;
-        this.loadIngredients();
+        this.loadIngredientsSortedBy(this.defaultSortField, this.asc);
     }
     
     onSort(field: string) {
