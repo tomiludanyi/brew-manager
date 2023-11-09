@@ -32,11 +32,6 @@ export class IngredientService {
         );
     }
     
-    getIngredientsSortedBy(field: string, order: string) {
-        const url = `${this.ingredientsUrl}?_sort=${field}&_order=${order}`;
-        return this.http.get<Ingredient[]>(url);
-    }
-    
     updateIngredient(newIngredient: Ingredient) {
         return this.http.put(`${ this.ingredientsUrl }/${ newIngredient.id }`, newIngredient);
     }

@@ -12,8 +12,8 @@
 <table>
     <thead>
     <tr>
-        <th (click)="onSort('id')">ID<span *ngIf="defaultSortField === 'id'">{{ asc ? '↓' : '↑' }}</span></th>
-        <th (click)="onSort('name')">Name<span *ngIf="defaultSortField === 'name'">{{ asc ? '↓' : '↑' }}</span></th>
+        <th (click)="onSort('id')">ID<span *ngIf="column === 'id'">{{ isAscending ? '↓' : '↑' }}</span></th>
+        <th (click)="onSort('name')">Name<span *ngIf="column === 'name'">{{ isAscending ? '↓' : '↑' }}</span></th>
     </tr>
     </thead>
     <tbody>
