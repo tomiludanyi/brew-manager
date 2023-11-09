@@ -8,7 +8,7 @@ import { IngredientService } from "../ingredient.service";
 @Component({
     selector: 'app-ingredient-list',
     templateUrl: './ingredient-list.component.html',
-    styleUrls: ['./ingredient-list.component.css']
+    styleUrls: ['./ingredient-list.component.scss']
 })
 export class IngredientListComponent implements OnInit {
     @Input() confirmed?: boolean;

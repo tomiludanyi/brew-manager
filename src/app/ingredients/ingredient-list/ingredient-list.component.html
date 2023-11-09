@@ -1,28 +1,43 @@
-<input type="text" [(ngModel)]="filterText" placeholder="Filter ingredients" (input)="onFilterChange()">
-<hr>
-<div style="text-align: end">
-    <label for="itemsPerPageSelect">Items per page:</label>
-    <select id="itemsPerPageSelect" (change)="onItemsPerPageChange($event)">
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
-    </select>
+<div class="ingredients">
+    <app-ingredient-edit></app-ingredient-edit>
+    <hr>
+    <div class="filter_reduce_ingredients">
+        <div>
+            <input type="text" [(ngModel)]="filterText" placeholder="Filter ingredients" (input)="onFilterChange()">
+        </div>
+        <div style="text-align: end">
+            <label for="itemsPerPageSelect">Items per page:</label>
+            <select id="itemsPerPageSelect" (change)="onItemsPerPageChange($event)">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+        </div>
+    </div>
+    <hr>
+    <div class="ingredient-list">
+        <table>
+            <thead>
+            <tr>
+                <th (click)="onSort('id')">ID<span *ngIf="defaultSortField === 'id'">{{ asc ? '↓' : '↑' }}</span></th>
+                <th (click)="onSort('name')">Name<span *ngIf="defaultSortField === 'name'">{{ asc ? '↓' : '↑' }}</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ingredient of ingredients | slice:(currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
+                <td>{{ ingredient.id }}</td>
+                <td>{{ ingredient.name }}</td>
+                <td>
+                    <button class="edit" (click)="onEditItem(ingredient)">Edit</button>
+                </td>
+                <td>
+                    <button class="delete" (click)="onDeleteItem(ingredient)">Delete</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>
+        </div>
+    </div>
 </div>
-<hr>
-<table>
-    <thead>
-    <tr>
-        <th (click)="onSort('id')">ID<span *ngIf="defaultSortField === 'id'">{{ asc ? '↓' : '↑' }}</span></th>
-        <th (click)="onSort('name')">Name<span *ngIf="defaultSortField === 'name'">{{ asc ? '↓' : '↑' }}</span></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let ingredient of ingredients | slice:(currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
-        <td>{{ ingredient.id }}</td>
-        <td>{{ ingredient.name }}</td>
-        <td><button (click)="onEditItem(ingredient)">Edit</button></td>
-        <td><button (click)="onDeleteItem(ingredient)">Delete</button></td>
-    </tr>
-    </tbody>
-</table>
-<app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>
