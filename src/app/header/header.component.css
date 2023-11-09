@@ -1,0 +1,15 @@
+.header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+ .header_wrapper img {
+     width: 50%;
+     height: 10%;
+ }
+
+ .navbar_items {
+     display: flex;
+     gap: 10px;
+     list-style: none;
+ }
