@@ -38,6 +38,10 @@ export class IngredientService {
                 return ingredients.sort((a, b) => {
                     let x = a[field as keyof Ingredient];
                     let y = b[field as keyof Ingredient];
+                    if (typeof x === "string" && typeof y === "string") {
+                        x = x.toLowerCase();
+                        y = y.toLowerCase();
+                    }
                     const sortOrder = order === 'asc' ? 1 : -1;
                     return x < y ? -sortOrder : x > y ? sortOrder : 0;
                 });
