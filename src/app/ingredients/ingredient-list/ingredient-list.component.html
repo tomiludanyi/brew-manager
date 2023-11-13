@@ -26,8 +26,16 @@
             <tbody>
             <tr *ngFor="let ingredient of ingredients | slice:(currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
                 <td>{{ ingredient.id }}</td>
-                <td>{{ ingredient.name }}</td>
-                <td>
+                <td *ngIf="editedItem?.id !== ingredient.id">{{ ingredient.name }}</td>
+                <td *ngIf="(editedItem && editedItem.id === ingredient.id) && editMode"><input
+                    [(ngModel)]="editedItem.name" style="text-align: center"></td>
+                <td *ngIf="editMode">
+                    <button class="save">Save</button>
+                </td>
+                <td *ngIf="editMode">
+                    <button class="cancel" (click)="onCancelEditing()">Cancel</button>
+                </td>
+                <td *ngIf="!editMode">
                     <button class="edit" (click)="onEditItem(ingredient)">Edit</button>
                 </td>
                 <td>

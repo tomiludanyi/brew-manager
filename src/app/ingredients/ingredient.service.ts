@@ -1,11 +1,12 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from "rxjs";
+import { map, Subject, switchMap, tap } from "rxjs";
 import { Ingredient } from "./ingredient.model";
 
 @Injectable({ providedIn: 'root' })
 export class IngredientService {
     private ingredientsUrl = 'http://localhost:3000/ingredients';
+    refreshIngredients = new Subject<Ingredient[]>() ;
     
     constructor(private http: HttpClient) {
     }
@@ -15,11 +16,15 @@ export class IngredientService {
     }
     
     addIngredient(ingredient: Ingredient) {
-        return this.http.post(`${ this.ingredientsUrl }/`, ingredient);
+        return this.http.post(`${ this.ingredientsUrl }/`, ingredient).pipe(
+            switchMap(() => this.getIngredients())
+        );
     }
     
     getIngredients() {
-        return this.http.get<Ingredient[]>(`${ this.ingredientsUrl }/`);
+        return this.http.get<Ingredient[]>(`${ this.ingredientsUrl }/`).pipe(
+            tap(ingredients => this.refreshIngredients.next(ingredients))
+        );
     }
     
     getFilteredIngredients(filterText: string) {
