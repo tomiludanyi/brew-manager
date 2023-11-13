@@ -1,6 +1,6 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { Observable, Subscription } from "rxjs";
+import { catchError, Observable, of, Subscription, switchMap } from "rxjs";
 import { QueryParamService } from "../../shared/query-param.service";
 import { Ingredient } from "../ingredient.model";
 import { IngredientService } from "../ingredient.service";
@@ -22,9 +22,9 @@ export class IngredientListComponent implements OnInit, OnDestroy {
     defaultSortField: string = 'name';
     asc: boolean = true;
     editMode = false;
-    editedItem?: Ingredient;
+    editedItem: Ingredient = {} as Ingredient;
     
-    constructor(private ingredientService: IngredientService, private router: Router, private queryParamService: QueryParamService) {
+    constructor(private ingredientService: IngredientService, private router: Router, private queryParamService: QueryParamService, private cdr: ChangeDetectorRef) {
     }
     
     ngOnInit(): void {
@@ -76,6 +76,23 @@ export class IngredientListComponent implements OnInit, OnDestroy {
     
     onCancelEditing() {
         this.editMode = false;
+        this.editedItem = {} as Ingredient;
+        this.cdr.markForCheck();
+    }
+    
+    onSaveEditing(editedItem: Ingredient) {
+        this.ingredientService.updateIngredient(editedItem).pipe(
+            switchMap(() => this.ingredientService.getIngredients()),
+            catchError(error => {
+                console.error('Error editing ingredient:', error);
+                return of([]);
+            })
+        ).subscribe((ingredients: Ingredient[]) => {
+            this.ingredients = ingredients;
+            this.editMode = false;
+            this.editedItem = {} as Ingredient;
+            this.cdr.detectChanges();
+        });
     }
     
     onItemsPerPageChange(event: Event) {

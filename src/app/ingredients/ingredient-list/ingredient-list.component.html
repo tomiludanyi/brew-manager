@@ -30,7 +30,7 @@
                 <td *ngIf="(editedItem && editedItem.id === ingredient.id) && editMode"><input
                     [(ngModel)]="editedItem.name" style="text-align: center"></td>
                 <td *ngIf="editMode">
-                    <button class="save">Save</button>
+                    <button class="save" (click)="onSaveEditing(editedItem)">Save</button>
                 </td>
                 <td *ngIf="editMode">
                     <button class="cancel" (click)="onCancelEditing()">Cancel</button>

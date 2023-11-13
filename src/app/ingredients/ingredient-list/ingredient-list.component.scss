@@ -31,7 +31,16 @@
 
     .delete {
         background: #ff636b;
-        color: #fff2d1;
+        font-weight: bold;
+    }
+    
+    .save {
+        background: #a0ff6e;
+        font-weight: bold;
+    }
+    
+    .cancel {
+        background: #ffe967;
         font-weight: bold;
     }
 }
