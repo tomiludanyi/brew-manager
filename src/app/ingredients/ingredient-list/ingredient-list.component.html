@@ -20,32 +20,43 @@
             <thead>
             <tr>
                 <th (click)="onSort('id')">ID<span *ngIf="defaultSortField === 'id'">{{ asc ? '↓' : '↑' }}</span></th>
-                <th (click)="onSort('name')">Name<span *ngIf="defaultSortField === 'name'">{{ asc ? '↓' : '↑' }}</span></th>
+                <th (click)="onSort('name')">Name<span *ngIf="defaultSortField === 'name'">{{ asc ? '↓' : '↑' }}</span>
+                </th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let ingredient of ingredients | slice:(currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
                 <td>{{ ingredient.id }}</td>
                 <td *ngIf="editedItem?.id !== ingredient.id">{{ ingredient.name }}</td>
-                <td *ngIf="(editedItem && editedItem.id === ingredient.id) && editMode"><input
-                    [(ngModel)]="editedItem.name" style="text-align: center"></td>
-                <td *ngIf="editMode">
+                <td *ngIf="(editedItem && editedItem.id === ingredient.id) && isEditMode">
+                    <input [(ngModel)]="editedItem.name" style="text-align: center">
+                </td>
+                <td *ngIf="isEditMode && (ingredient.id === editedItem.id)">
                     <button class="save" (click)="onSaveEditing(editedItem)">Save</button>
                 </td>
-                <td *ngIf="editMode">
+                <td *ngIf="isEditMode && (ingredient.id === editedItem.id)">
                     <button class="cancel" (click)="onCancelEditing()">Cancel</button>
                 </td>
-                <td *ngIf="!editMode">
+                <td *ngIf="!isEditMode || (ingredient.id !== editedItem.id)">
                     <button class="edit" (click)="onEditItem(ingredient)">Edit</button>
                 </td>
                 <td>
-                    <button class="delete" (click)="onDeleteItem(ingredient)">Delete</button>
+                    <button class="delete" (click)="onDeleteItem(ingredient.id)">Delete</button>
                 </td>
             </tr>
             </tbody>
         </table>
         <div class="pagination">
-            <app-pagination [currentPage]="currentPage" [totalPages]="totalPages" (pageChanged)="onPageChanged($event)"></app-pagination>
+            <app-pagination [currentPage]="currentPage" 
+                            [totalPages]="totalPages"
+                            (pageChanged)="onPageChanged($event)">
+            </app-pagination>
         </div>
     </div>
 </div>
+<app-ingredient-delete class="popup" 
+                       *ngIf="isDelete" 
+                       (isDeleteMode)="deleteMode($event)"
+                       [itemIdToDelete]="idToDelete"
+                       (idToDelete)="onCancelDelete()">
+</app-ingredient-delete>

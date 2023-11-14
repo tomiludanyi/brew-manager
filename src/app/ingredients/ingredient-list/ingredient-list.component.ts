@@ -12,17 +12,21 @@ import { IngredientService } from "../ingredient.service";
 })
 export class IngredientListComponent implements OnInit, OnDestroy {
     @Input() confirmed?: boolean;
+    @Input() isDelete = false;
+    
     ingredients$!: Observable<Ingredient[]>;
     ingredients: Ingredient[] = [];
     subscription?: Subscription;
+    
     filterText: string = '';
     currentPage: number = 1;
     itemsPerPage: number = 10;
     totalPages: number = 0;
     defaultSortField: string = 'name';
-    asc: boolean = true;
-    editMode = false;
+    asc = true;
+    isEditMode = false;
     editedItem: Ingredient = {} as Ingredient;
+    idToDelete!: number;
     
     constructor(private ingredientService: IngredientService, private router: Router, private queryParamService: QueryParamService, private cdr: ChangeDetectorRef) {
     }
@@ -66,16 +70,21 @@ export class IngredientListComponent implements OnInit, OnDestroy {
     }
     
     onEditItem(ingredient: Ingredient) {
-        this.editMode = true;
+        this.isEditMode = true;
         this.editedItem = ingredient;
     }
     
-    onDeleteItem(ingredient: Ingredient) {
-        this.router.navigate(['ingredient-delete', ingredient.id]).then(r => r);
+    onDeleteItem(id: number) {
+        this.isDelete = true;
+        this.idToDelete = id;
+    }
+    
+    onCancelDelete() {
+        this.idToDelete = NaN;
     }
     
     onCancelEditing() {
-        this.editMode = false;
+        this.isEditMode = false;
         this.editedItem = {} as Ingredient;
         this.cdr.markForCheck();
     }
@@ -89,7 +98,7 @@ export class IngredientListComponent implements OnInit, OnDestroy {
             })
         ).subscribe((ingredients: Ingredient[]) => {
             this.ingredients = ingredients;
-            this.editMode = false;
+            this.isEditMode = false;
             this.editedItem = {} as Ingredient;
             this.cdr.detectChanges();
         });
@@ -112,6 +121,9 @@ export class IngredientListComponent implements OnInit, OnDestroy {
         this.loadIngredientsSortedBy(field, this.asc);
     }
     
+    deleteMode($event: boolean) {
+        this.isDelete = false;
+    }
     ngOnDestroy(): void {
         this.subscription?.unsubscribe();
     }    
