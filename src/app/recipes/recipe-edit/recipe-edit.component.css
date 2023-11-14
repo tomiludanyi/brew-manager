@@ -1,0 +1,10 @@
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.recipe-input {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}

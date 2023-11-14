@@ -10,13 +10,16 @@ import { IngredientListComponent } from './ingredients/ingredient-list/ingredien
 import { IngredientDeleteComponent } from './ingredients/ingredient-delete/ingredient-delete.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
 import { HeaderComponent } from './header/header.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const routes: Routes = [
     { path: 'ingredient-edit', component: IngredientEditComponent },
     { path: 'ingredient-edit/:id', component: IngredientEditComponent },
     { path: 'ingredient-list', component: IngredientListComponent },
     { path: 'ingredient-delete', component: IngredientDeleteComponent },
-    { path: 'ingredient-delete/:id', component: IngredientDeleteComponent }
+    { path: 'ingredient-delete/:id', component: IngredientDeleteComponent },
+    { path: 'recipe-edit', component: RecipeEditComponent },
+    { path: 'recipe-edit/:id', component: RecipeEditComponent }
 ];
 
 @NgModule({
@@ -26,7 +29,8 @@ const routes: Routes = [
         IngredientListComponent,
         IngredientDeleteComponent,
         PaginationComponent,
-        HeaderComponent
+        HeaderComponent,
+        RecipeEditComponent
     ],
     imports: [
         BrowserModule,

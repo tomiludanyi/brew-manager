@@ -1,0 +1,15 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <div class="recipe-input">
+        <div>
+            <label for="name">Recipe Name: </label>
+            <input type="text" id="name" formControlName="name" [placeholder]="recipeForm.get('name')?.touched ? '' : 'Enter a name'">
+        </div>
+        <div>
+            <label for="ingredient">Ingredients: </label>
+            <select id="ingredient" formControlName="ingredient">
+                <option *ngFor="let ingredient of ingredients" [value]="ingredient">{{ ingredient.name }}</option>
+            </select>
+        </div>
+        <button type="submit" [disabled]="!recipeForm.valid">Add</button>
+    </div>
+</form>
