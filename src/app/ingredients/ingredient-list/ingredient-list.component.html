@@ -3,7 +3,7 @@
     <hr>
     <div class="filter_reduce_ingredients">
         <div>
-            <input type="text" [(ngModel)]="filterText" placeholder="Filter ingredients" (input)="onFilterChange()">
+            <input type="text" [formControl]="filterText" placeholder="Filter ingredients" (input)="onFilterChange()">
         </div>
         <div style="text-align: end">
             <label for="itemsPerPageSelect">Items per page:</label>
@@ -15,7 +15,7 @@
         </div>
     </div>
     <hr>
-    <div class="ingredient-list">
+    <div class="ingredient-list" *ngIf="filteredIngredients$ | async as filteredIngredients">
         <table>
             <thead>
             <tr>
@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let ingredient of ingredients | slice:(currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
+            <tr *ngFor="let ingredient of filteredIngredients | slice:(currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
                 <td>{{ ingredient.id }}</td>
                 <td *ngIf="editedItem?.id !== ingredient.id">{{ ingredient.name }}</td>
                 <td *ngIf="(editedItem && editedItem.id === ingredient.id) && isEditMode">
@@ -47,15 +47,15 @@
             </tbody>
         </table>
         <div class="pagination">
-            <app-pagination [currentPage]="currentPage" 
-                            [totalPages]="totalPages"
+            <app-pagination [currentPage]="currentPage"
+                            [totalPages]="Math.ceil(((filteredIngredients$ | async)?.length ?? 0) / itemsPerPage)"
                             (pageChanged)="onPageChanged($event)">
             </app-pagination>
         </div>
     </div>
 </div>
-<app-ingredient-delete class="popup" 
-                       *ngIf="isDelete" 
+<app-ingredient-delete class="popup"
+                       *ngIf="isDelete"
                        (isDeleteMode)="deleteMode($event)"
                        [itemIdToDelete]="idToDelete"
                        (idToDelete)="onCancelDelete()">
