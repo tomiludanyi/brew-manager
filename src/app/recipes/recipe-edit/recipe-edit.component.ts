@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { IngredientService } from "../../ingredients/ingredient.service";
-import { Recipe } from "../recipe.model";
 import { RecipeService } from "../recipe.service";
 
 @Component({
@@ -13,15 +12,13 @@ import { RecipeService } from "../recipe.service";
 export class RecipeEditComponent implements OnInit {
 	recipeForm!: FormGroup;
 	ingredients$ = this.ingredientService.ingredients$;
-	recipeIngredients = new FormArray<any>([]);
 	editMode = false;
 	id!: number;
-	editedItem!: Recipe;
 	
-	constructor(private route: ActivatedRoute, 
-	            private recipeService: RecipeService, 
-	            private router: Router,
-	            private ingredientService: IngredientService) {
+	constructor(private route: ActivatedRoute,
+	            private recipeService: RecipeService,
+	            private ingredientService: IngredientService,
+	            private fb: FormBuilder) {
 	}
 	
 	get controls() {
@@ -30,43 +27,20 @@ export class RecipeEditComponent implements OnInit {
 	
 	ngOnInit(): void {
 		this.route.params
-			.subscribe((params: Params)=> {
+			.subscribe((params: Params) => {
 				this.id = +params['id'];
 				this.editMode = params['id'] != null;
 			})
-		this.initForm();
-	}
-	
-	private initForm() {
-		let recipeName = '';
-		if (this.editMode) {
-			this.recipeService.getRecipe(this.id).subscribe(recipe => {
-				if (recipe) {
-					this.editedItem = recipe;
-					recipeName = recipe.name;
-					if (recipe['ingredients']) {
-						for (let ingredient of recipe.ingredients) {
-							this.recipeIngredients.push(
-								new FormGroup({
-									'name': new FormControl(ingredient.name, Validators.required)
-								})
-							);
-						}
-					}
-				}
-			});			
-		}
 		
-		this.recipeForm = new FormGroup({
-			'name': new FormControl(recipeName, Validators.required),
-			'ingredients': this.recipeIngredients
+		this.recipeForm = this.fb.group({
+			name: [''],
+			ingredients: this.fb.array([])
 		});
 	}
 	
 	onSubmit() {
-		this.recipeService.addRecipe(this.recipeForm.value);
+		this.recipeService.addRecipe(this.recipeForm.value).subscribe();
 		this.recipeForm.reset();
-		// this.onCancel();
 	}
 	
 	addIngredient() {
@@ -75,14 +49,5 @@ export class RecipeEditComponent implements OnInit {
 				'name': new FormControl(null, Validators.required),
 			})
 		);
-	}
-	
-	// removeIngredient(i: number) {
-	// 	(<FormArray>this.recipeForm.get('ingredients')).removeAt(i);
-	// }
-	
-	// onCancel() {
-	 	// this.router.navigate(['../'], { relativeTo: this.route });
-	// }
-	
+	}	
 }

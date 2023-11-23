@@ -3,7 +3,7 @@
         <div>
             <label for="name">Name</label>
             <div>
-                <input type="text" id="name" formControlName="name" placeholder="Enter a name"
+                <input type="text" id="name" formControlName="name"
                         [attr.placeholder]="recipeForm.get('name')?.touched ? '' : 'Enter a name'">
             </div>
         </div>

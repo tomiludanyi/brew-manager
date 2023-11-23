@@ -27,7 +27,7 @@ export class RecipeService {
 	
 	addRecipe(recipe: Recipe) {
 		return this.http.post(`${ this.recipesUrl }/`, recipe).pipe(
-			switchMap(() => this.getRecipes())
+			switchMap(() => this.recipes$)
 		);
 	}
 }
