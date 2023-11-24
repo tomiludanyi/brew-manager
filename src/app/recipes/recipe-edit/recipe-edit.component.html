@@ -12,17 +12,19 @@
             <hr>
             <div formArrayName="ingredients">
                 <div *ngFor="let ingredientCtrl of controls; let i = index" [formGroupName]="i">
-                    <select id="ingredients" formControlName="name" (change)="onOptionChange($event)">
+                    <select class="ingredient" id="ingredients" formControlName="name" (change)="onOptionChange($event)">
                         <option *ngFor=" let ingredient of ingredients$ | async"
                                 [value]="ingredient.name"
                                 [hidden]="isSelected(ingredient.name)">
                             {{ ingredient.name }}
                         </option>
                     </select>
+                    <button (click)="removeIngredient(i)" *ngIf="ingredientCtrl.get('name')?.value">Remove</button>
                 </div>
             </div>
-            <button type="button" (click)="addIngredient()">Add Ingredient</button>
+            <button type="button" (click)="addIngredientField()">Add Ingredient</button>
         </div>
-        <button type="submit">Save Recipe</button>
+        <hr style="width: 50%;">
+        <button type="submit" [disabled]="!recipeForm.valid">Save Recipe</button>
     </div>
 </form>

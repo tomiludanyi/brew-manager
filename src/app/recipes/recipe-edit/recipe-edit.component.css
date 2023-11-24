@@ -10,3 +10,7 @@ textarea.ng-invalid.ng-touched {
     align-items: center;
     text-align: center;
 }
+
+.ingredient {
+    margin: 0 1rem 0.5rem 0;
+}

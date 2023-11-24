@@ -37,15 +37,19 @@ export class RecipeEditComponent implements OnInit {
 			name: [''],
 			ingredients: this.fb.array([])
 		});
-		this.addIngredient();
+		this.addIngredientField();
 	}
 	
 	onSubmit() {
 		this.recipeService.addRecipe(this.recipeForm.value).subscribe();
 		this.recipeForm.reset();
+		const ingredientsArray = this.recipeForm.get('ingredients') as FormArray;
+		ingredientsArray.clear();
+		this.selectedIngredients = [];
+		this.addIngredientField();
 	}
 	
-	addIngredient() {
+	addIngredientField() {
 		(<FormArray>this.recipeForm.get('ingredients')).push(
 			new FormGroup({
 				'name': new FormControl(null, Validators.required),
@@ -59,5 +63,13 @@ export class RecipeEditComponent implements OnInit {
 	
 	isSelected(ingredientName: string): boolean {
 		return this.selectedIngredients.includes(ingredientName);
+	}
+	
+	removeIngredient(index: number) {
+		this.selectedIngredients.splice(index, 1);
+		(<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+		if (this.selectedIngredients.length === 0) {
+			this.addIngredientField();
+		}
 	}
 }
