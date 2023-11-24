@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Params } from "@angular/router";
+import { Ingredient } from "../../ingredients/ingredient.model";
 import { IngredientService } from "../../ingredients/ingredient.service";
+import { Recipe } from "../recipe.model";
 import { RecipeService } from "../recipe.service";
 
 @Component({
@@ -14,7 +16,7 @@ export class RecipeEditComponent implements OnInit {
 	ingredients$ = this.ingredientService.ingredients$;
 	editMode = false;
 	id!: number;
-	selectedIngredients: string[] = [];
+	selectedIngredients: Ingredient[] = [];
 	
 	constructor(private route: ActivatedRoute,
 	            private recipeService: RecipeService,
@@ -41,7 +43,7 @@ export class RecipeEditComponent implements OnInit {
 	}
 	
 	onSubmit() {
-		this.recipeService.addRecipe(this.recipeForm.value).subscribe();
+		this.recipeService.addRecipe(new Recipe( null, this.recipeForm.get('name')?.value, this.selectedIngredients )).subscribe();
 		this.recipeForm.reset();
 		const ingredientsArray = this.recipeForm.get('ingredients') as FormArray;
 		ingredientsArray.clear();
@@ -58,11 +60,19 @@ export class RecipeEditComponent implements OnInit {
 	}
 	
 	onOptionChange(event: any) {
-		this.selectedIngredients.push(event.target.value);
+		const selectedIngredientName = event.target.value;
+		if (!this.selectedIngredients.some(ingredient => ingredient.name === selectedIngredientName)) {
+			this.ingredients$.subscribe(ingredients => {
+				const selectedIngredient = ingredients.find(ingredient => ingredient.name === selectedIngredientName);
+				if (selectedIngredient) {
+					this.selectedIngredients.push(selectedIngredient);
+				}
+			});
+		}
 	}
 	
-	isSelected(ingredientName: string): boolean {
-		return this.selectedIngredients.includes(ingredientName);
+	isSelected(ingredient: Ingredient): boolean {
+		return this.selectedIngredients.includes(ingredient);
 	}
 	
 	removeIngredient(index: number) {

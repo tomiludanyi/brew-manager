@@ -15,7 +15,7 @@
                     <select class="ingredient" id="ingredients" formControlName="name" (change)="onOptionChange($event)">
                         <option *ngFor=" let ingredient of ingredients$ | async"
                                 [value]="ingredient.name"
-                                [hidden]="isSelected(ingredient.name)">
+                                [hidden]="isSelected(ingredient)">
                             {{ ingredient.name }}
                         </option>
                     </select>

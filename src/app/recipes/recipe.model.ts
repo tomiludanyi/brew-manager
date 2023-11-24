@@ -1,6 +1,9 @@
 import { Ingredient } from "../ingredients/ingredient.model";
 
 export class Recipe {
-	constructor(public name: string,
-	            public ingredients: Ingredient[]) {}
+	constructor(
+		public id: number | null,
+		public name: string,
+		public ingredients: Ingredient[]
+	) {}
 }
