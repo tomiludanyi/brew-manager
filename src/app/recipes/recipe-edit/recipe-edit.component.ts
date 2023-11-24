@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute, Params, Router } from "@angular/router";
+import { ActivatedRoute, Params } from "@angular/router";
 import { IngredientService } from "../../ingredients/ingredient.service";
 import { RecipeService } from "../recipe.service";
 
@@ -14,6 +14,7 @@ export class RecipeEditComponent implements OnInit {
 	ingredients$ = this.ingredientService.ingredients$;
 	editMode = false;
 	id!: number;
+	selectedIngredients: string[] = [];
 	
 	constructor(private route: ActivatedRoute,
 	            private recipeService: RecipeService,
@@ -36,6 +37,7 @@ export class RecipeEditComponent implements OnInit {
 			name: [''],
 			ingredients: this.fb.array([])
 		});
+		this.addIngredient();
 	}
 	
 	onSubmit() {
@@ -49,5 +51,13 @@ export class RecipeEditComponent implements OnInit {
 				'name': new FormControl(null, Validators.required),
 			})
 		);
-	}	
+	}
+	
+	onOptionChange(event: any) {
+		this.selectedIngredients.push(event.target.value);
+	}
+	
+	isSelected(ingredientName: string): boolean {
+		return this.selectedIngredients.includes(ingredientName);
+	}
 }

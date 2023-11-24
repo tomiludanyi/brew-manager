@@ -4,7 +4,7 @@
             <label for="name">Name</label>
             <div>
                 <input type="text" id="name" formControlName="name"
-                        [attr.placeholder]="recipeForm.get('name')?.touched ? '' : 'Enter a name'">
+                       [attr.placeholder]="recipeForm.get('name')?.touched ? '' : 'Enter a name'">
             </div>
         </div>
         <div>
@@ -12,8 +12,12 @@
             <hr>
             <div formArrayName="ingredients">
                 <div *ngFor="let ingredientCtrl of controls; let i = index" [formGroupName]="i">
-                    <select id="ingredients" formControlName="name">
-                        <option *ngFor="let ingredient of ingredients$ | async" [value]="ingredient.name">{{ ingredient.name }}</option>
+                    <select id="ingredients" formControlName="name" (change)="onOptionChange($event)">
+                        <option *ngFor=" let ingredient of ingredients$ | async"
+                                [value]="ingredient.name"
+                                [hidden]="isSelected(ingredient.name)">
+                            {{ ingredient.name }}
+                        </option>
                     </select>
                 </div>
             </div>
