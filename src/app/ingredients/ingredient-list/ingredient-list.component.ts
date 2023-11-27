@@ -32,6 +32,11 @@ export class IngredientListComponent implements OnInit, OnDestroy {
 	idToDelete!: number;
 	filterText = new FormControl('');
 	
+	listColumns = [
+		{ field: 'id', label: 'ID' },
+		{ field: 'name', label: 'Name', isEditable: true },
+	];
+	
 	constructor(private ingredientService: IngredientService, 
 	            private router: Router, 
 	            private queryParamService: QueryParamService, 

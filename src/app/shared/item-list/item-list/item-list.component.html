@@ -1,0 +1,36 @@
+<div class="item-list">
+    <table>
+        <thead>
+        <tr>
+            <th *ngFor="let column of columns" (click)="onSort(column.field)">
+                {{ column.label }}
+                <span *ngIf="defaultSortField === column.field">{{ asc ? '↓' : '↑' }}</span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of items | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
+            <td *ngFor="let column of columns">
+                <ng-container *ngIf="!column.isEditable || (editedItem && editedItem.id !== item.id)">
+                    {{ item[column.field] }}
+                </ng-container>
+                <ng-container *ngIf="column.isEditable && editedItem && editedItem.id === item.id && isEditMode">
+                    <input [(ngModel)]="editedItem[column.field]" style="text-align: center">
+                </ng-container>
+            </td>
+            <td *ngIf="isEditMode && (item.id === editedItem.id)">
+                <button class="save" (click)="onSaveEditing(editedItem)">Save</button>
+            </td>
+            <td *ngIf="isEditMode && (item.id === editedItem.id)">
+                <button class="cancel" (click)="onCancelEditing()">Cancel</button>
+            </td>
+            <td *ngIf="!isEditMode || (item.id !== editedItem.id)">
+                <button class="edit" (click)="onEditItem(item)">Edit</button>
+            </td>
+            <td>
+                <button class="delete" (click)="onDeleteItem(item.id)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
