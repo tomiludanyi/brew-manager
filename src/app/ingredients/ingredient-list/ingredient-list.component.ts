@@ -32,6 +32,8 @@ export class IngredientListComponent implements OnInit, OnDestroy {
 	idToDelete!: number;
 	filterText = new FormControl('');
 	
+	itemsPerPageOptions = [10, 20, 30];
+	
 	listColumns = [
 		{ field: 'id', label: 'ID' },
 		{ field: 'name', label: 'Name', isEditable: true },
@@ -102,9 +104,8 @@ export class IngredientListComponent implements OnInit, OnDestroy {
 		});
 	}
 	
-	onItemsPerPageChange(event: Event) {
-		const value = (event.target as HTMLSelectElement).value;
-		this.itemsPerPage = +value;
+	onItemsPerPageChange(itemsPerPage: number) {
+		this.itemsPerPage = itemsPerPage;
 		this.currentPage = 1;
 		this.loadIngredientsSortedBy(this.defaultSortField, this.asc);
 	}

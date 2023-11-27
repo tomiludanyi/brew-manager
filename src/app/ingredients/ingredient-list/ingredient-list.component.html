@@ -1,19 +1,13 @@
-<div class="ingredients">
+<div>
     <app-ingredient-edit></app-ingredient-edit>
     <hr>
-    <div class="filter_reduce_ingredients">
-        <div>
-            <input type="text" [formControl]="filterText" placeholder="Filter ingredients" (input)="onFilterChange()">
-        </div>
-        <div style="text-align: end">
-            <label for="itemsPerPageSelect">Items per page:</label>
-            <select id="itemsPerPageSelect" (change)="onItemsPerPageChange($event)">
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-            </select>
-        </div>
-    </div>
+    <app-list-controls
+            [filterText]="filterText"
+            [filterPlaceholder]="'Filter ingredients'"
+            [itemsPerPageOptions]="itemsPerPageOptions"
+            (filterChange)="onFilterChange()"
+            (itemsPerPageChange)="onItemsPerPageChange($event)"
+    ></app-list-controls>
     <hr>
     <app-ingredient-delete class="popup"
                            *ngIf="isDelete"

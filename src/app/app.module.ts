@@ -12,39 +12,44 @@ import { PaginationComponent } from './shared/pagination/pagination.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { ItemListComponent } from './shared/item-list/item-list/item-list.component';
+import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
+import { ListControlsComponent } from './shared/list-controls/list-controls.component';
 
 const routes: Routes = [
-    { path: 'ingredient-edit', component: IngredientEditComponent },
-    { path: 'ingredient-edit/:id', component: IngredientEditComponent },
-    { path: 'ingredient-list', component: IngredientListComponent },
-    { path: 'ingredient-delete', component: IngredientDeleteComponent },
-    { path: 'ingredient-delete/:id', component: IngredientDeleteComponent },
-    { path: 'recipe-edit', component: RecipeEditComponent },
-    { path: 'recipe-edit/:id', component: RecipeEditComponent }
+	{ path: 'ingredient-edit', component: IngredientEditComponent },
+	{ path: 'ingredient-edit/:id', component: IngredientEditComponent },
+	{ path: 'ingredient-list', component: IngredientListComponent },
+	{ path: 'ingredient-delete', component: IngredientDeleteComponent },
+	{ path: 'ingredient-delete/:id', component: IngredientDeleteComponent },
+	{ path: 'recipe-edit', component: RecipeEditComponent },
+	{ path: 'recipe-edit/:id', component: RecipeEditComponent },
+	{ path: 'recipe-list', component: RecipeListComponent }
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        IngredientEditComponent,
-        IngredientListComponent,
-        IngredientDeleteComponent,
-        PaginationComponent,
-        HeaderComponent,
-        RecipeEditComponent,
-        ItemListComponent
-    ],
-    imports: [
-        BrowserModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        RouterLink,
-        RouterOutlet,
-        [RouterModule.forRoot(routes)],
-        FormsModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		IngredientEditComponent,
+		IngredientListComponent,
+		IngredientDeleteComponent,
+		PaginationComponent,
+		HeaderComponent,
+		RecipeEditComponent,
+		ItemListComponent,
+		RecipeListComponent,
+		ListControlsComponent
+	],
+	imports: [
+		BrowserModule,
+		ReactiveFormsModule,
+		HttpClientModule,
+		RouterLink,
+		RouterOutlet,
+		[RouterModule.forRoot(routes)],
+		FormsModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule {
 }
