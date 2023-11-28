@@ -1,14 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import {
-	BehaviorSubject,
-	combineLatest,
-	map,
-	Observable,
-	ReplaySubject,
-	share, shareReplay,
-	switchMap
-} from "rxjs";
+import { BehaviorSubject, combineLatest, map, Observable, ReplaySubject, share, shareReplay, switchMap } from "rxjs";
 import { Ingredient } from "./ingredient.model";
 
 @Injectable({ providedIn: 'root' })

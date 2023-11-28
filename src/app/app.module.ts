@@ -23,7 +23,8 @@ const routes: Routes = [
 	{ path: 'ingredient-delete/:id', component: IngredientDeleteComponent },
 	{ path: 'recipe-edit', component: RecipeEditComponent },
 	{ path: 'recipe-edit/:id', component: RecipeEditComponent },
-	{ path: 'recipe-list', component: RecipeListComponent }
+	{ path: 'recipe-list', component: RecipeListComponent },
+	{ path: 'recipe-list/:id', component: RecipeListComponent }
 ];
 
 @NgModule({
