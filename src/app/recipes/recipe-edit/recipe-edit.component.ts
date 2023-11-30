@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Params } from "@angular/router";
 import { Ingredient } from "../../ingredients/ingredient.model";
@@ -11,7 +11,10 @@ import { RecipeService } from "../recipe.service";
 	templateUrl: './recipe-edit.component.html',
 	styleUrls: ['./recipe-edit.component.css']
 })
-export class RecipeEditComponent implements OnInit {
+export class RecipeEditComponent implements OnInit, OnChanges {
+	@Input() editedRecipe!: Recipe;
+	@Input() isEditMode: boolean = false;
+	
 	recipeForm!: FormGroup;
 	ingredients$ = this.ingredientService.ingredients$;
 	editMode = false;
@@ -34,8 +37,35 @@ export class RecipeEditComponent implements OnInit {
 				this.id = +params['id'];
 				this.editMode = params['id'] != null;
 			})
-		
+		this.recipeFormInit();
+	}
+	
+	ngOnChanges(): void {
+		if (this.isEditMode && this.editedRecipe) {
+			this.recipeForm.patchValue({
+				id: this.editedRecipe.id,
+				name: this.editedRecipe.name,
+				ingredients: this.editedRecipe.ingredients
+			});
+			
+			const ingredientsArray = this.recipeForm.get('ingredients') as FormArray;
+			ingredientsArray.clear();
+			
+			this.editedRecipe.ingredients.forEach(ingredient => {
+				const ingredientGroup = this.fb.group({
+					id: ingredient.id,
+					name: [ingredient.name, Validators.required]
+				});
+				ingredientsArray.push(ingredientGroup);
+			});
+		} else {
+			this.recipeFormInit();
+		}
+	}
+	
+	recipeFormInit() {
 		this.recipeForm = this.fb.group({
+			id: null,
 			name: ['', Validators.required],
 			ingredients: this.fb.array([])
 		});
@@ -43,12 +73,33 @@ export class RecipeEditComponent implements OnInit {
 	}
 	
 	onSubmit() {
-		this.recipeService.addRecipe(new Recipe( null, this.recipeForm.get('name')?.value, this.selectedIngredients )).subscribe();
-		this.recipeForm.reset();
+		const formValue = this.recipeForm.value;
+		
+		if (this.isEditMode) {
+			const updatedRecipe: Recipe = {
+				id: formValue.id,
+				name: formValue.name,
+				ingredients: formValue.ingredients.map((ingredient: { id: number, name: string }) => ({ id: ingredient.id, name: ingredient.name })),
+			};
+			
+			this.recipeService.updateRecipe(updatedRecipe).subscribe(() => {
+				console.log('Recipe updated successfully');
+				this.isEditMode = false;
+				this.clearIngredientFields();
+			});
+		} else {
+			this.recipeService.addRecipe(new Recipe(null, formValue.name, this.selectedIngredients)).subscribe(() => {
+				console.log('Recipe added successfully');
+				this.clearIngredientFields();
+			});
+		}
+	}
+	
+	clearIngredientFields() {
+		this.recipeFormInit();
 		const ingredientsArray = this.recipeForm.get('ingredients') as FormArray;
 		ingredientsArray.clear();
 		this.selectedIngredients = [];
-		this.addIngredientField();
 	}
 	
 	addIngredientField() {

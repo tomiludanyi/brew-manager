@@ -32,7 +32,7 @@ export class RecipeListComponent implements OnInit{
 	
 	listColumns = [
 		{ field: 'id', label: 'ID' },
-		{ field: 'name', label: 'Name', isEditable: true }
+		{ field: 'name', label: 'Name' }
 	];
 	
 	
