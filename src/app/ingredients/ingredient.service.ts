@@ -1,6 +1,16 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, combineLatest, map, Observable, ReplaySubject, share, shareReplay, switchMap } from "rxjs";
+import {
+	BehaviorSubject,
+	catchError,
+	combineLatest,
+	map,
+	Observable,
+	ReplaySubject,
+	share,
+	shareReplay,
+	switchMap
+} from "rxjs";
 import { Ingredient } from "./ingredient.model";
 
 @Injectable({ providedIn: 'root' })
@@ -23,24 +33,40 @@ export class IngredientService {
 	}
 	
 	getIngredient(id: number) {
-		return this.http.get<Ingredient>(`${ this.ingredientsUrl }/${ id }`);
+		return this.http.get<Ingredient>(`${ this.ingredientsUrl }/${ id }`)
+			.pipe(
+				catchError(error => {
+					console.error('Error fetching ingredient:', error);
+					throw error;
+				})
+			);
 	}
 	
 	addIngredient(ingredient: Ingredient) {
-		return this.http.post(`${ this.ingredientsUrl }/`, ingredient).pipe(
-			switchMap(() => this.ingredients$)
+		return this.http.post(`${this.ingredientsUrl}/`, ingredient).pipe(
+			switchMap(() => this.ingredients$),
+			catchError(error => {
+				console.error('Error adding ingredient:', error);
+				throw error;
+			})
 		);
 	}
 	
 	getIngredients(): Observable<Ingredient[]> {
 		if (!this.ingredients$) {
-			this.ingredients$ = this.http.get<Ingredient[]>(`${ this.ingredientsUrl }/`).pipe(share({
+			this.ingredients$ = this.http.get<Ingredient[]>(`${this.ingredientsUrl}/`).pipe(
+				share({
 					connector: () => new ReplaySubject(),
 					resetOnRefCountZero: true,
 					resetOnComplete: true,
 					resetOnError: true
 				}),
-				shareReplay())
+				shareReplay(),
+				catchError(error => {
+					console.error('Error fetching ingredients:', error);
+					throw error;
+				})
+			)
 		}
 		return this.ingredients$;
 	}
@@ -51,6 +77,10 @@ export class IngredientService {
 				return ingredients.filter(ingredient =>
 					ingredient.name.toLowerCase().includes(filterText.toLowerCase())
 				);
+			}),
+			catchError(error => {
+				console.error('Error fetching filtered ingredients:', error);
+				throw error;
 			})
 		);
 	}
@@ -68,14 +98,31 @@ export class IngredientService {
 					const sortOrder = order === 'asc' ? 1 : -1;
 					return x < y ? -sortOrder : x > y ? sortOrder : 0;
 				});
-			}));
+			}),
+			catchError(error => {
+				console.error('Error fetching sorted ingredients:', error);
+				throw error;
+			})
+		);
 	}
 	
 	updateIngredient(newIngredient: Ingredient) {
-		return this.http.put(`${ this.ingredientsUrl }/${ newIngredient.id }`, newIngredient);
+		return this.http.put(`${this.ingredientsUrl}/${newIngredient.id}`, newIngredient)
+			.pipe(
+				catchError(error => {
+					console.error('Error updating ingredient:', error);
+					throw error;
+				})
+			);
 	}
 	
 	deleteIngredient(id: number) {
-		return this.http.delete(`${ this.ingredientsUrl }/${ id }`);
+		return this.http.delete(`${this.ingredientsUrl}/${id}`)
+			.pipe(
+				catchError(error => {
+					console.error('Error deleting ingredient:', error);
+					throw error;
+				})
+			);
 	}
 }

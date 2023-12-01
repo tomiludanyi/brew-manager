@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
-import { catchError, of, Subscription, switchMap } from "rxjs";
+import { Subject, switchMap, takeUntil } from "rxjs";
 import { QueryParamService } from "../../shared/query-param.service";
 import { Ingredient } from "../ingredient.model";
 import { IngredientService } from "../ingredient.service";
@@ -13,15 +13,14 @@ import { IngredientService } from "../ingredient.service";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class IngredientListComponent implements OnInit, OnDestroy {
-	@Input() confirmed?: boolean;
 	@Input() isDelete = false;
 	
 	protected readonly Math = Math;
 	
 	filteredIngredients$ = this.ingredientService.filteredIngredients$;
+	private destroy$ = new Subject<void>();
 	
 	ingredients: Ingredient[] = [];
-	subscription?: Subscription;
 	
 	currentPage: number = 1;
 	itemsPerPage: number = 10;
@@ -47,13 +46,15 @@ export class IngredientListComponent implements OnInit, OnDestroy {
 	
 	ngOnInit(): void {
 		this.queryParamService.getQueryParam('page')
+			.pipe(takeUntil(this.destroy$))
 			.subscribe((page) => {
-			if (page) {
-				this.currentPage = +page;
-			}
-			this.loadIngredientsSortedBy(this.defaultSortField, this.asc);
-		});
+				if (page) {
+					this.currentPage = +page;
+				}
+				this.loadIngredientsSortedBy(this.defaultSortField, this.asc);
+			});
 	}
+	
 	
 	loadIngredientsSortedBy(field: string, isAscending: boolean) {
 		const order = isAscending ? 'asc' : 'desc';
@@ -90,18 +91,17 @@ export class IngredientListComponent implements OnInit, OnDestroy {
 	}
 	
 	onSaveEditing(editedItem: Ingredient) {
-		this.ingredientService.updateIngredient(editedItem).pipe(
-			switchMap(() => this.filteredIngredients$),
-			catchError(error => {
-				console.error('Error editing ingredient:', error);
-				return of([]);
-			})
-		).subscribe((ingredients: Ingredient[]) => {
-			this.ingredients = ingredients;
-			this.isEditMode = false;
-			this.editedItem = {} as Ingredient;
-			this.cdr.detectChanges();
-		});
+		this.ingredientService.updateIngredient(editedItem)
+			.pipe(
+				switchMap(() => this.filteredIngredients$),
+				takeUntil(this.destroy$)
+			)
+			.subscribe((ingredients: Ingredient[]) => {
+				this.ingredients = ingredients;
+				this.isEditMode = false;
+				this.editedItem = {} as Ingredient;
+				this.cdr.detectChanges();
+			});
 	}
 	
 	onItemsPerPageChange(itemsPerPage: number) {
@@ -125,6 +125,7 @@ export class IngredientListComponent implements OnInit, OnDestroy {
 	}
 	
 	ngOnDestroy(): void {
-		this.subscription?.unsubscribe();
+		this.destroy$.next();
+		this.destroy$.complete();
 	}
 }

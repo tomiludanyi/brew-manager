@@ -1,4 +1,4 @@
-.header_wrapper {
+.header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,11 +6,11 @@
     padding: 0.25rem 1rem;
 }
 
-.header_wrapper img {
+.header-wrapper img {
     width: 120px;
 }
 
-.header_wrapper nav {
+.header-wrapper nav {
     display: flex;
     justify-content: space-around;
     width: 40%;
@@ -29,7 +29,7 @@
     }
 }
 
-.navbar_items {
+.navbar-items {
     display: flex;
     gap: 20px;
     list-style: none;

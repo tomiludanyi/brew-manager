@@ -19,16 +19,16 @@
                 </ng-container>
             </td>
             <td *ngIf="isEditMode && (item.id === editedItem.id)">
-                <button class="save" (click)="onSaveEditing(editedItem)">Save</button>
+                <button class="btn save" (click)="onSaveEditing(editedItem)">Save</button>
             </td>
             <td *ngIf="isEditMode && (item.id === editedItem.id)">
-                <button class="cancel" (click)="onCancelEditing()">Cancel</button>
+                <button class="btn cancel" (click)="onCancelEditing()">Cancel</button>
             </td>
             <td *ngIf="!isEditMode || (item.id !== editedItem.id)">
-                <button class="edit" (click)="onEditItem(item)">Edit</button>
+                <button class="btn edit" (click)="onEditItem(item)">Edit</button>
             </td>
             <td>
-                <button class="delete" (click)="onDeleteItem(item.id)">Delete</button>
+                <button class="btn delete" (click)="onDeleteItem(item.id)">Delete</button>
             </td>
         </tr>
         </tbody>

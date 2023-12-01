@@ -1,6 +1,6 @@
-import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
-import { catchError, of, switchMap } from "rxjs";
+import { Subject, switchMap, takeUntil } from "rxjs";
 import { QueryParamService } from "../../shared/query-param.service";
 import { Recipe } from "../recipe.model";
 import { RecipeService } from "../recipe.service";
@@ -10,7 +10,7 @@ import { RecipeService } from "../recipe.service";
 	templateUrl: './recipe-list.component.html',
 	styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit{
+export class RecipeListComponent implements OnInit, OnDestroy {
 	@Input() confirmed?: boolean;
 	@Input() isDelete = false;
 	
@@ -18,6 +18,8 @@ export class RecipeListComponent implements OnInit{
 	
 	filteredRecipes$ = this.recipeService.filteredRecipes$;
 	recipes: Recipe[] = [];
+	
+	private destroy$ = new Subject<void>();
 	
 	currentPage: number = 1;
 	itemsPerPage: number = 10;
@@ -41,8 +43,9 @@ export class RecipeListComponent implements OnInit{
 	            private cdr: ChangeDetectorRef) {
 	}
 	
-	ngOnInit() {
+	ngOnInit(): void {
 		this.queryParamService.getQueryParam('page')
+			.pipe(takeUntil(this.destroy$))
 			.subscribe((page) => {
 				if (page) {
 					this.currentPage = +page;
@@ -85,18 +88,19 @@ export class RecipeListComponent implements OnInit{
 	}
 	
 	onSaveEditing(editedItem: Recipe) {
-		this.recipeService.updateRecipe(editedItem).pipe(
-			switchMap(() => this.filteredRecipes$),
-			catchError(error => {
-				console.error('Error editing recipe:', error);
-				return of([]);
-			})
-		).subscribe((recipes: Recipe[]) => {
-			this.recipes = recipes;
-			this.isEditMode = false;
-			this.editedItem = {} as Recipe;
-			this.cdr.detectChanges();
-		});
+		this.recipeService.updateRecipe(editedItem)
+			.pipe(
+				switchMap(() => this.filteredRecipes$),
+				takeUntil(this.destroy$)
+			)
+			.subscribe(
+				(recipes: Recipe[]) => {
+					this.recipes = recipes;
+					this.isEditMode = false;
+					this.editedItem = {} as Recipe;
+					this.cdr.detectChanges();
+				}
+			);
 	}
 	
 	onItemsPerPageChange(itemsPerPage: number) {
@@ -117,5 +121,9 @@ export class RecipeListComponent implements OnInit{
 	deleteMode($event: boolean) {
 		this.isDelete = false;
 	}
-
+	
+	ngOnDestroy(): void {
+		this.destroy$.next();
+		this.destroy$.complete();
+	}
 }

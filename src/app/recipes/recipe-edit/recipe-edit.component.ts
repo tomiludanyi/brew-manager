@@ -1,6 +1,7 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute, Params } from "@angular/router";
+import { Subject, takeUntil } from "rxjs";
 import { Ingredient } from "../../ingredients/ingredient.model";
 import { IngredientService } from "../../ingredients/ingredient.service";
 import { Recipe } from "../recipe.model";
@@ -11,7 +12,7 @@ import { RecipeService } from "../recipe.service";
 	templateUrl: './recipe-edit.component.html',
 	styleUrls: ['./recipe-edit.component.css']
 })
-export class RecipeEditComponent implements OnInit, OnChanges {
+export class RecipeEditComponent implements OnInit, OnChanges, OnDestroy {
 	@Input() editedRecipe!: Recipe;
 	@Input() isEditMode: boolean = false;
 	
@@ -20,6 +21,8 @@ export class RecipeEditComponent implements OnInit, OnChanges {
 	editMode = false;
 	id!: number;
 	selectedIngredients: Ingredient[] = [];
+	
+	private destroy$ = new Subject<void>();
 	
 	constructor(private route: ActivatedRoute,
 	            private recipeService: RecipeService,
@@ -33,10 +36,11 @@ export class RecipeEditComponent implements OnInit, OnChanges {
 	
 	ngOnInit(): void {
 		this.route.params
+			.pipe(takeUntil(this.destroy$))
 			.subscribe((params: Params) => {
 				this.id = +params['id'];
 				this.editMode = params['id'] != null;
-			})
+			});
 		this.recipeFormInit();
 	}
 	
@@ -82,16 +86,20 @@ export class RecipeEditComponent implements OnInit, OnChanges {
 				ingredients: formValue.ingredients.map((ingredient: { id: number, name: string }) => ({ id: ingredient.id, name: ingredient.name })),
 			};
 			
-			this.recipeService.updateRecipe(updatedRecipe).subscribe(() => {
-				console.log('Recipe updated successfully');
-				this.isEditMode = false;
-				this.clearIngredientFields();
-			});
+			this.recipeService.updateRecipe(updatedRecipe)
+				.pipe(takeUntil(this.destroy$))
+				.subscribe(() => {
+					console.log('Recipe updated successfully');
+					this.isEditMode = false;
+					this.clearIngredientFields();
+				});
 		} else {
-			this.recipeService.addRecipe(new Recipe(null, formValue.name, this.selectedIngredients)).subscribe(() => {
-				console.log('Recipe added successfully');
-				this.clearIngredientFields();
-			});
+			this.recipeService.addRecipe(new Recipe(null, formValue.name, this.selectedIngredients))
+				.pipe(takeUntil(this.destroy$))
+				.subscribe(() => {
+					console.log('Recipe added successfully');
+					this.clearIngredientFields();
+				});
 		}
 	}
 	
@@ -113,12 +121,13 @@ export class RecipeEditComponent implements OnInit, OnChanges {
 	onOptionChange(event: any) {
 		const selectedIngredientName = event.target.value;
 		if (!this.selectedIngredients.some(ingredient => ingredient.name === selectedIngredientName)) {
-			this.ingredients$.subscribe(ingredients => {
-				const selectedIngredient = ingredients.find(ingredient => ingredient.name === selectedIngredientName);
-				if (selectedIngredient) {
-					this.selectedIngredients.push(selectedIngredient);
-				}
-			});
+			this.ingredients$.pipe(takeUntil(this.destroy$))
+				.subscribe(ingredients => {
+					const selectedIngredient = ingredients.find(ingredient => ingredient.name === selectedIngredientName);
+					if (selectedIngredient) {
+						this.selectedIngredients.push(selectedIngredient);
+					}
+				});
 		}
 	}
 	
@@ -132,5 +141,10 @@ export class RecipeEditComponent implements OnInit, OnChanges {
 		if (this.selectedIngredients.length === 0) {
 			this.addIngredientField();
 		}
+	}
+	
+	ngOnDestroy(): void {
+		this.destroy$.next();
+		this.destroy$.complete();
 	}
 }
