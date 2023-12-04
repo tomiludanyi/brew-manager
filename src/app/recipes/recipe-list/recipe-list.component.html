@@ -10,6 +10,12 @@
                        (itemsPerPageChange)="onItemsPerPageChange($event)">
     </app-list-controls>
     <hr>
+    <app-recipe-delete class="popup"
+                       *ngIf="isDelete"
+                       (isDeleteMode)=" deleteMode($event)"
+                       [itemIdToDelete]="idToDelete"
+                       (idToDelete)="onCancelDelete()">
+    </app-recipe-delete>
     <app-item-list *ngIf="filteredRecipes$ | async as filteredRecipes"
                    [columns]="listColumns"
                    [items]="filteredRecipes"
@@ -27,8 +33,10 @@
                    (cancelEditing)="onCancelEditing()">
     </app-item-list>
     <hr>
-    <app-pagination [currentPage]="currentPage"
-                    [totalPages]="Math.ceil(((filteredRecipes$ | async)?.length ?? 0) / itemsPerPage)"
-                    (pageChanged)="onPageChanged($event)">
-    </app-pagination>
+    <div class="pagination">
+        <app-pagination [currentPage]="currentPage"
+                        [totalPages]="Math.ceil(((filteredRecipes$ | async)?.length ?? 0) / itemsPerPage)"
+                        (pageChanged)="onPageChanged($event)">
+        </app-pagination>
+    </div>
 </div>
