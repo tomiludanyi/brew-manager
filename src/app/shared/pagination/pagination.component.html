@@ -4,7 +4,7 @@
     </ng-container>
     
     <ng-container *ngFor="let page of visiblePages">
-        <button (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</button>
+        <button (click)="goToPage(page)" [class.active]="currentPage === page" [ngClass]="{'active-page': page === currentPage}">{{ page }}</button>
     </ng-container>
     
     <ng-container *ngIf="currentPage !== totalPages">
