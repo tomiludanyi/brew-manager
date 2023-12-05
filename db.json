@@ -1,663 +1,1123 @@
 {
-    "ingredients": [
-        {
-            "id": 1,
-            "name": "Malt"
-        },
-        {
-            "id": 2,
-            "name": "Hops"
-        },
-        {
-            "id": 3,
-            "name": "Yeast"
-        },
-        {
-            "id": 4,
-            "name": "Water"
-        },
-        {
-            "id": 5,
-            "name": "Sugar"
-        },
-        {
-            "id": 6,
-            "name": "Malt Extract"
-        },
-        {
-            "id": 7,
-            "name": "Crystal Malt"
-        },
-        {
-            "id": 8,
-            "name": "Cascade Hops"
-        },
-        {
-            "id": 9,
-            "name": "Centennial Hops"
-        },
-        {
-            "id": 10,
-            "name": "Simcoe Hops"
-        },
-        {
-            "id": 11,
-            "name": "Citra Hops"
-        },
-        {
-            "id": 12,
-            "name": "Chinook Hops"
-        },
-        {
-            "id": 13,
-            "name": "Amarillo Hops"
-        },
-        {
-            "id": 14,
-            "name": "Fuggle Hops"
-        },
-        {
-            "id": 15,
-            "name": "Saaz Hops"
-        },
-        {
-            "id": 16,
-            "name": "Wyeast 1056"
-        },
-        {
-            "id": 17,
-            "name": "Wyeast 1098"
-        },
-        {
-            "id": 18,
-            "name": "Wyeast 3068"
-        },
-        {
-            "id": 19,
-            "name": "Wyeast 1272"
-        },
-        {
-            "id": 20,
-            "name": "Wyeast 3763"
-        },
-        {
-            "id": 21,
-            "name": "Belgian Candi Sugar"
-        },
-        {
-            "id": 22,
-            "name": "Lactose"
-        },
-        {
-            "id": 23,
-            "name": "Chocolate"
-        },
-        {
-            "id": 24,
-            "name": "Coffee Beans"
-        },
-        {
-            "id": 25,
-            "name": "Cinnamon"
-        },
-        {
-            "id": 26,
-            "name": "Vanilla Extract"
-        },
-        {
-            "id": 27,
-            "name": "Orange Peel"
-        },
-        {
-            "id": 28,
-            "name": "Coriander Seeds"
-        },
-        {
-            "id": 29,
-            "name": "Lemon Zest"
-        },
-        {
-            "id": 30,
-            "name": "Juniper Berries"
-        },
-        {
-            "id": 31,
-            "name": "Ginger"
-        },
-        {
-            "id": 32,
-            "name": "Raspberries"
-        },
-        {
-            "id": 33,
-            "name": "Blackberries"
-        },
-        {
-            "id": 34,
-            "name": "Peaches"
-        },
-        {
-            "id": 35,
-            "name": "Strawberries"
-        },
-        {
-            "id": 36,
-            "name": "Pineapple"
-        },
-        {
-            "id": 37,
-            "name": "Blueberries"
-        },
-        {
-            "id": 38,
-            "name": "Passion Fruit"
-        },
-        {
-            "id": 39,
-            "name": "Munich Malt"
-        },
-        {
-            "id": 40,
-            "name": "Vienna Malt"
-        },
-        {
-            "id": 41,
-            "name": "Pilsner Malt"
-        },
-        {
-            "id": 42,
-            "name": "Crystal 60L Malt"
-        },
-        {
-            "id": 43,
-            "name": "Chocolate Malt"
-        },
-        {
-            "id": 44,
-            "name": "Black Patent Malt"
-        },
-        {
-            "id": 45,
-            "name": "Aromatic Malt"
-        },
-        {
-            "id": 46,
-            "name": "Melanoidin Malt"
-        },
-        {
-            "id": 47,
-            "name": "Amber Malt"
-        },
-        {
-            "id": 48,
-            "name": "Rye Malt"
-        },
-        {
-            "id": 49,
-            "name": "Flaked Oats"
-        },
-        {
-            "id": 50,
-            "name": "Flaked Barley"
-        },
-        {
-            "id": 51,
-            "name": "Honey Malt"
-        },
-        {
-            "id": 52,
-            "name": "Roasted Barley"
-        },
-        {
-            "id": 53,
-            "name": "Lemon Juice"
-        },
-        {
-            "id": 54,
-            "name": "Lime Juice"
-        },
-        {
-            "id": 55,
-            "name": "Cherry Puree"
-        },
-        {
-            "id": 56,
-            "name": "Apple Juice"
-        },
-        {
-            "id": 57,
-            "name": "Pineapple Juice"
-        },
-        {
-            "id": 58,
-            "name": "Cranberry Juice"
-        },
-        {
-            "id": 59,
-            "name": "Mango Puree"
-        },
-        {
-            "id": 60,
-            "name": "Pomegranate Juice"
-        },
-        {
-            "id": 61,
-            "name": "Passion Fruit Puree"
-        },
-        {
-            "id": 62,
-            "name": "Maple Syrup"
-        },
-        {
-            "id": 63,
-            "name": "Agave Nectar"
-        },
-        {
-            "id": 64,
-            "name": "Brown Sugar"
-        },
-        {
-            "id": 65,
-            "name": "Molasses"
-        },
-        {
-            "id": 66,
-            "name": "Vanilla Beans"
-        },
-        {
-            "id": 67,
-            "name": "Cocoa Nibs"
-        },
-        {
-            "id": 68,
-            "name": "Oak Chips"
-        },
-        {
-            "id": 69,
-            "name": "Clove"
-        },
-        {
-            "id": 70,
-            "name": "Allspice"
-        },
-        {
-            "id": 71,
-            "name": "Nutmeg"
-        },
-        {
-            "id": 72,
-            "name": "Cardamom"
-        },
-        {
-            "id": 73,
-            "name": "Anise"
-        },
-        {
-            "id": 74,
-            "name": "Grapefruit Peel"
-        },
-        {
-            "id": 75,
-            "name": "Bitter Orange Peel"
-        },
-        {
-            "id": 76,
-            "name": "Jalapeño Pepper"
-        },
-        {
-            "id": 77,
-            "name": "Serrano Pepper"
-        },
-        {
-            "id": 78,
-            "name": "Ghost Pepper"
-        },
-        {
-            "id": 79,
-            "name": "Szechuan Peppercorns"
-        },
-        {
-            "id": 80,
-            "name": "Cumin"
-        },
-        {
-            "id": 81,
-            "name": "Cilantro"
-        },
-        {
-            "id": 82,
-            "name": "Basil"
-        },
-        {
-            "id": 83,
-            "name": "Thyme"
-        },
-        {
-            "id": 84,
-            "name": "Rosemary"
-        },
-        {
-            "id": 85,
-            "name": "Mint Leaves"
-        },
-        {
-            "id": 86,
-            "name": "Elderflowers"
-        },
-        {
-            "id": 87,
-            "name": "Lavender"
-        },
-        {
-            "id": 88,
-            "name": "Chamomile"
-        },
-        {
-            "id": 89,
-            "name": "Jasmine Flowers"
-        }
-    ],
-    "recipes": [
-        {
-            "id": 1,
-            "name": "IPA",
-            "description": "Indian Pale Ale",
-            "ingredients": [
-                {
-                    "id": 1,
-                    "name": "Malt"
-                },
-                {
-                    "id": 2,
-                    "name": "Hops"
-                },
-                {
-                    "id": 3,
-                    "name": "Yeast"
-                },
-                {
-                    "id": 4,
-                    "name": "Water"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Stout",
-            "description": "Dark and Rich Stout",
-            "ingredients": [
-                {
-                    "id": 6,
-                    "name": "Malt Extract"
-                },
-                {
-                    "id": 7,
-                    "name": "Crystal Malt"
-                },
-                {
-                    "id": 8,
-                    "name": "Cascade Hops"
-                },
-                {
-                    "id": 9,
-                    "name": "Centennial Hops"
-                },
-                {
-                    "id": 3,
-                    "name": "Yeast"
-                }
-            ]
-        },
-        {
-            "id": 3,
-            "name": "Wheat Beer",
-            "description": "Light and Refreshing",
-            "ingredients": [
-                {
-                    "id": 39,
-                    "name": "Munich Malt"
-                },
-                {
-                    "id": 4,
-                    "name": "Water"
-                },
-                {
-                    "id": 5,
-                    "name": "Sugar"
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "name": "Belgian Tripel",
-            "description": "Strong and Fruity",
-            "ingredients": [
-                {
-                    "id": 20,
-                    "name": "Wyeast 3763"
-                },
-                {
-                    "id": 21,
-                    "name": "Belgian Candi Sugar"
-                },
-                {
-                    "id": 10,
-                    "name": "Simcoe Hops"
-                },
-                {
-                    "id": 7,
-                    "name": "Crystal Malt"
-                },
-                {
-                    "id": 6,
-                    "name": "Malt Extract"
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "name": "American Pale Ale",
-            "description": "Hoppy and Citrusy",
-            "ingredients": [
-                {
-                    "id": 1,
-                    "name": "Malt"
-                },
-                {
-                    "id": 8,
-                    "name": "Cascade Hops"
-                },
-                {
-                    "id": 16,
-                    "name": "Wyeast 1056"
-                },
-                {
-                    "id": 4,
-                    "name": "Water"
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "name": "Porter",
-            "description": "Robust and Malty",
-            "ingredients": [
-                {
-                    "id": 43,
-                    "name": "Chocolate Malt"
-                },
-                {
-                    "id": 9,
-                    "name": "Centennial Hops"
-                },
-                {
-                    "id": 3,
-                    "name": "Yeast"
-                },
-                {
-                    "id": 4,
-                    "name": "Water"
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "name": "Saison",
-            "description": "Spicy and Fruity",
-            "ingredients": [
-                {
-                    "id": 18,
-                    "name": "Wyeast 3068"
-                },
-                {
-                    "id": 28,
-                    "name": "Coriander Seeds"
-                },
-                {
-                    "id": 29,
-                    "name": "Lemon Zest"
-                },
-                {
-                    "id": 4,
-                    "name": "Water"
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "name": "Barleywine",
-            "description": "Strong and Caramelized",
-            "ingredients": [
-                {
-                    "id": 11,
-                    "name": "Citra Hops"
-                },
-                {
-                    "id": 21,
-                    "name": "Belgian Candi Sugar"
-                },
-                {
-                    "id": 48,
-                    "name": "Rye Malt"
-                },
-                {
-                    "id": 4,
-                    "name": "Water"
-                }
-            ]
-        },
-        {
-            "id": 9,
-            "name": "Session IPA",
-            "description": "Light and Hoppy",
-            "ingredients": [
-                {
-                    "id": 2,
-                    "name": "Hops"
-                },
-                {
-                    "id": 16,
-                    "name": "Wyeast 1056"
-                },
-                {
-                    "id": 4,
-                    "name": "Water"
-                },
-                {
-                    "id": 5,
-                    "name": "Sugar"
-                }
-            ]
-        },
-        {
-            "id": 10,
-            "name": "Mango Wheat",
-            "description": "Fruity and Refreshing",
-            "ingredients": [
-                {
-                    "id": 3,
-                    "name": "Yeast"
-                },
-                {
-                    "id": 39,
-                    "name": "Munich Malt"
-                },
-                {
-                    "id": 59,
-                    "name": "Mango Puree"
-                },
-                {
-                    "id": 4,
-                    "name": "Water"
-                }
-            ]
-        }
-    ],
-    "inventory": [
-        {
-            "id": 1,
-            "ingredientId": 1,
-            "quantity": 800,
-            "unit": "kg"
-        },
-        {
-            "id": 2,
-            "ingredientId": 2,
-            "quantity": 450,
-            "unit": "g"
-        },
-        {
-            "id": 3,
-            "ingredientId": 3,
-            "quantity": 8,
-            "unit": "packs"
-        },
-        {
-            "id": 4,
-            "ingredientId": 4,
-            "quantity": 4800,
-            "unit": "liters"
-        },
-        {
-            "id": 5,
-            "ingredientId": 5,
-            "quantity": 180,
-            "unit": "g"
-        }
-    ],
-    "brews": [
-        {
-            "id": 1,
-            "recipeId": 1,
-            "startDate": "2023-10-15",
-            "status": "In Progress"
-        },
-        {
-            "id": 2,
-            "recipeId": 2,
-            "startDate": "2023-10-16",
-            "status": "Completed"
-        },
-        {
-            "id": 3,
-            "recipeId": 3,
-            "startDate": "2023-10-17",
-            "status": "In Progress"
-        }
-    ],
-    "permissions": {
-        "admin": [
-            "ingredient",
-            "inventory",
-            "recipe",
-            "brew",
-            "permission"
-        ],
-        "user": [
-            "ingredient",
-            "inventory",
-            "recipe",
-            "brew"
-        ]
+  "ingredients": [
+    {
+      "id": 1,
+      "name": "Malt"
+    },
+    {
+      "id": 2,
+      "name": "Hops"
+    },
+    {
+      "id": 3,
+      "name": "Yeast"
+    },
+    {
+      "id": 4,
+      "name": "Water"
+    },
+    {
+      "id": 5,
+      "name": "Sugar"
+    },
+    {
+      "id": 6,
+      "name": "Malt Extract"
+    },
+    {
+      "id": 7,
+      "name": "Crystal Malt"
+    },
+    {
+      "id": 8,
+      "name": "Cascade Hops"
+    },
+    {
+      "id": 9,
+      "name": "Centennial Hops"
+    },
+    {
+      "id": 10,
+      "name": "Simcoe Hops"
+    },
+    {
+      "id": 11,
+      "name": "Citra Hops"
+    },
+    {
+      "id": 12,
+      "name": "Chinook Hops"
+    },
+    {
+      "id": 13,
+      "name": "Amarillo Hops"
+    },
+    {
+      "id": 14,
+      "name": "Fuggle Hops"
+    },
+    {
+      "id": 15,
+      "name": "Saaz Hops"
+    },
+    {
+      "id": 16,
+      "name": "Wyeast 1056"
+    },
+    {
+      "id": 17,
+      "name": "Wyeast 1098"
+    },
+    {
+      "id": 18,
+      "name": "Wyeast 3068"
+    },
+    {
+      "id": 19,
+      "name": "Wyeast 1272"
+    },
+    {
+      "id": 20,
+      "name": "Wyeast 3763"
+    },
+    {
+      "id": 21,
+      "name": "Belgian Candi Sugar"
+    },
+    {
+      "id": 22,
+      "name": "Lactose"
+    },
+    {
+      "id": 23,
+      "name": "Chocolate"
+    },
+    {
+      "id": 24,
+      "name": "Coffee Beans"
+    },
+    {
+      "id": 25,
+      "name": "Cinnamon"
+    },
+    {
+      "id": 26,
+      "name": "Vanilla Extract"
+    },
+    {
+      "id": 27,
+      "name": "Orange Peel"
+    },
+    {
+      "id": 28,
+      "name": "Coriander Seeds"
+    },
+    {
+      "id": 29,
+      "name": "Lemon Zest"
+    },
+    {
+      "id": 30,
+      "name": "Juniper Berries"
+    },
+    {
+      "id": 31,
+      "name": "Ginger"
+    },
+    {
+      "id": 32,
+      "name": "Raspberries"
+    },
+    {
+      "id": 33,
+      "name": "Blackberries"
+    },
+    {
+      "id": 34,
+      "name": "Peaches"
+    },
+    {
+      "id": 35,
+      "name": "Strawberries"
+    },
+    {
+      "id": 36,
+      "name": "Pineapple"
+    },
+    {
+      "id": 37,
+      "name": "Blueberries"
+    },
+    {
+      "id": 38,
+      "name": "Passion Fruit"
+    },
+    {
+      "id": 39,
+      "name": "Munich Malt"
+    },
+    {
+      "id": 40,
+      "name": "Vienna Malt"
+    },
+    {
+      "id": 41,
+      "name": "Pilsner Malt"
+    },
+    {
+      "id": 42,
+      "name": "Crystal 60L Malt"
+    },
+    {
+      "id": 43,
+      "name": "Chocolate Malt"
+    },
+    {
+      "id": 44,
+      "name": "Black Patent Malt"
+    },
+    {
+      "id": 45,
+      "name": "Aromatic Malt"
+    },
+    {
+      "id": 46,
+      "name": "Melanoidin Malt"
+    },
+    {
+      "id": 47,
+      "name": "Amber Malt"
+    },
+    {
+      "id": 48,
+      "name": "Rye Malt"
+    },
+    {
+      "id": 49,
+      "name": "Flaked Oats"
+    },
+    {
+      "id": 50,
+      "name": "Flaked Barley"
+    },
+    {
+      "id": 51,
+      "name": "Honey Malt"
+    },
+    {
+      "id": 52,
+      "name": "Roasted Barley"
+    },
+    {
+      "id": 53,
+      "name": "Lemon Juice"
+    },
+    {
+      "id": 54,
+      "name": "Lime Juice"
+    },
+    {
+      "id": 55,
+      "name": "Cherry Puree"
+    },
+    {
+      "id": 56,
+      "name": "Apple Juice"
+    },
+    {
+      "id": 57,
+      "name": "Pineapple Juice"
+    },
+    {
+      "id": 58,
+      "name": "Cranberry Juice"
+    },
+    {
+      "id": 59,
+      "name": "Mango Puree"
+    },
+    {
+      "id": 60,
+      "name": "Pomegranate Juice"
+    },
+    {
+      "id": 61,
+      "name": "Passion Fruit Puree"
+    },
+    {
+      "id": 62,
+      "name": "Maple Syrup"
+    },
+    {
+      "id": 63,
+      "name": "Agave Nectar"
+    },
+    {
+      "id": 64,
+      "name": "Brown Sugar"
+    },
+    {
+      "id": 65,
+      "name": "Molasses"
+    },
+    {
+      "id": 66,
+      "name": "Vanilla Beans"
+    },
+    {
+      "id": 67,
+      "name": "Cocoa Nibs"
+    },
+    {
+      "id": 68,
+      "name": "Oak Chips"
+    },
+    {
+      "id": 69,
+      "name": "Clove"
+    },
+    {
+      "id": 70,
+      "name": "Allspice"
+    },
+    {
+      "id": 71,
+      "name": "Nutmeg"
+    },
+    {
+      "id": 72,
+      "name": "Cardamom"
+    },
+    {
+      "id": 73,
+      "name": "Anise"
+    },
+    {
+      "id": 74,
+      "name": "Grapefruit Peel"
+    },
+    {
+      "id": 75,
+      "name": "Bitter Orange Peel"
+    },
+    {
+      "id": 76,
+      "name": "Jalapeño Pepper"
+    },
+    {
+      "id": 77,
+      "name": "Serrano Pepper"
+    },
+    {
+      "id": 78,
+      "name": "Ghost Pepper"
+    },
+    {
+      "id": 79,
+      "name": "Szechuan Peppercorns"
+    },
+    {
+      "id": 80,
+      "name": "Cumin"
+    },
+    {
+      "id": 81,
+      "name": "Cilantro"
+    },
+    {
+      "id": 82,
+      "name": "Basil"
+    },
+    {
+      "id": 83,
+      "name": "Thyme"
+    },
+    {
+      "id": 84,
+      "name": "Rosemary"
+    },
+    {
+      "id": 85,
+      "name": "Mint Leaves"
+    },
+    {
+      "id": 86,
+      "name": "Elderflowers"
+    },
+    {
+      "id": 87,
+      "name": "Lavender"
+    },
+    {
+      "id": 88,
+      "name": "Chamomile"
+    },
+    {
+      "id": 89,
+      "name": "Jasmine Flowers"
     }
+  ],
+  "recipes": [
+    {
+      "id": 1,
+      "name": "IPA",
+      "description": "Indian Pale Ale",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "Malt"
+        },
+        {
+          "id": 2,
+          "name": "Hops"
+        },
+        {
+          "id": 3,
+          "name": "Yeast"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Stout",
+      "description": "Dark and Rich Stout",
+      "ingredients": [
+        {
+          "id": 6,
+          "name": "Malt Extract"
+        },
+        {
+          "id": 7,
+          "name": "Crystal Malt"
+        },
+        {
+          "id": 8,
+          "name": "Cascade Hops"
+        },
+        {
+          "id": 9,
+          "name": "Centennial Hops"
+        },
+        {
+          "id": 3,
+          "name": "Yeast"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Wheat Beer",
+      "description": "Light and Refreshing",
+      "ingredients": [
+        {
+          "id": 39,
+          "name": "Munich Malt"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        },
+        {
+          "id": 5,
+          "name": "Sugar"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Belgian Tripel",
+      "description": "Strong and Fruity",
+      "ingredients": [
+        {
+          "id": 20,
+          "name": "Wyeast 3763"
+        },
+        {
+          "id": 21,
+          "name": "Belgian Candi Sugar"
+        },
+        {
+          "id": 10,
+          "name": "Simcoe Hops"
+        },
+        {
+          "id": 7,
+          "name": "Crystal Malt"
+        },
+        {
+          "id": 6,
+          "name": "Malt Extract"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "American Pale Ale",
+      "description": "Hoppy and Citrusy",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "Malt"
+        },
+        {
+          "id": 8,
+          "name": "Cascade Hops"
+        },
+        {
+          "id": 16,
+          "name": "Wyeast 1056"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Porter",
+      "description": "Robust and Malty",
+      "ingredients": [
+        {
+          "id": 43,
+          "name": "Chocolate Malt"
+        },
+        {
+          "id": 9,
+          "name": "Centennial Hops"
+        },
+        {
+          "id": 3,
+          "name": "Yeast"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Saison",
+      "description": "Spicy and Fruity",
+      "ingredients": [
+        {
+          "id": 18,
+          "name": "Wyeast 3068"
+        },
+        {
+          "id": 28,
+          "name": "Coriander Seeds"
+        },
+        {
+          "id": 29,
+          "name": "Lemon Zest"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Barleywine",
+      "description": "Strong and Caramelized",
+      "ingredients": [
+        {
+          "id": 11,
+          "name": "Citra Hops"
+        },
+        {
+          "id": 21,
+          "name": "Belgian Candi Sugar"
+        },
+        {
+          "id": 48,
+          "name": "Rye Malt"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Session IPA",
+      "description": "Light and Hoppy",
+      "ingredients": [
+        {
+          "id": 2,
+          "name": "Hops"
+        },
+        {
+          "id": 16,
+          "name": "Wyeast 1056"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        },
+        {
+          "id": 5,
+          "name": "Sugar"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Mango Wheat",
+      "description": "Fruity and Refreshing",
+      "ingredients": [
+        {
+          "id": 3,
+          "name": "Yeast"
+        },
+        {
+          "id": 39,
+          "name": "Munich Malt"
+        },
+        {
+          "id": 59,
+          "name": "Mango Puree"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Honey Blonde Ale",
+      "description": "Light and Sweet",
+      "ingredients": [
+        {
+          "id": 6,
+          "name": "Malt Extract"
+        },
+        {
+          "id": 51,
+          "name": "Honey Malt"
+        },
+        {
+          "id": 9,
+          "name": "Centennial Hops"
+        },
+        {
+          "id": 3,
+          "name": "Yeast"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Raspberry Wheat",
+      "description": "Fruity and Tart",
+      "ingredients": [
+        {
+          "id": 39,
+          "name": "Munich Malt"
+        },
+        {
+          "id": 32,
+          "name": "Raspberries"
+        },
+        {
+          "id": 16,
+          "name": "Wyeast 1056"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Coffee Porter",
+      "description": "Rich and Roasty",
+      "ingredients": [
+        {
+          "id": 43,
+          "name": "Chocolate Malt"
+        },
+        {
+          "id": 24,
+          "name": "Coffee Beans"
+        },
+        {
+          "id": 18,
+          "name": "Wyeast 3068"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Pumpkin Spice Ale",
+      "description": "Autumn-inspired Flavors",
+      "ingredients": [
+        {
+          "id": 1,
+          "name": "Malt"
+        },
+        {
+          "id": 25,
+          "name": "Cinnamon"
+        },
+        {
+          "id": 29,
+          "name": "Lemon Zest"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Citra Pale Ale",
+      "description": "Hoppy and Citrus-forward",
+      "ingredients": [
+        {
+          "id": 11,
+          "name": "Citra Hops"
+        },
+        {
+          "id": 16,
+          "name": "Wyeast 1056"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        },
+        {
+          "id": 5,
+          "name": "Sugar"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "Belgian Dubbel",
+      "description": "Dark and Fruity",
+      "ingredients": [
+        {
+          "id": 20,
+          "name": "Wyeast 3763"
+        },
+        {
+          "id": 47,
+          "name": "Amber Malt"
+        },
+        {
+          "id": 21,
+          "name": "Belgian Candi Sugar"
+        },
+        {
+          "id": 3,
+          "name": "Yeast"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Cherry Stout",
+      "description": "Dark and Tart",
+      "ingredients": [
+        {
+          "id": 52,
+          "name": "Roasted Barley"
+        },
+        {
+          "id": 55,
+          "name": "Cherry Puree"
+        },
+        {
+          "id": 13,
+          "name": "Amarillo Hops"
+        },
+        {
+          "id": 3,
+          "name": "Yeast"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Lemon Basil Saison",
+      "description": "Citrusy and Herbal",
+      "ingredients": [
+        {
+          "id": 29,
+          "name": "Lemon Zest"
+        },
+        {
+          "id": 82,
+          "name": "Basil"
+        },
+        {
+          "id": 18,
+          "name": "Wyeast 3068"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Dry-hopped Pale Ale",
+      "description": "Aromatic and Bitter",
+      "ingredients": [
+        {
+          "id": 2,
+          "name": "Hops"
+        },
+        {
+          "id": 16,
+          "name": "Wyeast 1056"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        },
+        {
+          "id": 5,
+          "name": "Sugar"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "name": "Belgian Witbier",
+      "description": "Spiced and Citrusy",
+      "ingredients": [
+        {
+          "id": 18,
+          "name": "Wyeast 3068"
+        },
+        {
+          "id": 28,
+          "name": "Coriander Seeds"
+        },
+        {
+          "id": 29,
+          "name": "Lemon Zest"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "name": "Mango Habanero IPA",
+      "description": "Fruity and Spicy",
+      "ingredients": [
+        {
+          "id": 38,
+          "name": "Passion Fruit"
+        },
+        {
+          "id": 2,
+          "name": "Hops"
+        },
+        {
+          "id": 31,
+          "name": "Ginger"
+        },
+        {
+          "id": 77,
+          "name": "Serrano Pepper"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Coconut Porter",
+      "description": "Rich and Tropical",
+      "ingredients": [
+        {
+          "id": 43,
+          "name": "Chocolate Malt"
+        },
+        {
+          "id": 68,
+          "name": "Oak Chips"
+        },
+        {
+          "id": 27,
+          "name": "Orange Peel"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "Cranberry Kettle Sour",
+      "description": "Tart and Fruity",
+      "ingredients": [
+        {
+          "id": 58,
+          "name": "Cranberry Juice"
+        },
+        {
+          "id": 69,
+          "name": "Clove"
+        },
+        {
+          "id": 18,
+          "name": "Wyeast 3068"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "name": "Irish Red Ale",
+      "description": "Toasty and Caramel",
+      "ingredients": [
+        {
+          "id": 47,
+          "name": "Amber Malt"
+        },
+        {
+          "id": 14,
+          "name": "Fuggle Hops"
+        },
+        {
+          "id": 16,
+          "name": "Wyeast 1056"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "name": "Grapefruit Radler",
+      "description": "Citrusy and Refreshing",
+      "ingredients": [
+        {
+          "id": 74,
+          "name": "Grapefruit Peel"
+        },
+        {
+          "id": 2,
+          "name": "Hops"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        },
+        {
+          "id": 5,
+          "name": "Sugar"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Almond Brown Ale",
+      "description": "Nutty and Malty",
+      "ingredients": [
+        {
+          "id": 64,
+          "name": "Brown Sugar"
+        },
+        {
+          "id": 13,
+          "name": "Amarillo Hops"
+        },
+        {
+          "id": 18,
+          "name": "Wyeast 3068"
+        },
+        {
+          "id": 1,
+          "name": "Malt"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "name": "Hibiscus Gose",
+      "description": "Tart and Floral",
+      "ingredients": [
+        {
+          "id": 18,
+          "name": "Wyeast 3068"
+        },
+        {
+          "id": 87,
+          "name": "Lavender"
+        },
+        {
+          "id": 55,
+          "name": "Cherry Puree"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "name": "Hazelnut Stout",
+      "description": "Rich and Nutty",
+      "ingredients": [
+        {
+          "id": 44,
+          "name": "Black Patent Malt"
+        },
+        {
+          "id": 66,
+          "name": "Vanilla Beans"
+        },
+        {
+          "id": 64,
+          "name": "Brown Sugar"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "name": "Lemon Thyme Pale Ale",
+      "description": "Citrusy and Herbal",
+      "ingredients": [
+        {
+          "id": 29,
+          "name": "Lemon Zest"
+        },
+        {
+          "id": 83,
+          "name": "Thyme"
+        },
+        {
+          "id": 2,
+          "name": "Hops"
+        },
+        {
+          "id": 16,
+          "name": "Wyeast 1056"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "name": "Peach Cobbler Ale",
+      "description": "Fruity and Spiced",
+      "ingredients": [
+        {
+          "id": 34,
+          "name": "Peaches"
+        },
+        {
+          "id": 63,
+          "name": "Agave Nectar"
+        },
+        {
+          "id": 1,
+          "name": "Malt"
+        },
+        {
+          "id": 4,
+          "name": "Water"
+        }
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "id": 1,
+      "ingredientId": 1,
+      "quantity": 800,
+      "unit": "kg"
+    },
+    {
+      "id": 2,
+      "ingredientId": 2,
+      "quantity": 450,
+      "unit": "g"
+    },
+    {
+      "id": 3,
+      "ingredientId": 3,
+      "quantity": 8,
+      "unit": "packs"
+    },
+    {
+      "id": 4,
+      "ingredientId": 4,
+      "quantity": 4800,
+      "unit": "liters"
+    },
+    {
+      "id": 5,
+      "ingredientId": 5,
+      "quantity": 180,
+      "unit": "g"
+    }
+  ],
+  "brews": [
+    {
+      "id": 1,
+      "recipeId": 1,
+      "startDate": "2023-10-15",
+      "status": "In Progress"
+    },
+    {
+      "id": 2,
+      "recipeId": 2,
+      "startDate": "2023-10-16",
+      "status": "Completed"
+    },
+    {
+      "id": 3,
+      "recipeId": 3,
+      "startDate": "2023-10-17",
+      "status": "In Progress"
+    }
+  ],
+  "permissions": {
+    "admin": [
+      "ingredient",
+      "inventory",
+      "recipe",
+      "brew",
+      "permission"
+    ],
+    "user": [
+      "ingredient",
+      "inventory",
+      "recipe",
+      "brew"
+    ]
+  }
 }

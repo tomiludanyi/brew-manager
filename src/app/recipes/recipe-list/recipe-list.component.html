@@ -1,0 +1,32 @@
+<div class="recipes">
+    <app-recipe-edit></app-recipe-edit>
+    <hr>
+    <app-list-controls [filterText]="filterText"
+                       [filterPlaceholder]="'Filter recipes'"
+                       [itemsPerPageOptions]="itemsPerPageOptions"
+                       (filterChange)="onFilterChange()"
+                       (itemsPerPageChange)="onItemsPerPageChange($event)">
+    </app-list-controls>
+    <hr>
+    <app-item-list *ngIf="filteredRecipes$ | async as filteredRecipes"
+                   [columns]="listColumns"
+                   [items]="filteredRecipes"
+                   [currentPage]="currentPage"
+                   [itemsPerPage]="itemsPerPage"
+                   [defaultSortField]="defaultSortField"
+                   [asc]="asc"
+                   [isEditMode]="isEditMode"
+                   [editedItem]="editedItem"
+                   (sort)="onSort($event)"
+                   (pageChanged)="onPageChanged($event)"
+                   (editItem)="onEditItem($event)"
+                   (deleteItem)="onDeleteItem($event)"
+                   (saveEditing)="onSaveEditing($event)"
+                   (cancelEditing)="onCancelEditing()">
+    </app-item-list>
+    <hr>
+    <app-pagination [currentPage]="currentPage"
+                    [totalPages]="Math.ceil(((filteredRecipes$ | async)?.length ?? 0) / itemsPerPage)"
+                    (pageChanged)="onPageChanged($event)">
+    </app-pagination>
+</div>

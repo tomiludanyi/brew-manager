@@ -1,0 +1,11 @@
+<div class="filter-items">
+    <div>
+        <input type="text" [formControl]="filterText" placeholder="{{ filterPlaceholder }}" (input)="onFilterChange()">
+    </div>
+    <div style="text-align: end">
+        <label for="itemsPerPageSelect">Items per page:</label>
+        <select id="itemsPerPageSelect" (change)="onItemsPerPageChange($event)">
+            <option *ngFor="let option of itemsPerPageOptions" [value]="option">{{ option }}</option>
+        </select>
+    </div>
+</div>

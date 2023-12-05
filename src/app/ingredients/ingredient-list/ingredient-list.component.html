@@ -1,62 +1,41 @@
-<div class="ingredients">
+<div>
     <app-ingredient-edit></app-ingredient-edit>
     <hr>
-    <div class="filter_reduce_ingredients">
-        <div>
-            <input type="text" [formControl]="filterText" placeholder="Filter ingredients" (input)="onFilterChange()">
-        </div>
-        <div style="text-align: end">
-            <label for="itemsPerPageSelect">Items per page:</label>
-            <select id="itemsPerPageSelect" (change)="onItemsPerPageChange($event)">
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-            </select>
-        </div>
-    </div>
+    <app-list-controls
+            [filterText]="filterText"
+            [filterPlaceholder]="'Filter ingredients'"
+            [itemsPerPageOptions]="itemsPerPageOptions"
+            (filterChange)="onFilterChange()"
+            (itemsPerPageChange)="onItemsPerPageChange($event)"
+    ></app-list-controls>
     <hr>
-    <div class="ingredient-list" *ngIf="filteredIngredients$ | async as filteredIngredients">
-        <table>
-            <thead>
-            <tr>
-                <th (click)="onSort('id')">ID<span *ngIf="defaultSortField === 'id'">{{ asc ? '↓' : '↑' }}</span></th>
-                <th (click)="onSort('name')">Name<span *ngIf="defaultSortField === 'name'">{{ asc ? '↓' : '↑' }}</span>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let ingredient of filteredIngredients | slice:(currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
-                <td>{{ ingredient.id }}</td>
-                <td *ngIf="editedItem?.id !== ingredient.id">{{ ingredient.name }}</td>
-                <td *ngIf="(editedItem && editedItem.id === ingredient.id) && isEditMode">
-                    <input [(ngModel)]="editedItem.name" style="text-align: center">
-                </td>
-                <td *ngIf="isEditMode && (ingredient.id === editedItem.id)">
-                    <button class="save" (click)="onSaveEditing(editedItem)">Save</button>
-                </td>
-                <td *ngIf="isEditMode && (ingredient.id === editedItem.id)">
-                    <button class="cancel" (click)="onCancelEditing()">Cancel</button>
-                </td>
-                <td *ngIf="!isEditMode || (ingredient.id !== editedItem.id)">
-                    <button class="edit" (click)="onEditItem(ingredient)">Edit</button>
-                </td>
-                <td>
-                    <button class="delete" (click)="onDeleteItem(ingredient.id)">Delete</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <div class="pagination">
-            <app-pagination [currentPage]="currentPage"
-                            [totalPages]="Math.ceil(((filteredIngredients$ | async)?.length ?? 0) / itemsPerPage)"
-                            (pageChanged)="onPageChanged($event)">
-            </app-pagination>
-        </div>
+    <app-ingredient-delete class="popup"
+                           *ngIf="isDelete"
+                           (isDeleteMode)="deleteMode($event)"
+                           [itemIdToDelete]="idToDelete"
+                           (idToDelete)="onCancelDelete()">
+    </app-ingredient-delete>
+    <app-item-list *ngIf="filteredIngredients$ | async as filteredIngredients"
+                   [columns]="listColumns"
+                   [items]="filteredIngredients"
+                   [currentPage]="currentPage"
+                   [itemsPerPage]="itemsPerPage"
+                   [defaultSortField]="defaultSortField"
+                   [asc]="asc"
+                   [isEditMode]="isEditMode"
+                   [editedItem]="editedItem"
+                   (sort)="onSort($event)"
+                   (pageChanged)="onPageChanged($event)"
+                   (editItem)="onEditItem($event)"
+                   (deleteItem)="onDeleteItem($event)"
+                   (saveEditing)="onSaveEditing($event)"
+                   (cancelEditing)="onCancelEditing()">
+    </app-item-list>
+    <hr>
+    <div class="pagination">
+        <app-pagination [currentPage]="currentPage"
+                        [totalPages]="Math.ceil(((filteredIngredients$ | async)?.length ?? 0) / itemsPerPage)"
+                        (pageChanged)="onPageChanged($event)">
+        </app-pagination>
     </div>
 </div>
-<app-ingredient-delete class="popup"
-                       *ngIf="isDelete"
-                       (isDeleteMode)="deleteMode($event)"
-                       [itemIdToDelete]="idToDelete"
-                       (idToDelete)="onCancelDelete()">
-</app-ingredient-delete>
