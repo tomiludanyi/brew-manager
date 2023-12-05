@@ -1,0 +1,150 @@
+{
+    "ingredients": [
+        {
+            "id": 1,
+            "name": "Malt"
+        },
+        {
+            "id": 2,
+            "name": "Hops"
+        },
+        {
+            "id": 3,
+            "name": "Yeast"
+        },
+        {
+            "id": 4,
+            "name": "Water"
+        },
+        {
+            "id": 5,
+            "name": "Sugar"
+        }
+    ],
+    "recipes": [
+        {
+            "id": 1,
+            "name": "IPA",
+            "description": "Indian Pale Ale",
+            "ingredients": [
+                {
+                    "ingredientId": 1,
+                    "quantity": 4
+                },
+                {
+                    "ingredientId": 2,
+                    "quantity": 25
+                },
+                {
+                    "ingredientId": 3,
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Stout",
+            "description": "Dark and Rich Stout",
+            "ingredients": [
+                {
+                    "ingredientId": 1,
+                    "quantity": 5
+                },
+                {
+                    "ingredientId": 2,
+                    "quantity": 20
+                },
+                {
+                    "ingredientId": 3,
+                    "quantity": 1
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Wheat Beer",
+            "description": "Light and Refreshing",
+            "ingredients": [
+                {
+                    "ingredientId": 1,
+                    "quantity": 3
+                },
+                {
+                    "ingredientId": 4,
+                    "quantity": 10
+                },
+                {
+                    "ingredientId": 5,
+                    "quantity": 0.5
+                }
+            ]
+        }
+    ],
+    "inventory": [
+        {
+            "id": 1,
+            "ingredientId": 1,
+            "quantity": 800,
+            "unit": "kg"
+        },
+        {
+            "id": 2,
+            "ingredientId": 2,
+            "quantity": 450,
+            "unit": "g"
+        },
+        {
+            "id": 3,
+            "ingredientId": 3,
+            "quantity": 8,
+            "unit": "packs"
+        },
+        {
+            "id": 4,
+            "ingredientId": 4,
+            "quantity": 4800,
+            "unit": "liters"
+        },
+        {
+            "id": 5,
+            "ingredientId": 5,
+            "quantity": 180,
+            "unit": "g"
+        }
+    ],
+    "brews": [
+        {
+            "id": 1,
+            "recipeId": 1,
+            "startDate": "2023-10-15",
+            "status": "In Progress"
+        },
+        {
+            "id": 2,
+            "recipeId": 2,
+            "startDate": "2023-10-16",
+            "status": "Completed"
+        },
+        {
+            "id": 3,
+            "recipeId": 3,
+            "startDate": "2023-10-17",
+            "status": "In Progress"
+        }
+    ],
+    "permissions": {
+        "admin": [
+            "ingredient",
+            "inventory",
+            "recipe",
+            "brew",
+            "permission"
+        ],
+        "user": [
+            "ingredient",
+            "inventory",
+            "recipe",
+            "brew"
+        ]
+    }
+}
