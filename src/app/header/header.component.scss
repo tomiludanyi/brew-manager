@@ -1,0 +1,48 @@
+.header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid;
+    padding: 0.25rem 1rem;
+}
+
+.header_wrapper img {
+    width: 120px;
+}
+
+.header_wrapper nav {
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+
+.navbar_items {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+
+    li {
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid rgb(42, 20, 20);
+            border-radius: 5px;
+            padding: 5px;
+
+
+            &:link {
+                color: red;
+            }
+
+            &:hover {
+                color: hotpink
+            }
+
+            &:active {
+                color: blue;
+            }
+        }
+    }
+
+}

@@ -64,6 +64,7 @@ export class IngredientEditComponent implements OnInit {
         } else {
             const newIngredient = this.ingredientForm.value;
             this.ingredientService.addIngredient(newIngredient).pipe(switchMap(() => {
+                    this.ingredientForm.reset();
                     return this.router.navigate(['ingredient-list']);
                 }),
                 catchError(error => {

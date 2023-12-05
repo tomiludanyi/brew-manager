@@ -1,6 +1,6 @@
-<div class="topnav">
-    <a [routerLink]="['/ingredient-edit']">Add Ingredient</a>
-    <a [routerLink]="['/ingredient-list']">Ingredient List</a>
+<div class="page_wrapper">
+    <app-header></app-header>
+    <div class="page">
+        <router-outlet></router-outlet>
+    </div>
 </div>
-<hr>
-<router-outlet></router-outlet>

@@ -2,3 +2,9 @@ input.ng-invalid.ng-touched,
 textarea.ng-invalid.ng-touched {
     border: 1px solid red;
 }
+
+.ingredient_input {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}

@@ -9,6 +9,7 @@ import { IngredientEditComponent } from "./ingredients/ingredient-edit/ingredien
 import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
 import { IngredientDeleteComponent } from './ingredients/ingredient-delete/ingredient-delete.component';
 import { PaginationComponent } from './shared/pagination/pagination.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
     { path: 'ingredient-edit', component: IngredientEditComponent },
@@ -24,7 +25,8 @@ const routes: Routes = [
         IngredientEditComponent,
         IngredientListComponent,
         IngredientDeleteComponent,
-        PaginationComponent
+        PaginationComponent,
+        HeaderComponent
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,8 @@
+.popup-container {
+    text-align: center;
+    padding: 1rem;
+    color: #cee4ff;
+    border: 1px solid rgb(255, 93, 93);
+    border-radius: 50px;
+    background: #4d5a9d;
+}
