@@ -16,6 +16,19 @@
     width: 40%;
 }
 
+.beers-image {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -webkit-transition: all 2s ease;
+    
+    &:hover {
+        filter: grayscale(0%);
+        -webkit-filter: grayscale(0%);
+        transition: 1s ease;
+        
+    }
+}
+
 .navbar_items {
     display: flex;
     gap: 20px;

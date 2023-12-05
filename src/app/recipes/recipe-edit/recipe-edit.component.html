@@ -1,0 +1,30 @@
+<form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+    <div class="recipe-input">
+        <div>
+            <label for="name">Name</label>
+            <div>
+                <input type="text" id="name" formControlName="name"
+                       [attr.placeholder]="recipeForm.get('name')?.touched ? '' : 'Enter a name'">
+            </div>
+        </div>
+        <div>
+            <label for="ingredients">Ingredients</label>
+            <hr>
+            <div formArrayName="ingredients">
+                <div *ngFor="let ingredientCtrl of controls; let i = index" [formGroupName]="i">
+                    <select class="ingredient" id="ingredients" formControlName="name" (change)="onOptionChange($event)">
+                        <option *ngFor=" let ingredient of ingredients$ | async"
+                                [value]="ingredient.name"
+                                [hidden]="isSelected(ingredient)">
+                            {{ ingredient.name }}
+                        </option>
+                    </select>
+                    <button (click)="removeIngredient(i)" *ngIf="ingredientCtrl.get('name')?.value">Remove</button>
+                </div>
+            </div>
+            <button type="button" (click)="addIngredientField()">Add Ingredient</button>
+        </div>
+        <hr style="width: 50%;">
+        <button type="submit" [disabled]="!recipeForm.valid">Save Recipe</button>
+    </div>
+</form>
