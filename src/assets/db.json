@@ -2,33 +2,23 @@
     "ingredients": [
         {
             "id": 1,
-            "name": "Malt",
-            "quantity": 1000,
-            "unit": "kg"
+            "name": "Malt"
         },
         {
             "id": 2,
-            "name": "Hops",
-            "quantity": 500,
-            "unit": "g"
+            "name": "Hops"
         },
         {
             "id": 3,
-            "name": "Yeast",
-            "quantity": 10,
-            "unit": "packs"
+            "name": "Yeast"
         },
         {
             "id": 4,
-            "name": "Water",
-            "quantity": 5000,
-            "unit": "liters"
+            "name": "Water"
         },
         {
             "id": 5,
-            "name": "Sugar",
-            "quantity": 200,
-            "unit": "g"
+            "name": "Sugar"
         }
     ],
     "recipes": [
