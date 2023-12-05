@@ -1,0 +1,9 @@
+<form [formGroup]="ingredientForm">
+    <div>
+        <label for="name">Ingredient Name: </label>
+        <input type="text" id="name" formControlName="name">
+        <span *ngIf="ingredientForm.get('name')?.touched"> | This field can not be empty!</span>
+    </div>
+    <hr>
+    <button type="submit" [disabled]="!ingredientForm.valid">Add</button>
+</form>
