@@ -15,11 +15,13 @@ import { ItemListComponent } from './shared/item-list/item-list/item-list.compon
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { ListControlsComponent } from './shared/list-controls/list-controls.component';
 import { RecipeDeleteComponent } from './recipes/recipe-delete/recipe-delete.component';
+import { IngredientHandlerComponent } from './ingredients/ingredient-handler/ingredient-handler.component';
 
 const routes: Routes = [
     { path: 'ingredient-edit', component: IngredientEditComponent },
     { path: 'ingredient-edit/:id', component: IngredientEditComponent },
     { path: 'ingredient-list', component: IngredientListComponent },
+    { path: 'ingredient-handler', component: IngredientHandlerComponent },
     { path: 'ingredient-delete', component: IngredientDeleteComponent },
     { path: 'ingredient-delete/:id', component: IngredientDeleteComponent },
     { path: 'recipe-edit', component: RecipeEditComponent },
@@ -40,7 +42,8 @@ const routes: Routes = [
         ItemListComponent,
         RecipeListComponent,
         ListControlsComponent,
-        RecipeDeleteComponent
+        RecipeDeleteComponent,
+        IngredientHandlerComponent
     ],
     imports: [
         BrowserModule,

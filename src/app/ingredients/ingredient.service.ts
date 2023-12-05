@@ -19,7 +19,7 @@ export class IngredientService {
 	
 	ingredients$ = this.getIngredients();
 	
-	private filterIngredientSubject = new BehaviorSubject<Ingredient>({ id: 0, name: '' });
+	private filterIngredientSubject = new BehaviorSubject<Ingredient>({ id: 0, name: '', stock: 0, unit: '' });
 	filterIngredientsAction$ = this.filterIngredientSubject.asObservable();
 	
 	filteredIngredients$ = combineLatest([this.ingredients$, this.filterIngredientsAction$]).pipe(

@@ -59,7 +59,9 @@ export class IngredientEditComponent implements OnInit, OnDestroy {
         if (this.editMode) {
             const updatedIngredient: Ingredient = {
                 id: this.editedItem.id,
-                name: this.ingredientForm.get('name')?.value
+                name: this.ingredientForm.get('name')?.value,
+                stock: this.editedItem.stock,
+                unit: this.editedItem.unit
             };
             
             this.ingredientService.updateIngredient(updatedIngredient)
