@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { Ingredient } from "../ingredient.model";
 import { IngredientService } from "../ingredient.service";
 
@@ -12,12 +12,21 @@ import { IngredientService } from "../ingredient.service";
 export class IngredientListComponent implements OnInit {
     @Input() confirmed?: boolean;
     ingredients$!: Observable<Ingredient[]>;
+    filterText: string = '';
     
     constructor(private ingredientService: IngredientService, private router: Router) {
     }
     
     ngOnInit(): void {
         this.ingredients$ = this.ingredientService.getIngredients();
+    }
+    
+    filterIngredients() {
+        this.ingredients$ = this.ingredientService.getIngredients().pipe(
+            map(ingredients => {
+                return ingredients.filter(ingredient => ingredient.name.toLowerCase().includes(this.filterText.toLowerCase()));
+            })
+        );
     }
     
     onEditItem(ingredient: Ingredient) {
