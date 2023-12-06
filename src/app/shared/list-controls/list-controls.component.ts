@@ -4,7 +4,7 @@ import { FormControl } from "@angular/forms";
 @Component({
   selector: 'app-list-controls',
   templateUrl: './list-controls.component.html',
-  styleUrls: ['./list-controls.component.css']
+  styleUrls: ['./list-controls.component.scss']
 })
 export class ListControlsComponent {
   @Input() filterText: FormControl = new FormControl('');
