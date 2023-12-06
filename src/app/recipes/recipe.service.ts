@@ -1,13 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, map, Observable, ReplaySubject, share, shareReplay, Subject, switchMap } from "rxjs";
+import { BehaviorSubject, catchError, map, Observable, ReplaySubject, share, shareReplay } from "rxjs";
 import { combineLatest } from "rxjs";
 import { Recipe } from "./recipe.model";
 
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
-	recipesChanged = new Subject<Recipe[]>();
-	
 	private recipesUrl = 'http://localhost:3000/recipes';
 	
 	recipes$ = this.getRecipes();
@@ -25,24 +23,40 @@ export class RecipeService {
 	}
 	
 	getRecipe(id: number) {
-		return this.http.get<Recipe>(`${ this.recipesUrl }/${ id }`);
+		return this.http.get<Recipe>(`${this.recipesUrl}/${id}`)
+			.pipe(
+				catchError(error => {
+					console.error('Error fetching recipe:', error);
+					throw error;
+				})
+			);
 	}
 	
 	addRecipe(recipe: Recipe) {
-		return this.http.post(`${ this.recipesUrl }/`, recipe).pipe(
-			switchMap(() => this.recipes$)
-		);
+		return this.http.post(`${this.recipesUrl}/`, recipe)
+			.pipe(
+				catchError(error => {
+					console.error('Error adding recipe:', error);
+					throw error;
+				})
+			);
 	}
 	
 	getRecipes(): Observable<Recipe[]> {
 		if (!this.recipes$) {
-			this.recipes$ = this.http.get<Recipe[]>(`${ this.recipesUrl }/`).pipe(share({
+			this.recipes$ = this.http.get<Recipe[]>(`${this.recipesUrl}/`).pipe(
+				share({
 					connector: () => new ReplaySubject(),
 					resetOnRefCountZero: true,
 					resetOnComplete: true,
 					resetOnError: true
 				}),
-				shareReplay())
+				shareReplay(),
+				catchError(error => {
+					console.error('Error fetching recipes:', error);
+					throw error;
+				})
+			);
 		}
 		return this.recipes$;
 	}
@@ -52,6 +66,10 @@ export class RecipeService {
 			map(recipes => {
 				return recipes.filter(recipe =>
 					recipe.name.toLowerCase().includes(filterText.toLowerCase()));
+			}),
+			catchError(error => {
+				console.error('Error fetching filtered recipes:', error);
+				throw error;
 			})
 		);
 	}
@@ -75,15 +93,31 @@ export class RecipeService {
 					const sortOrder = order === 'asc' ? 1 : -1;
 					return x < y ? -sortOrder : x > y ? sortOrder : 0;
 				});
+			}),
+			catchError(error => {
+				console.error('Error fetching sorted recipes:', error);
+				throw error;
 			})
 		);
 	}
 	
 	updateRecipe(newRecipe: Recipe) {
-		return this.http.put(`${ this.recipesUrl }/${ newRecipe.id }`, newRecipe);
+		return this.http.put(`${this.recipesUrl}/${newRecipe.id}`, newRecipe)
+			.pipe(
+				catchError(error => {
+					console.error('Error updating recipe:', error);
+					throw error;
+				})
+			);
 	}
 	
 	deleteRecipe(id: number) {
-		return this.http.delete(`${ this.recipesUrl }/${ id }`);
+		return this.http.delete(`${this.recipesUrl}/${id}`)
+			.pipe(
+				catchError(error => {
+					console.error('Error deleting recipe:', error);
+					throw error;
+				})
+			);
 	}
 }

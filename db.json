@@ -361,7 +361,6 @@
     {
       "id": 1,
       "name": "IPA",
-      "description": "Indian Pale Ale",
       "ingredients": [
         {
           "id": 1,
@@ -384,7 +383,6 @@
     {
       "id": 2,
       "name": "Stout",
-      "description": "Dark and Rich Stout",
       "ingredients": [
         {
           "id": 6,
@@ -411,7 +409,6 @@
     {
       "id": 3,
       "name": "Wheat Beer",
-      "description": "Light and Refreshing",
       "ingredients": [
         {
           "id": 39,
@@ -430,7 +427,6 @@
     {
       "id": 4,
       "name": "Belgian Tripel",
-      "description": "Strong and Fruity",
       "ingredients": [
         {
           "id": 20,
@@ -457,7 +453,6 @@
     {
       "id": 5,
       "name": "American Pale Ale",
-      "description": "Hoppy and Citrusy",
       "ingredients": [
         {
           "id": 1,
@@ -480,7 +475,6 @@
     {
       "id": 6,
       "name": "Porter",
-      "description": "Robust and Malty",
       "ingredients": [
         {
           "id": 43,
@@ -503,7 +497,6 @@
     {
       "id": 7,
       "name": "Saison",
-      "description": "Spicy and Fruity",
       "ingredients": [
         {
           "id": 18,
@@ -526,7 +519,6 @@
     {
       "id": 8,
       "name": "Barleywine",
-      "description": "Strong and Caramelized",
       "ingredients": [
         {
           "id": 11,
@@ -549,7 +541,6 @@
     {
       "id": 9,
       "name": "Session IPA",
-      "description": "Light and Hoppy",
       "ingredients": [
         {
           "id": 2,
@@ -572,7 +563,6 @@
     {
       "id": 10,
       "name": "Mango Wheat",
-      "description": "Fruity and Refreshing",
       "ingredients": [
         {
           "id": 3,
@@ -595,7 +585,6 @@
     {
       "id": 11,
       "name": "Honey Blonde Ale",
-      "description": "Light and Sweet",
       "ingredients": [
         {
           "id": 6,
@@ -618,7 +607,6 @@
     {
       "id": 12,
       "name": "Raspberry Wheat",
-      "description": "Fruity and Tart",
       "ingredients": [
         {
           "id": 39,
@@ -641,7 +629,6 @@
     {
       "id": 13,
       "name": "Coffee Porter",
-      "description": "Rich and Roasty",
       "ingredients": [
         {
           "id": 43,
@@ -664,7 +651,6 @@
     {
       "id": 14,
       "name": "Pumpkin Spice Ale",
-      "description": "Autumn-inspired Flavors",
       "ingredients": [
         {
           "id": 1,
@@ -687,7 +673,6 @@
     {
       "id": 15,
       "name": "Citra Pale Ale",
-      "description": "Hoppy and Citrus-forward",
       "ingredients": [
         {
           "id": 11,
@@ -710,7 +695,6 @@
     {
       "id": 16,
       "name": "Belgian Dubbel",
-      "description": "Dark and Fruity",
       "ingredients": [
         {
           "id": 20,
@@ -733,7 +717,6 @@
     {
       "id": 17,
       "name": "Cherry Stout",
-      "description": "Dark and Tart",
       "ingredients": [
         {
           "id": 52,
@@ -756,7 +739,6 @@
     {
       "id": 18,
       "name": "Lemon Basil Saison",
-      "description": "Citrusy and Herbal",
       "ingredients": [
         {
           "id": 29,
@@ -779,7 +761,6 @@
     {
       "id": 19,
       "name": "Dry-hopped Pale Ale",
-      "description": "Aromatic and Bitter",
       "ingredients": [
         {
           "id": 2,
@@ -802,7 +783,6 @@
     {
       "id": 20,
       "name": "Belgian Witbier",
-      "description": "Spiced and Citrusy",
       "ingredients": [
         {
           "id": 18,
@@ -825,7 +805,6 @@
     {
       "id": 21,
       "name": "Mango Habanero IPA",
-      "description": "Fruity and Spicy",
       "ingredients": [
         {
           "id": 38,
@@ -848,7 +827,6 @@
     {
       "id": 22,
       "name": "Coconut Porter",
-      "description": "Rich and Tropical",
       "ingredients": [
         {
           "id": 43,
@@ -871,7 +849,6 @@
     {
       "id": 23,
       "name": "Cranberry Kettle Sour",
-      "description": "Tart and Fruity",
       "ingredients": [
         {
           "id": 58,
@@ -894,7 +871,6 @@
     {
       "id": 24,
       "name": "Irish Red Ale",
-      "description": "Toasty and Caramel",
       "ingredients": [
         {
           "id": 47,
@@ -917,7 +893,6 @@
     {
       "id": 25,
       "name": "Grapefruit Radler",
-      "description": "Citrusy and Refreshing",
       "ingredients": [
         {
           "id": 74,
@@ -940,7 +915,6 @@
     {
       "id": 26,
       "name": "Almond Brown Ale",
-      "description": "Nutty and Malty",
       "ingredients": [
         {
           "id": 64,
@@ -963,7 +937,6 @@
     {
       "id": 27,
       "name": "Hibiscus Gose",
-      "description": "Tart and Floral",
       "ingredients": [
         {
           "id": 18,
@@ -986,7 +959,6 @@
     {
       "id": 28,
       "name": "Hazelnut Stout",
-      "description": "Rich and Nutty",
       "ingredients": [
         {
           "id": 44,
@@ -1009,7 +981,6 @@
     {
       "id": 29,
       "name": "Lemon Thyme Pale Ale",
-      "description": "Citrusy and Herbal",
       "ingredients": [
         {
           "id": 29,
@@ -1032,7 +1003,6 @@
     {
       "id": 30,
       "name": "Peach Cobbler Ale",
-      "description": "Fruity and Spiced",
       "ingredients": [
         {
           "id": 34,

@@ -1,5 +1,7 @@
 <div class="recipes">
-    <app-recipe-edit></app-recipe-edit>
+    <app-recipe-edit [editedRecipe]="editedItem"
+                     [isEditMode]="isEditMode">
+    </app-recipe-edit>
     <hr>
     <app-list-controls [filterText]="filterText"
                        [filterPlaceholder]="'Filter recipes'"
