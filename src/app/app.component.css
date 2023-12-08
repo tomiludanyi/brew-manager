@@ -1,6 +1,11 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
 .page_wrapper {
     background: #dabba6;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .page {

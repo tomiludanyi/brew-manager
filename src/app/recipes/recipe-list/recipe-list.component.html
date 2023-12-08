@@ -30,7 +30,8 @@
                    (editItem)="onEditItem($event)"
                    (deleteItem)="onDeleteItem($event)"
                    (saveEditing)="onSaveEditing($event)"
-                   (cancelEditing)="onCancelEditing()">
+                   (cancelEditing)="onCancelEditing()"
+                   (brew)="onBrewRecipe($event)">
     </app-item-list>
     <hr>
     <div class="pagination">

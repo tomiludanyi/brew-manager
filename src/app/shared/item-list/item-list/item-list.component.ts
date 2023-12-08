@@ -21,6 +21,7 @@ export class ItemListComponent {
 	@Output() deleteItem = new EventEmitter<number>();
 	@Output() saveEditing = new EventEmitter<any>();
 	@Output() cancelEditing = new EventEmitter<void>();
+    @Output() brew = new EventEmitter<any>();
 	
 	onSort(field: string) {
 		this.sort.emit(field);
@@ -41,4 +42,8 @@ export class ItemListComponent {
 	onDeleteItem(id: number) {
 		this.deleteItem.emit(id);
 	}
+    
+    onBrew(item: any) {
+        this.brew.emit(item);
+    }
 }

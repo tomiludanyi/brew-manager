@@ -1,0 +1,20 @@
+<h2 style="text-align: center">Welcome to the brewery!</h2>
+<h4 style="text-align: center" *ngIf="!selectedRecipe">Please select a recipe from the recipes page.</h4>
+<div class="brew-container" *ngIf="selectedRecipe">
+    <h2 class="brew-header">Brewing {{ selectedRecipe.name }}</h2>
+
+    <form class="brew-form">
+        <div *ngFor="let ingredient of selectedRecipe.ingredients; let i = index" class="ingredient-container">
+            <label class="ingredient-label" for="amount{{ i }}">Ingredient: {{ ingredient.name }}</label>
+            <div class="form-group">
+                <label class="form-label" for="amount{{ i }}">Amount:</label>
+                <input class="form-input" type="text" id="amount{{ i }}" name="amount{{ i }}" [(ngModel)]="selectedRecipe.ingredients[i].stock" />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="availableAmount{{ i }}">Available Amount:</label>
+                <input class="form-input" type="text" id="availableAmount{{ i }}" name="availableAmount{{ i }}" [(ngModel)]="selectedRecipe.ingredients[i].stock" />
+            </div>
+        </div>
+        <button class="brew-button" type="submit">Start Brewing</button>
+    </form>
+</div>

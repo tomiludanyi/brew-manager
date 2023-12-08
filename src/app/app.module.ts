@@ -16,6 +16,7 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { ListControlsComponent } from './shared/list-controls/list-controls.component';
 import { RecipeDeleteComponent } from './recipes/recipe-delete/recipe-delete.component';
 import { IngredientHandlerComponent } from './ingredients/ingredient-handler/ingredient-handler.component';
+import { BrewEditComponent } from './brews/brew-edit/brew-edit.component';
 
 const routes: Routes = [
     { path: 'ingredient-edit', component: IngredientEditComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
     { path: 'recipe-edit', component: RecipeEditComponent },
     { path: 'recipe-edit/:id', component: RecipeEditComponent },
     { path: 'recipe-list', component: RecipeListComponent },
-    { path: 'recipe-list/:id', component: RecipeListComponent }
+    { path: 'recipe-list/:id', component: RecipeListComponent },
+    { path: 'brewery', component: BrewEditComponent }
 ];
 
 @NgModule({
@@ -43,7 +45,8 @@ const routes: Routes = [
         RecipeListComponent,
         ListControlsComponent,
         RecipeDeleteComponent,
-        IngredientHandlerComponent
+        IngredientHandlerComponent,
+        BrewEditComponent
     ],
     imports: [
         BrowserModule,
