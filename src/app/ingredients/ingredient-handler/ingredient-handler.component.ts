@@ -63,22 +63,23 @@ export class IngredientHandlerComponent implements OnInit, OnDestroy {
             id: this.selectedIngredient?.id,
             name: this.selectedIngredient?.name,
             unit: this.selectedIngredient?.unit,
-            stock: this.selectedIngredient.stock
+            stock: this.selectedIngredient?.stock
         };
-        if (this.selectedIngredient?.unit === this.ingredientForm.get('unit')?.value) {
-            updatedIngredient.stock += this.ingredientForm.get('stock')?.value;
+        
+        if (updatedIngredient && this.selectedIngredient?.unit === this.ingredientForm.get('unit')?.value) {
+            updatedIngredient.stock = (updatedIngredient.stock || 0) + (this.ingredientForm.get('stock')?.value || 0);
             this.updateIngredientAndNavigate(updatedIngredient);
-        } else if (this.selectedIngredient.unit === 'g' && this.ingredientForm.get('unit')?.value === 'kg') {
-            updatedIngredient.stock += this.ingredientForm.get('stock')?.value * 1000;
+        } else if (this.selectedIngredient?.unit === 'g' && this.ingredientForm.get('unit')?.value === 'kg') {
+            updatedIngredient.stock = (updatedIngredient.stock || 0) + (this.ingredientForm.get('stock')?.value || 0) * 1000;
             this.updateIngredientAndNavigate(updatedIngredient);
-        } else if (this.selectedIngredient.unit === 'kg' && this.ingredientForm.get('unit')?.value === 'g') {
-            updatedIngredient.stock += this.ingredientForm.get('stock')?.value / 1000;
+        } else if (this.selectedIngredient?.unit === 'kg' && this.ingredientForm.get('unit')?.value === 'g') {
+            updatedIngredient.stock = (updatedIngredient.stock || 0) + (this.ingredientForm.get('stock')?.value || 0) / 1000;
             this.updateIngredientAndNavigate(updatedIngredient);
-        } else if (this.selectedIngredient.unit === 'ml' && this.ingredientForm.get('unit')?.value === 'l') {
-            updatedIngredient.stock += this.ingredientForm.get('stock')?.value * 1000;
+        } else if (this.selectedIngredient?.unit === 'ml' && this.ingredientForm.get('unit')?.value === 'l') {
+            updatedIngredient.stock = (updatedIngredient.stock || 0) + (this.ingredientForm.get('stock')?.value || 0) * 1000;
             this.updateIngredientAndNavigate(updatedIngredient);
-        } else if (this.selectedIngredient.unit === 'l' && this.ingredientForm.get('unit')?.value === 'ml') {
-            updatedIngredient.stock += this.ingredientForm.get('stock')?.value / 1000;
+        } else if (this.selectedIngredient?.unit === 'l' && this.ingredientForm.get('unit')?.value === 'ml') {
+            updatedIngredient.stock = (updatedIngredient.stock || 0) + (this.ingredientForm.get('stock')?.value || 0) / 1000;
             this.updateIngredientAndNavigate(updatedIngredient);
         } else {
             alert('The selected unit is not applicable for this ingredient!');

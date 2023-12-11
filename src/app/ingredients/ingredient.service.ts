@@ -100,12 +100,13 @@ export class IngredientService {
         return this.ingredients$.pipe(
             map(ingredients => {
                 return ingredients.sort((a, b) => {
-                    let x = a[field as keyof Ingredient];
-                    let y = b[field as keyof Ingredient];
+                    const x = this.getPropertyValue(a, field);
+                    const y = this.getPropertyValue(b, field);
+                    
                     if (typeof x === "string" && typeof y === "string") {
-                        x = x.toLowerCase();
-                        y = y.toLowerCase();
+                        return order === 'asc' ? x.localeCompare(y) : y.localeCompare(x);
                     }
+                    
                     const sortOrder = order === 'asc' ? 1 : -1;
                     return x < y ? -sortOrder : x > y ? sortOrder : 0;
                 });
@@ -115,6 +116,17 @@ export class IngredientService {
                 throw error;
             })
         );
+    }
+    
+    private getPropertyValue(obj: any, property: string) {
+        const properties = property.split('.');
+        let value = obj;
+        
+        for (const prop of properties) {
+            value = value?.[prop];
+        }
+        
+        return value;
     }
     
     updateIngredient(newIngredient: Ingredient) {
