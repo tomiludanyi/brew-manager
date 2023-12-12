@@ -29,6 +29,10 @@
             </tr>
             </tbody>
         </table>
+        <form class="date" [formGroup]="brewForm">
+            <label for="brewDate">Brewing Date:</label>
+            <input type="date" id="brewDate" formControlName="brewDate" [min]="today"/>
+        </form>
         
         <span class="warning-text" *ngIf="!isEnoughAmount">The required ingredient amount is not available in the warehouse for this recipe!</span>
         <button class="brew-button" type="submit" [disabled]="!isEnoughAmount">Start Brewing</button>
