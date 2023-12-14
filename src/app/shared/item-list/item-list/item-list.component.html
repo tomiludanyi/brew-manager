@@ -18,7 +18,7 @@
                     <input [(ngModel)]="editedItem[column.field]" style="text-align: center">
                 </ng-container>
             </td>
-            <td *ngIf="!isEditMode">
+            <td *ngIf="!isEditMode && isBrewButton">
                 <button class="btn brew" (click)="onBrew(item)">Brew</button>
             </td>
             <td *ngIf="isEditMode && (item.id === editedItem.id)">

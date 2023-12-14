@@ -1479,20 +1479,17 @@
         {
             "id": 1,
             "recipeId": 1,
-            "startDate": "2023-10-15",
-            "status": "In Progress"
+            "startDate": "2023-10-15"
         },
         {
             "id": 2,
             "recipeId": 2,
-            "startDate": "2023-10-16",
-            "status": "Completed"
+            "startDate": "2023-10-16"
         },
         {
             "id": 3,
             "recipeId": 3,
-            "startDate": "2023-10-17",
-            "status": "In Progress"
+            "startDate": "2023-10-17"
         }
     ],
     "permissions": {

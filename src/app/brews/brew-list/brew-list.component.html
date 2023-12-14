@@ -1,0 +1,11 @@
+<app-brew-edit></app-brew-edit>
+<app-item-list
+    *ngIf="brews$ | async as brews"
+    [columns]="listColumns"
+    [items]="brews"
+    [currentPage]="currentPage"
+    [itemsPerPage]="itemsPerPage"
+    [defaultSortField]="defaultSortField"
+    [asc]="asc"
+    (sort)="onSort($event)">
+</app-item-list>

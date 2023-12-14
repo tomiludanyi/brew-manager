@@ -1,11 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { BrewService } from "../../../brews/brew.service";
 
 @Component({
 	selector: 'app-item-list',
 	templateUrl: './item-list.component.html',
 	styleUrls: ['./item-list.component.scss']
 })
-export class ItemListComponent {
+export class ItemListComponent implements OnInit {
 	@Input() columns: { field: string; label: string; isEditable?: boolean }[] = [];
 	@Input() items: any[] = [];
 	@Input() currentPage: number = 1;
@@ -22,8 +23,18 @@ export class ItemListComponent {
 	@Output() saveEditing = new EventEmitter<any>();
 	@Output() cancelEditing = new EventEmitter<void>();
     @Output() brew = new EventEmitter<any>();
-	
-	onSort(field: string) {
+    
+    isBrewButton = true;
+    
+    constructor(private brewService: BrewService) {}
+    
+    ngOnInit(): void {
+        this.brewService.isBrewButtonVisible$.subscribe((isVisible) => {
+            this.isBrewButton = isVisible;
+        });
+    }
+    
+    onSort(field: string) {
 		this.sort.emit(field);
 	}
 	
