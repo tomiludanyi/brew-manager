@@ -64,7 +64,7 @@ export class BrewEditComponent implements OnInit, OnDestroy {
         if (this.selectedRecipe && this.ingredients) {
             const newBrew: Brew = {
                 id: 0,
-                recipeId: this.selectedRecipe.id,
+                recipeName: this.selectedRecipe.name,
                 startDate: this.brewForm.get('brewDate')?.value,
             };
             this.brewService.addBrew(newBrew).subscribe();

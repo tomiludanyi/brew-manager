@@ -1,4 +1,5 @@
 export class Brew {
-    constructor(public id: number, public recipeId: number | null, public startDate?: Date, public status?: string) {
-    }
+    constructor(public id: number,
+                public recipeName: string,
+                public startDate: Date) {}
 }

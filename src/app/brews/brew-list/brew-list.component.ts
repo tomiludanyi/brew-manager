@@ -19,7 +19,7 @@ export class BrewListComponent implements OnInit {
     
     listColumns = [
         { field: 'id', label: 'Brew ID' },
-        { field: 'recipeId', label: 'Recipe ID', isEditable: true },
+        { field: 'recipeName', label: 'Recipe Name', isEditable: true },
         { field: 'startDate', label: 'Start Date', isEditable: true }
     ];
     
