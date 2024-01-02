@@ -9,7 +9,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of items | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
+        <tr *ngFor="let item of items | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage; let i = index" [ngClass]="{'stock': isRedHighlight && true}">
             <td *ngFor="let column of columns">
                 <ng-container *ngIf="!column.isEditable || (editedItem && editedItem.id !== item.id)">
                     {{ item[column.field] }}

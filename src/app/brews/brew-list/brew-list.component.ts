@@ -52,5 +52,6 @@ export class BrewListComponent implements OnInit {
     private checkRoute() {
         const currentRoute = this.router.url;
         this.brewService.setBrewButton(!currentRoute.includes('/brewery'));
+        this.brewService.setRedHighlight(currentRoute.includes('/brewery'));
     }
 }

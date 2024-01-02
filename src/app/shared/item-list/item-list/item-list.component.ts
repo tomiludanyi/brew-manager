@@ -25,6 +25,7 @@ export class ItemListComponent implements OnInit {
     @Output() brew = new EventEmitter<any>();
     
     isBrewButton = true;
+    isRedHighlight = false;
     
     constructor(private brewService: BrewService) {}
     
@@ -32,6 +33,9 @@ export class ItemListComponent implements OnInit {
         this.brewService.isBrewButtonVisible$.subscribe((isVisible) => {
             this.isBrewButton = isVisible;
         });
+        this.brewService.isRedHighlightVisible$.subscribe((isVisible) => {
+            this.isRedHighlight = isVisible;
+        })
     }
     
     onSort(field: string) {

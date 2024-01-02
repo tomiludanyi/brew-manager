@@ -18,6 +18,9 @@ export class BrewService {
     private isBrewButtonVisibleSource = new BehaviorSubject<boolean>(true);
     isBrewButtonVisible$ = this.isBrewButtonVisibleSource.asObservable();
     
+    private isRedHighlightVisible = new BehaviorSubject<boolean>(false);
+    isRedHighlightVisible$ = this.isRedHighlightVisible.asObservable();
+    
     constructor(private http: HttpClient) {
     }
     
@@ -82,5 +85,9 @@ export class BrewService {
     
     setBrewButton(isVisible: boolean) {
         this.isBrewButtonVisibleSource.next(isVisible);
+    }
+    
+    setRedHighlight(isVisible: boolean) {
+        this.isRedHighlightVisible.next(isVisible);
     }
 }
