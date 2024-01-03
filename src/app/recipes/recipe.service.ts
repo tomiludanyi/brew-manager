@@ -32,14 +32,10 @@ export class RecipeService {
             );
     }
     
-    getRecipeByName(name: string) {
-        return this.http.get<Recipe>(`${ this.recipesUrl }/${ name }`)
-            .pipe(
-                catchError(error => {
-                    console.error('Error fetching recipe:', error);
-                    throw error;
-                })
-            )
+    getRecipeByName(name: string): Observable<Recipe | undefined> {
+        return this.recipes$.pipe(
+            map(recipes => recipes.find(recipe => recipe.name === name))
+        );
     }
     
     addRecipe(recipe: Recipe) {

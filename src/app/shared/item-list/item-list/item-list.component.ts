@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from "@angular/router";
 import { BrewService } from "../../../brews/brew.service";
 
 @Component({
@@ -15,6 +16,7 @@ export class ItemListComponent implements OnInit {
 	@Input() asc: boolean = true;
 	@Input() isEditMode: boolean = false;
 	@Input() editedItem: any = {};
+    @Input() IDs: number [] = [];
 	
 	@Output() sort = new EventEmitter<string>();
 	@Output() pageChanged = new EventEmitter<number>();
@@ -24,18 +26,23 @@ export class ItemListComponent implements OnInit {
 	@Output() cancelEditing = new EventEmitter<void>();
     @Output() brew = new EventEmitter<any>();
     
-    isBrewButton = true;
+    isBrew = true;
     isRedHighlight = false;
+    isBrewPage = false;
     
-    constructor(private brewService: BrewService) {}
+    constructor(private brewService: BrewService, private router: Router) {}
     
     ngOnInit(): void {
-        this.brewService.isBrewButtonVisible$.subscribe((isVisible) => {
-            this.isBrewButton = isVisible;
+        this.checkRoute();
+        this.brewService.isBrew$.subscribe((isVisible) => {
+            this.isBrew = isVisible;
         });
         this.brewService.isRedHighlightVisible$.subscribe((isVisible) => {
             this.isRedHighlight = isVisible;
         })
+        this.router.events.subscribe(() => {
+            this.checkRoute();
+        });
     }
     
     onSort(field: string) {
@@ -60,5 +67,11 @@ export class ItemListComponent implements OnInit {
     
     onBrew(item: any) {
         this.brew.emit(item);
+    }
+    
+    checkRoute() {
+        if (this.router.url.includes('/brewery')) {
+            this.isBrewPage = true;
+        }
     }
 }
