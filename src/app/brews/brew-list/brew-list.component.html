@@ -1,4 +1,9 @@
 <app-brew-edit></app-brew-edit>
+<hr>
+<app-list-controls [itemsPerPageOptions]="itemsPerPageOptions"
+                   (itemsPerPageChange)="onItemsPerPageChange($event)">
+</app-list-controls>
+<hr>
 <app-item-list
     *ngIf="brews$ | async as brews"
     [columns]="listColumns"
@@ -10,3 +15,10 @@
     (sort)="onSort($event)"
     [IDs]="brewsOutOfStockIDs">
 </app-item-list>
+<hr>
+<div class="pagination">
+    <app-pagination [currentPage]="currentPage"
+                    [totalPages]="Math.ceil(((brews$ | async)?.length ?? 0) / itemsPerPage)"
+                    (pageChanged)="onPageChanged($event)">
+    </app-pagination>
+</div>

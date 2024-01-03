@@ -1,9 +1,10 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit, Output } from '@angular/core';
 import { Router } from "@angular/router";
-import { combineLatest, forkJoin } from "rxjs";
+import { combineLatest, forkJoin, Subject, takeUntil } from "rxjs";
 import { Ingredient } from "../../ingredients/ingredient.model";
 import { IngredientService } from "../../ingredients/ingredient.service";
 import { RecipeService } from "../../recipes/recipe.service";
+import { QueryParamService } from "../../shared/query-param.service";
 import { Brew } from "../brew.model";
 import { BrewService } from "../brew.service";
 
@@ -12,7 +13,7 @@ import { BrewService } from "../brew.service";
     templateUrl: './brew-list.component.html',
     styleUrls: ['./brew-list.component.css']
 })
-export class BrewListComponent implements OnInit {
+export class BrewListComponent implements OnInit, OnDestroy {
     
     brews$ = this.brewService.brews$;
     brews: Brew[] = [];
@@ -20,9 +21,12 @@ export class BrewListComponent implements OnInit {
     ingredients: Ingredient[] = [];
     @Output() brewsOutOfStockIDs: number[] = [];
     
+    private destroy$ = new Subject<void>();
+    
     protected readonly Math = Math;
     currentPage: number = 1;
     itemsPerPage: number = 10;
+    itemsPerPageOptions = [10, 20, 30];
     defaultSortField: string = 'id';
     asc = true;
     
@@ -32,10 +36,22 @@ export class BrewListComponent implements OnInit {
         { field: 'startDate', label: 'Start Date', isEditable: true }
     ];
     
-    constructor(private router: Router, private brewService: BrewService, private recipeService: RecipeService, private ingredientService: IngredientService) {
+    constructor(private router: Router, 
+                private brewService: BrewService, 
+                private recipeService: RecipeService, 
+                private ingredientService: IngredientService,
+                private queryParamService: QueryParamService) {
     }
     
     ngOnInit() {
+        
+        this.queryParamService.getQueryParam('page')
+            .pipe(takeUntil(this.destroy$))
+            .subscribe((page) => {
+                if (page) {
+                    this.currentPage = +page;
+                }
+            });
         
         combineLatest([this.brews$, this.ingredients$]).subscribe(([brews, ingredients]) => {
             this.brews = brews;
@@ -99,5 +115,19 @@ export class BrewListComponent implements OnInit {
                 }
             }
         });
+    }
+    
+    onPageChanged(newPage: number) {
+        this.queryParamService.setQueryParam('page', newPage.toString());
+    }
+    
+    onItemsPerPageChange(itemsPerPage: number) {
+        this.itemsPerPage = itemsPerPage;
+        this.currentPage = 1;
+    }
+    
+    ngOnDestroy(): void {
+        this.destroy$.next();
+        this.destroy$.complete();
     }
 }
