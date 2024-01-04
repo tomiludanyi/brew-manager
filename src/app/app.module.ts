@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterLink, RouterModule, RouterOutlet, Routes } from "@angular/router";
 
 import { AppComponent } from './app.component';
+import { AuthComponent } from "./auth/auth.component";
 import { IngredientEditComponent } from "./ingredients/ingredient-edit/ingredient-edit.component";
 import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
 import { IngredientDeleteComponent } from './ingredients/ingredient-delete/ingredient-delete.component';
@@ -30,7 +31,8 @@ const routes: Routes = [
     { path: 'recipe-edit/:id', component: RecipeEditComponent },
     { path: 'recipe-list', component: RecipeListComponent },
     { path: 'recipe-list/:id', component: RecipeListComponent },
-    { path: 'brewery', component: BrewListComponent }
+    { path: 'brewery', component: BrewListComponent },
+    { path: 'admin/login', component: AuthComponent }
 ];
 
 @NgModule({
@@ -48,7 +50,8 @@ const routes: Routes = [
         RecipeDeleteComponent,
         IngredientHandlerComponent,
         BrewEditComponent,
-        BrewListComponent
+        BrewListComponent,
+        AuthComponent
     ],
     imports: [
         BrowserModule,
