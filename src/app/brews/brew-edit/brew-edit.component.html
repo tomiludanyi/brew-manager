@@ -1,0 +1,40 @@
+<h2 style="text-align: center">Welcome to the brewery!</h2>
+<h4 style="text-align: center" *ngIf="!selectedRecipe">Please select a recipe from the recipes page.</h4>
+
+<div class="brew-container" *ngIf="selectedRecipe">
+    <h2 class="brew-header" style="text-align: center">Brewing {{ selectedRecipe.name }}</h2>
+
+    <form class="brew-form" (ngSubmit)="onSubmit()">
+        <table class="brew-table">
+            <thead>
+            <tr>
+                <th>Ingredient</th>
+                <th>Required Amount</th>
+                <th>Unit</th>
+                <th>Stock available</th>
+                <th>Unit</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ingredient of selectedRecipe.ingredients; let i = index" class="brew-row">
+                <td class="brew-cell">{{ ingredient.name }}</td>
+                <td class="brew-cell">
+                    <div class="readonly-text">{{ selectedRecipe.ingredients[i].amount }}</div>
+                </td>
+                <td class="brew-cell">{{ ingredient.unit }}</td>
+                <td class="brew-cell">
+                    <div class="readonly-text" [ngClass]="{'stock': isStockInsufficient(i)}">{{ ingredients[(selectedRecipe.ingredients[i].id) - 1].stock }}</div>
+                </td>
+                <td class="brew-cell">{{ ingredient.unit }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <form class="date" [formGroup]="brewForm">
+            <label for="brewDate">Brewing Date:</label>
+            <input type="date" id="brewDate" formControlName="brewDate" [min]="today"/>
+        </form>
+        
+        <span class="warning-text" *ngIf="!isEnoughAmount">The required ingredient amount is not available in the warehouse for this recipe!</span>
+        <button class="brew-button" type="submit" [disabled]="!isEnoughAmount">Start Brewing</button>
+    </form>
+</div>

@@ -1,0 +1,60 @@
+.brew-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0 auto 20px;
+}
+
+
+.brew-cell {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #000000;
+    font-size: 14px;
+}
+
+.readonly-text {
+    display: inline-block;
+    padding: 6px;
+    border: 1px solid #363636;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.stock {
+    background: red;
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.warning-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d94444;
+}
+
+.brew-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+.brew-button:hover {
+    background-color: #45a049;
+}
+
+.brew-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

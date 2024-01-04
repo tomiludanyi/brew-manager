@@ -15,17 +15,21 @@ import { ItemListComponent } from './shared/item-list/item-list/item-list.compon
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { ListControlsComponent } from './shared/list-controls/list-controls.component';
 import { RecipeDeleteComponent } from './recipes/recipe-delete/recipe-delete.component';
+import { IngredientHandlerComponent } from './ingredients/ingredient-handler/ingredient-handler.component';
+import { BrewEditComponent } from './brews/brew-edit/brew-edit.component';
 
 const routes: Routes = [
     { path: 'ingredient-edit', component: IngredientEditComponent },
     { path: 'ingredient-edit/:id', component: IngredientEditComponent },
     { path: 'ingredient-list', component: IngredientListComponent },
+    { path: 'ingredient-handler', component: IngredientHandlerComponent },
     { path: 'ingredient-delete', component: IngredientDeleteComponent },
     { path: 'ingredient-delete/:id', component: IngredientDeleteComponent },
     { path: 'recipe-edit', component: RecipeEditComponent },
     { path: 'recipe-edit/:id', component: RecipeEditComponent },
     { path: 'recipe-list', component: RecipeListComponent },
-    { path: 'recipe-list/:id', component: RecipeListComponent }
+    { path: 'recipe-list/:id', component: RecipeListComponent },
+    { path: 'brewery', component: BrewEditComponent }
 ];
 
 @NgModule({
@@ -40,7 +44,9 @@ const routes: Routes = [
         ItemListComponent,
         RecipeListComponent,
         ListControlsComponent,
-        RecipeDeleteComponent
+        RecipeDeleteComponent,
+        IngredientHandlerComponent,
+        BrewEditComponent
     ],
     imports: [
         BrowserModule,

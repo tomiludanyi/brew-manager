@@ -18,6 +18,9 @@
                     <input [(ngModel)]="editedItem[column.field]" style="text-align: center">
                 </ng-container>
             </td>
+            <td *ngIf="!isEditMode">
+                <button class="btn brew" (click)="onBrew(item)">Brew</button>
+            </td>
             <td *ngIf="isEditMode && (item.id === editedItem.id)">
                 <button class="btn save" (click)="onSaveEditing(editedItem)">Save</button>
             </td>

@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from "@angular/forms";
+import { Router } from "@angular/router";
 import { Subject, switchMap, takeUntil } from "rxjs";
+import { BrewService } from "../../brews/brew.service";
 import { QueryParamService } from "../../shared/query-param.service";
 import { Recipe } from "../recipe.model";
 import { RecipeService } from "../recipe.service";
@@ -40,7 +42,9 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 	
 	constructor(private recipeService: RecipeService,
 	            private queryParamService: QueryParamService,
-	            private cdr: ChangeDetectorRef) {
+	            private cdr: ChangeDetectorRef,
+                private brewService: BrewService,
+                private router: Router) {
 	}
 	
 	ngOnInit(): void {
@@ -117,6 +121,11 @@ export class RecipeListComponent implements OnInit, OnDestroy {
 		}
 		this.loadRecipesSortedBy(field, this.asc);
 	}
+    
+    onBrewRecipe(recipe: Recipe) {
+        this.brewService.setSelectedRecipe(recipe);
+        this.router.navigate(['/brewery']).then(r => r);
+    }
 	
 	deleteMode($event: boolean) {
 		this.isDelete = false;

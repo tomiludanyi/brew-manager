@@ -1,0 +1,21 @@
+<div>
+    <h2>Incoming Ingredient</h2>
+    <form [formGroup]="ingredientForm" (ngSubmit)="onSubmit()">
+        <label for="name">Name:</label>
+        <select formControlName="name" id="name" (change)="onOptionChange()">
+            <option *ngFor="let ingredient of ingredients$ | async"
+                    [ngValue]="ingredient">{{ ingredient.name }}
+            </option>
+        </select>
+
+        <label for="stock">Quantity:</label>
+        <input type="number" formControlName="stock" id="stock"/>
+
+        <label for="unit">Unit:</label>
+        <select formControlName="unit" id="unit" (change)="onOptionChange()">
+            <option *ngFor="let unit of availableUnits" [value]="unit">{{ unit }}</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>

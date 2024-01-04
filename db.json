@@ -382,7 +382,7 @@
             "id": 64,
             "name": "Brown Sugar",
             "unit": "g",
-            "stock": 230
+            "stock": 80
         },
         {
             "id": 65,
@@ -393,7 +393,7 @@
         {
             "id": 66,
             "name": "Vanilla Beans",
-            "unit": "ea",
+            "unit": "g",
             "stock": 250
         },
         {
@@ -542,19 +542,27 @@
             "ingredients": [
                 {
                     "id": 1,
-                    "name": "Malt"
+                    "name": "Malt",
+                    "amount": 4,
+                    "unit": "kg"
                 },
                 {
                     "id": 2,
-                    "name": "Hops"
+                    "name": "Hops",
+                    "amount": 50,
+                    "unit": "g"
                 },
                 {
                     "id": 3,
-                    "name": "Yeast"
+                    "name": "Yeast",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -564,23 +572,33 @@
             "ingredients": [
                 {
                     "id": 6,
-                    "name": "Malt Extract"
+                    "name": "Malt Extract",
+                    "amount": 3,
+                    "unit": "kg"
                 },
                 {
                     "id": 7,
-                    "name": "Crystal Malt"
+                    "name": "Crystal Malt",
+                    "amount": 0.5,
+                    "unit": "kg"
                 },
                 {
                     "id": 8,
-                    "name": "Cascade Hops"
+                    "name": "Cascade Hops",
+                    "amount": 30,
+                    "unit": "g"
                 },
                 {
                     "id": 9,
-                    "name": "Centennial Hops"
+                    "name": "Centennial Hops",
+                    "amount": 20,
+                    "unit": "g"
                 },
                 {
                     "id": 3,
-                    "name": "Yeast"
+                    "name": "Yeast",
+                    "amount": 8,
+                    "unit": "g"
                 }
             ]
         },
@@ -590,15 +608,21 @@
             "ingredients": [
                 {
                     "id": 39,
-                    "name": "Munich Malt"
+                    "name": "Munich Malt",
+                    "amount": 2,
+                    "unit": "kg"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 15,
+                    "unit": "l"
                 },
                 {
                     "id": 5,
-                    "name": "Sugar"
+                    "name": "Sugar",
+                    "amount": 100,
+                    "unit": "g"
                 }
             ]
         },
@@ -608,23 +632,33 @@
             "ingredients": [
                 {
                     "id": 20,
-                    "name": "Wyeast 3763"
+                    "name": "Wyeast 3763",
+                    "amount": 15,
+                    "unit": "g"
                 },
                 {
                     "id": 21,
-                    "name": "Belgian Candi Sugar"
+                    "name": "Belgian Candi Sugar",
+                    "amount": 0.8,
+                    "unit": "kg"
                 },
                 {
                     "id": 10,
-                    "name": "Simcoe Hops"
+                    "name": "Simcoe Hops",
+                    "amount": 25,
+                    "unit": "g"
                 },
                 {
                     "id": 7,
-                    "name": "Crystal Malt"
+                    "name": "Crystal Malt",
+                    "amount": 0.4,
+                    "unit": "kg"
                 },
                 {
                     "id": 6,
-                    "name": "Malt Extract"
+                    "name": "Malt Extract",
+                    "amount": 1.5,
+                    "unit": "kg"
                 }
             ]
         },
@@ -634,19 +668,27 @@
             "ingredients": [
                 {
                     "id": 1,
-                    "name": "Malt"
+                    "name": "Malt",
+                    "amount": 3.5,
+                    "unit": "kg"
                 },
                 {
                     "id": 8,
-                    "name": "Cascade Hops"
+                    "name": "Cascade Hops",
+                    "amount": 40,
+                    "unit": "g"
                 },
                 {
                     "id": 16,
-                    "name": "Wyeast 1056"
+                    "name": "Wyeast 1056",
+                    "amount": 12,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 18,
+                    "unit": "l"
                 }
             ]
         },
@@ -656,19 +698,27 @@
             "ingredients": [
                 {
                     "id": 43,
-                    "name": "Chocolate Malt"
+                    "name": "Chocolate Malt",
+                    "amount": 0.6,
+                    "unit": "kg"
                 },
                 {
                     "id": 9,
-                    "name": "Centennial Hops"
+                    "name": "Centennial Hops",
+                    "amount": 30,
+                    "unit": "g"
                 },
                 {
                     "id": 3,
-                    "name": "Yeast"
+                    "name": "Yeast",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -678,19 +728,27 @@
             "ingredients": [
                 {
                     "id": 18,
-                    "name": "Wyeast 3068"
+                    "name": "Wyeast 3068",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 28,
-                    "name": "Coriander Seeds"
+                    "name": "Coriander Seeds",
+                    "amount": 5,
+                    "unit": "g"
                 },
                 {
                     "id": 29,
-                    "name": "Lemon Zest"
+                    "name": "Lemon Zest",
+                    "amount": 7,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -700,19 +758,27 @@
             "ingredients": [
                 {
                     "id": 11,
-                    "name": "Citra Hops"
+                    "name": "Citra Hops",
+                    "amount": 25,
+                    "unit": "g"
                 },
                 {
                     "id": 21,
-                    "name": "Belgian Candi Sugar"
+                    "name": "Belgian Candi Sugar",
+                    "amount": 1,
+                    "unit": "kg"
                 },
                 {
                     "id": 48,
-                    "name": "Rye Malt"
+                    "name": "Rye Malt",
+                    "amount": 0.8,
+                    "unit": "kg"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -722,19 +788,27 @@
             "ingredients": [
                 {
                     "id": 2,
-                    "name": "Hops"
+                    "name": "Hops",
+                    "amount": 40,
+                    "unit": "g"
                 },
                 {
                     "id": 16,
-                    "name": "Wyeast 1056"
+                    "name": "Wyeast 1056",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 18,
+                    "unit": "l"
                 },
                 {
                     "id": 5,
-                    "name": "Sugar"
+                    "name": "Sugar",
+                    "amount": 80,
+                    "unit": "g"
                 }
             ]
         },
@@ -744,19 +818,27 @@
             "ingredients": [
                 {
                     "id": 3,
-                    "name": "Yeast"
+                    "name": "Yeast",
+                    "amount": 8,
+                    "unit": "g"
                 },
                 {
                     "id": 39,
-                    "name": "Munich Malt"
+                    "name": "Munich Malt",
+                    "amount": 2.5,
+                    "unit": "kg"
                 },
                 {
                     "id": 59,
-                    "name": "Mango Puree"
+                    "name": "Mango Puree",
+                    "amount": 500,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 18,
+                    "unit": "l"
                 }
             ]
         },
@@ -766,19 +848,27 @@
             "ingredients": [
                 {
                     "id": 6,
-                    "name": "Malt Extract"
+                    "name": "Malt Extract",
+                    "amount": 3,
+                    "unit": "kg"
                 },
                 {
                     "id": 51,
-                    "name": "Honey Malt"
+                    "name": "Honey Malt",
+                    "amount": 0.4,
+                    "unit": "kg"
                 },
                 {
                     "id": 9,
-                    "name": "Centennial Hops"
+                    "name": "Centennial Hops",
+                    "amount": 20,
+                    "unit": "g"
                 },
                 {
                     "id": 3,
-                    "name": "Yeast"
+                    "name": "Yeast",
+                    "amount": 8,
+                    "unit": "g"
                 }
             ]
         },
@@ -788,19 +878,27 @@
             "ingredients": [
                 {
                     "id": 39,
-                    "name": "Munich Malt"
+                    "name": "Munich Malt",
+                    "amount": 2.5,
+                    "unit": "kg"
                 },
                 {
                     "id": 32,
-                    "name": "Raspberries"
+                    "name": "Raspberries",
+                    "amount": 300,
+                    "unit": "g"
                 },
                 {
                     "id": 16,
-                    "name": "Wyeast 1056"
+                    "name": "Wyeast 1056",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 18,
+                    "unit": "l"
                 }
             ]
         },
@@ -810,19 +908,27 @@
             "ingredients": [
                 {
                     "id": 43,
-                    "name": "Chocolate Malt"
+                    "name": "Chocolate Malt",
+                    "amount": 0.6,
+                    "unit": "kg"
                 },
                 {
                     "id": 24,
-                    "name": "Coffee Beans"
+                    "name": "Coffee Beans",
+                    "amount": 50,
+                    "unit": "g"
                 },
                 {
                     "id": 18,
-                    "name": "Wyeast 3068"
+                    "name": "Wyeast 3068",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -832,19 +938,27 @@
             "ingredients": [
                 {
                     "id": 1,
-                    "name": "Malt"
+                    "name": "Malt",
+                    "amount": 3.5,
+                    "unit": "kg"
                 },
                 {
                     "id": 25,
-                    "name": "Cinnamon"
+                    "name": "Cinnamon",
+                    "amount": 5,
+                    "unit": "g"
                 },
                 {
                     "id": 29,
-                    "name": "Lemon Zest"
+                    "name": "Lemon Zest",
+                    "amount": 7,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 18,
+                    "unit": "l"
                 }
             ]
         },
@@ -854,19 +968,27 @@
             "ingredients": [
                 {
                     "id": 11,
-                    "name": "Citra Hops"
+                    "name": "Citra Hops",
+                    "amount": 30,
+                    "unit": "g"
                 },
                 {
                     "id": 16,
-                    "name": "Wyeast 1056"
+                    "name": "Wyeast 1056",
+                    "amount": 12,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 18,
+                    "unit": "l"
                 },
                 {
                     "id": 5,
-                    "name": "Sugar"
+                    "name": "Sugar",
+                    "amount": 80,
+                    "unit": "g"
                 }
             ]
         },
@@ -876,19 +998,27 @@
             "ingredients": [
                 {
                     "id": 20,
-                    "name": "Wyeast 3763"
+                    "name": "Wyeast 3763",
+                    "amount": 12,
+                    "unit": "g"
                 },
                 {
                     "id": 47,
-                    "name": "Amber Malt"
+                    "name": "Amber Malt",
+                    "amount": 0.5,
+                    "unit": "kg"
                 },
                 {
                     "id": 21,
-                    "name": "Belgian Candi Sugar"
+                    "name": "Belgian Candi Sugar",
+                    "amount": 0.7,
+                    "unit": "kg"
                 },
                 {
                     "id": 3,
-                    "name": "Yeast"
+                    "name": "Yeast",
+                    "amount": 8,
+                    "unit": "g"
                 }
             ]
         },
@@ -898,19 +1028,27 @@
             "ingredients": [
                 {
                     "id": 52,
-                    "name": "Roasted Barley"
+                    "name": "Roasted Barley",
+                    "amount": 0.7,
+                    "unit": "kg"
                 },
                 {
                     "id": 55,
-                    "name": "Cherry Puree"
+                    "name": "Cherry Puree",
+                    "amount": 350,
+                    "unit": "g"
                 },
                 {
                     "id": 13,
-                    "name": "Amarillo Hops"
+                    "name": "Amarillo Hops",
+                    "amount": 25,
+                    "unit": "g"
                 },
                 {
                     "id": 3,
-                    "name": "Yeast"
+                    "name": "Yeast",
+                    "amount": 10,
+                    "unit": "g"
                 }
             ]
         },
@@ -920,19 +1058,27 @@
             "ingredients": [
                 {
                     "id": 29,
-                    "name": "Lemon Zest"
+                    "name": "Lemon Zest",
+                    "amount": 7,
+                    "unit": "g"
                 },
                 {
                     "id": 82,
-                    "name": "Basil"
+                    "name": "Basil",
+                    "amount": 5,
+                    "unit": "g"
                 },
                 {
                     "id": 18,
-                    "name": "Wyeast 3068"
+                    "name": "Wyeast 3068",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -942,19 +1088,27 @@
             "ingredients": [
                 {
                     "id": 2,
-                    "name": "Hops"
+                    "name": "Hops",
+                    "amount": 40,
+                    "unit": "g"
                 },
                 {
                     "id": 16,
-                    "name": "Wyeast 1056"
+                    "name": "Wyeast 1056",
+                    "amount": 12,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 18,
+                    "unit": "l"
                 },
                 {
                     "id": 5,
-                    "name": "Sugar"
+                    "name": "Sugar",
+                    "amount": 80,
+                    "unit": "g"
                 }
             ]
         },
@@ -964,19 +1118,27 @@
             "ingredients": [
                 {
                     "id": 18,
-                    "name": "Wyeast 3068"
+                    "name": "Wyeast 3068",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 28,
-                    "name": "Coriander Seeds"
+                    "name": "Coriander Seeds",
+                    "amount": 5,
+                    "unit": "g"
                 },
                 {
                     "id": 29,
-                    "name": "Lemon Zest"
+                    "name": "Lemon Zest",
+                    "amount": 7,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -986,19 +1148,27 @@
             "ingredients": [
                 {
                     "id": 38,
-                    "name": "Passion Fruit"
+                    "name": "Passion Fruit",
+                    "amount": 2,
+                    "unit": "ea"
                 },
                 {
                     "id": 2,
-                    "name": "Hops"
+                    "name": "Hops",
+                    "amount": 50,
+                    "unit": "g"
                 },
                 {
                     "id": 31,
-                    "name": "Ginger"
+                    "name": "Ginger",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 77,
-                    "name": "Serrano Pepper"
+                    "name": "Serrano Pepper",
+                    "amount": 1,
+                    "unit": "ea"
                 }
             ]
         },
@@ -1008,19 +1178,27 @@
             "ingredients": [
                 {
                     "id": 43,
-                    "name": "Chocolate Malt"
+                    "name": "Chocolate Malt",
+                    "amount": 0.6,
+                    "unit": "kg"
                 },
                 {
                     "id": 68,
-                    "name": "Oak Chips"
+                    "name": "Oak Chips",
+                    "amount": 30,
+                    "unit": "g"
                 },
                 {
                     "id": 27,
-                    "name": "Orange Peel"
+                    "name": "Orange Peel",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -1030,19 +1208,27 @@
             "ingredients": [
                 {
                     "id": 58,
-                    "name": "Cranberry Juice"
+                    "name": "Cranberry Juice",
+                    "amount": 500,
+                    "unit": "ml"
                 },
                 {
                     "id": 69,
-                    "name": "Clove"
+                    "name": "Clove",
+                    "amount": 5,
+                    "unit": "g"
                 },
                 {
                     "id": 18,
-                    "name": "Wyeast 3068"
+                    "name": "Wyeast 3068",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -1052,19 +1238,27 @@
             "ingredients": [
                 {
                     "id": 47,
-                    "name": "Amber Malt"
+                    "name": "Amber Malt",
+                    "amount": 0.5,
+                    "unit": "kg"
                 },
                 {
                     "id": 14,
-                    "name": "Fuggle Hops"
+                    "name": "Fuggle Hops",
+                    "amount": 25,
+                    "unit": "g"
                 },
                 {
                     "id": 16,
-                    "name": "Wyeast 1056"
+                    "name": "Wyeast 1056",
+                    "amount": 12,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -1074,19 +1268,27 @@
             "ingredients": [
                 {
                     "id": 74,
-                    "name": "Grapefruit Peel"
+                    "name": "Grapefruit Peel",
+                    "amount": 30,
+                    "unit": "g"
                 },
                 {
                     "id": 2,
-                    "name": "Hops"
+                    "name": "Hops",
+                    "amount": 40,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 },
                 {
                     "id": 5,
-                    "name": "Sugar"
+                    "name": "Sugar",
+                    "amount": 80,
+                    "unit": "g"
                 }
             ]
         },
@@ -1096,19 +1298,27 @@
             "ingredients": [
                 {
                     "id": 64,
-                    "name": "Brown Sugar"
+                    "name": "Brown Sugar",
+                    "amount": 100,
+                    "unit": "g"
                 },
                 {
                     "id": 13,
-                    "name": "Amarillo Hops"
+                    "name": "Amarillo Hops",
+                    "amount": 25,
+                    "unit": "g"
                 },
                 {
                     "id": 18,
-                    "name": "Wyeast 3068"
+                    "name": "Wyeast 3068",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 1,
-                    "name": "Malt"
+                    "name": "Malt",
+                    "amount": 3,
+                    "unit": "kg"
                 }
             ]
         },
@@ -1118,19 +1328,27 @@
             "ingredients": [
                 {
                     "id": 18,
-                    "name": "Wyeast 3068"
+                    "name": "Wyeast 3068",
+                    "amount": 10,
+                    "unit": "g"
                 },
                 {
                     "id": 87,
-                    "name": "Lavender"
+                    "name": "Lavender",
+                    "amount": 5,
+                    "unit": "g"
                 },
                 {
                     "id": 55,
-                    "name": "Cherry Puree"
+                    "name": "Cherry Puree",
+                    "amount": 200,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -1140,19 +1358,27 @@
             "ingredients": [
                 {
                     "id": 44,
-                    "name": "Black Patent Malt"
+                    "name": "Black Patent Malt",
+                    "amount": 0.7,
+                    "unit": "kg"
                 },
                 {
                     "id": 66,
-                    "name": "Vanilla Beans"
+                    "name": "Vanilla Beans",
+                    "amount": 2,
+                    "unit": "ea"
                 },
                 {
                     "id": 64,
-                    "name": "Brown Sugar"
+                    "name": "Brown Sugar",
+                    "amount": 100,
+                    "unit": "g"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         },
@@ -1162,19 +1388,27 @@
             "ingredients": [
                 {
                     "id": 29,
-                    "name": "Lemon Zest"
+                    "name": "Lemon Zest",
+                    "amount": 7,
+                    "unit": "g"
                 },
                 {
                     "id": 83,
-                    "name": "Thyme"
+                    "name": "Thyme",
+                    "amount": 5,
+                    "unit": "g"
                 },
                 {
                     "id": 2,
-                    "name": "Hops"
+                    "name": "Hops",
+                    "amount": 40,
+                    "unit": "g"
                 },
                 {
                     "id": 16,
-                    "name": "Wyeast 1056"
+                    "name": "Wyeast 1056",
+                    "amount": 12,
+                    "unit": "g"
                 }
             ]
         },
@@ -1184,19 +1418,27 @@
             "ingredients": [
                 {
                     "id": 34,
-                    "name": "Peaches"
+                    "name": "Peaches",
+                    "amount": 400,
+                    "unit": "g"
                 },
                 {
                     "id": 63,
-                    "name": "Agave Nectar"
+                    "name": "Agave Nectar",
+                    "amount": 50,
+                    "unit": "g"
                 },
                 {
                     "id": 1,
-                    "name": "Malt"
+                    "name": "Malt",
+                    "amount": 3,
+                    "unit": "kg"
                 },
                 {
                     "id": 4,
-                    "name": "Water"
+                    "name": "Water",
+                    "amount": 20,
+                    "unit": "l"
                 }
             ]
         }
