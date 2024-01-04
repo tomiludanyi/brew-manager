@@ -1,6 +1,14 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, catchError, map, Observable, ReplaySubject, share, shareReplay } from "rxjs";
+import {
+    BehaviorSubject,
+    catchError,
+    map,
+    Observable,
+    ReplaySubject,
+    share,
+    shareReplay
+} from "rxjs";
 import { combineLatest } from "rxjs";
 import { Recipe } from "./recipe.model";
 
@@ -30,12 +38,6 @@ export class RecipeService {
                     throw error;
                 })
             );
-    }
-    
-    getRecipeByName(name: string): Observable<Recipe | undefined> {
-        return this.recipes$.pipe(
-            map(recipes => recipes.find(recipe => recipe.name === name))
-        );
     }
     
     addRecipe(recipe: Recipe) {
