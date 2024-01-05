@@ -1577,19 +1577,9 @@
             "startDate": "2024-02-20"
         }
     ],
-    "permissions": {
-        "admin": [
-            "ingredient",
-            "inventory",
-            "recipe",
-            "brew",
-            "permission"
-        ],
-        "user": [
-            "ingredient",
-            "inventory",
-            "recipe",
-            "brew"
-        ]
+    "users": {
+        "email": "tomi@tomi.hu",
+        "password": "asd",
+        "returnSecureToken": true
     }
 }

@@ -3,11 +3,12 @@
         <a [routerLink]="['']"><img class="beers-image" src="assets/beers.svg" alt="beers"></a>
         <nav>
             <ul class="navbar-items">
-                <li><a [routerLink]="['/ingredient-list']">Ingredients</a></li>
-                <li><a [routerLink]="['/recipe-list']">Recipes</a></li>
-                <li><a [routerLink]="['/ingredient-handler']">Warehouse</a></li>
-                <li><a [routerLink]="['/brewery']">Brewery</a></li>
-                <li><a [routerLink]="['/admin/login']">Login</a></li>
+                <li *ngIf="isAuthenticated"><a [routerLink]="['/ingredient-list']">Ingredients</a></li>
+                <li *ngIf="isAuthenticated"><a [routerLink]="['/recipe-list']">Recipes</a></li>
+                <li *ngIf="isAuthenticated"><a [routerLink]="['/ingredient-handler']">Warehouse</a></li>
+                <li *ngIf="isAuthenticated"><a [routerLink]="['/brewery']">Brewery</a></li>
+                <li *ngIf="!isAuthenticated"><a [routerLink]="['/admin/login']">Login</a></li>
+                <li *ngIf="isAuthenticated"><a (click)="onLogout()">Logout</a></li>
             </ul>
         </nav>
     </div>
