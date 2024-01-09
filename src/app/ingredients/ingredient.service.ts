@@ -71,7 +71,7 @@ export class IngredientService {
                     resetOnComplete: true,
                     resetOnError: true
                 }),
-                // shareReplay(), I makes trouble when I want to subtract required ingredient amount in brewery checkIngredients(), its original purpose was to prevent flashing in the UI
+                // shareReplay(), It makes trouble when I want to subtract required ingredient amount in brewery checkIngredients(), its original purpose was to prevent flashing in the UI
                 catchError(error => {
                     console.error('Error fetching ingredients:', error);
                     throw error;

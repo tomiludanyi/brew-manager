@@ -1,58 +1,29 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { Observable } from "rxjs";
-import { AuthResponseData, AuthService } from "./auth.service";
+import { AuthService } from "./auth.service";
+import { User } from "./user.model";
 
 @Component({
     selector: 'app-auth',
-    templateUrl: './auth.component.html'
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.css']
 })
-export class AuthComponent implements OnInit {
-    authForm!: FormGroup;
-    isLoginMode = true;
-    isLoading = false;
-    error: string = '';
+export class AuthComponent {
     
-    constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+    user: User = new User(false);
+    
+    constructor(private router: Router, private authService: AuthService) {
     }
     
-    ngOnInit() {
-        this.authForm = this.fb.group({
-            email: ['', Validators.required],
-            password: ['', Validators.required]
-        });
-    }
-    
-    onSwitchMode() {
-        this.isLoginMode = !this.isLoginMode;
-    }
-    
-    onSubmit(authForm: FormGroup) {
-        if (!authForm.valid) {
-            return;
-        }
-        const email = this.authForm.get('email')?.value;
-        const password = this.authForm.get('password')?.value;
-        
-        let authObservable: Observable<AuthResponseData>;
-        
-        this.isLoading = true;
-        if (this.isLoginMode) {
-            this.authService.login(email, password);
+    onSubmit(role: string) {
+        if (role === 'Admin') {
+            this.user.isAdmin = true;
+            this.router.navigate(['/brewery']).then(r => r);
         } else {
-            this.authService.signup(email, password);
+            this.user.isAdmin = false;
+            this.router.navigate(['/recipe-list']).then(r => r);
         }
-        
-        // authObservable.subscribe(responseData => {
-        //     console.log(responseData);
-        //     this.isLoading = false;
-        //     this.router.navigate(['/brewery']);
-        //     authForm.reset();
-        // }, errorMessage => {
-        //     console.log(errorMessage);
-        //     this.error = errorMessage;
-        //     this.isLoading = false;
-        // });
+        this.authService.login();
+        this.authService.setUser(this.user);        
     }
 }

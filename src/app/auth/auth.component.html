@@ -1,12 +1,4 @@
-<form [formGroup]="authForm" (ngSubmit)="onSubmit(authForm)">
-    <div>
-        <label for="email">E-Mail</label>
-        <input type="text" id="email" formControlName="email">
-    </div>
-    <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" formControlName="password">
-    </div>
-    <button type="submit" [disabled]="!authForm.valid">{{ isLoginMode ? 'Login' : 'Sign Up' }}</button> | 
-    <button (click)="onSwitchMode()" type="button">{{ isLoginMode ? 'Sign Up Mode' : 'Login Mode' }}</button>
-</form>
+<div class="buttons">
+    <button type="button" (click)="onSubmit('Admin')">Admin</button>
+    <button type="button" (click)="onSubmit('Worker')">Worker</button>
+</div>
