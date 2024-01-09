@@ -6,6 +6,7 @@ import { RouterLink, RouterModule, RouterOutlet, Routes } from "@angular/router"
 
 import { AppComponent } from './app.component';
 import { AuthComponent } from "./auth/auth.component";
+import { AuthGuard } from "./auth/auth.guard";
 import { IngredientEditComponent } from "./ingredients/ingredient-edit/ingredient-edit.component";
 import { IngredientListComponent } from './ingredients/ingredient-list/ingredient-list.component';
 import { IngredientDeleteComponent } from './ingredients/ingredient-delete/ingredient-delete.component';
@@ -21,17 +22,17 @@ import { BrewEditComponent } from './brews/brew-edit/brew-edit.component';
 import { BrewListComponent } from './brews/brew-list/brew-list.component';
 
 const routes: Routes = [
-    { path: 'ingredient-edit', component: IngredientEditComponent },
-    { path: 'ingredient-edit/:id', component: IngredientEditComponent },
-    { path: 'ingredient-list', component: IngredientListComponent },
-    { path: 'ingredient-handler', component: IngredientHandlerComponent },
-    { path: 'ingredient-delete', component: IngredientDeleteComponent },
-    { path: 'ingredient-delete/:id', component: IngredientDeleteComponent },
-    { path: 'recipe-edit', component: RecipeEditComponent },
-    { path: 'recipe-edit/:id', component: RecipeEditComponent },
-    { path: 'recipe-list', component: RecipeListComponent },
-    { path: 'recipe-list/:id', component: RecipeListComponent },
-    { path: 'brewery', component: BrewListComponent },
+    { path: 'ingredient-edit', component: IngredientEditComponent, canActivate: [AuthGuard] },
+    { path: 'ingredient-edit/:id', component: IngredientEditComponent, canActivate: [AuthGuard] },
+    { path: 'ingredient-list', component: IngredientListComponent, canActivate: [AuthGuard] },
+    { path: 'ingredient-handler', component: IngredientHandlerComponent, canActivate: [AuthGuard] },
+    { path: 'ingredient-delete', component: IngredientDeleteComponent, canActivate: [AuthGuard] },
+    { path: 'ingredient-delete/:id', component: IngredientDeleteComponent, canActivate: [AuthGuard] },
+    { path: 'recipe-edit', component: RecipeEditComponent, canActivate: [AuthGuard] },
+    { path: 'recipe-edit/:id', component: RecipeEditComponent, canActivate: [AuthGuard] },
+    { path: 'recipe-list', component: RecipeListComponent, canActivate: [AuthGuard] },
+    { path: 'recipe-list/:id', component: RecipeListComponent, canActivate: [AuthGuard] },
+    { path: 'brewery', component: BrewListComponent, canActivate: [AuthGuard] },
     { path: 'admin/login', component: AuthComponent }
 ];
 

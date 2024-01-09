@@ -9,9 +9,8 @@ import { AuthResponseData, AuthService } from "./auth.service";
     templateUrl: './auth.component.html'
 })
 export class AuthComponent implements OnInit {
-    loginForm!: FormGroup;
+    authForm!: FormGroup;
     isLoginMode = true;
-    isLoggedIn = false;
     isLoading = false;
     error: string = '';
     
@@ -19,7 +18,7 @@ export class AuthComponent implements OnInit {
     }
     
     ngOnInit() {
-        this.loginForm = this.fb.group({
+        this.authForm = this.fb.group({
             email: ['', Validators.required],
             password: ['', Validators.required]
         });
@@ -33,28 +32,27 @@ export class AuthComponent implements OnInit {
         if (!authForm.valid) {
             return;
         }
-        const email = authForm.value.email;
-        const password = authForm.value.password;
+        const email = this.authForm.get('email')?.value;
+        const password = this.authForm.get('password')?.value;
         
         let authObservable: Observable<AuthResponseData>;
         
         this.isLoading = true;
         if (this.isLoginMode) {
-            authObservable = this.authService.login(email, password);
+            this.authService.login(email, password);
         } else {
-            authObservable = this.authService.signup(email, password);
+            this.authService.signup(email, password);
         }
         
-        authObservable.subscribe(responseData => {
-            console.log(responseData);
-            this.isLoading = false;
-            this.router.navigate(['/brewery']);
-        }, errorMessage => {
-            console.log(errorMessage);
-            this.error = errorMessage;
-            this.isLoading = false;
-        });
-        
-        authForm.reset();
+        // authObservable.subscribe(responseData => {
+        //     console.log(responseData);
+        //     this.isLoading = false;
+        //     this.router.navigate(['/brewery']);
+        //     authForm.reset();
+        // }, errorMessage => {
+        //     console.log(errorMessage);
+        //     this.error = errorMessage;
+        //     this.isLoading = false;
+        // });
     }
 }
