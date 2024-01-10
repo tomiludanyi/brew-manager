@@ -24,8 +24,8 @@ import { BrewListComponent } from './brews/brew-list/brew-list.component';
 const routes: Routes = [
     { path: 'ingredient-edit', component: IngredientEditComponent, canActivate: [AuthGuard] },
     { path: 'ingredient-edit/:id', component: IngredientEditComponent, canActivate: [AuthGuard] },
-    { path: 'ingredient-list', component: IngredientListComponent, canActivate: [AuthGuard] },
-    { path: 'ingredient-handler', component: IngredientHandlerComponent, canActivate: [AuthGuard] },
+    { path: 'ingredient-list', component: IngredientListComponent },
+    { path: 'ingredient-handler', component: IngredientHandlerComponent },
     { path: 'ingredient-delete', component: IngredientDeleteComponent, canActivate: [AuthGuard] },
     { path: 'ingredient-delete/:id', component: IngredientDeleteComponent, canActivate: [AuthGuard] },
     { path: 'recipe-edit', component: RecipeEditComponent, canActivate: [AuthGuard] },

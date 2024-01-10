@@ -9,5 +9,10 @@ export class AuthGuard {
     }
     
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+        if (this.authService.getUser().isAdmin) {
+            return true;
+        } else {
+            return this.router.navigate(['/admin/login']);
+        }
     }
 }

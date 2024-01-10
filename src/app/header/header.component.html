@@ -3,12 +3,10 @@
         <a [routerLink]="['']"><img class="beers-image" src="assets/beers.svg" alt="beers"></a>
         <nav>
             <ul class="navbar-items">
-                <ng-container *ngIf="authService.user | async as user">
-                    <li *ngIf="user.isAdmin"><a [routerLink]="['/ingredient-list']">Ingredients</a></li>
-                    <li *ngIf="user.isAdmin"><a [routerLink]="['/recipe-list']">Recipes</a></li>
-                    <li *ngIf="user.isAdmin"><a [routerLink]="['/ingredient-handler']">Warehouse</a></li>
-                    <li *ngIf="user.isAdmin"><a [routerLink]="['/brewery']">Brewery</a></li>
-                </ng-container>
+                <li><a [routerLink]="['/ingredient-list']">Ingredients</a></li>
+                <li><a [routerLink]="['/recipe-list']">Recipes</a></li>
+                <li><a [routerLink]="['/ingredient-handler']">Warehouse</a></li>
+                <li><a [routerLink]="['/brewery']">Brewery</a></li>
                 <li *ngIf="!authService.isLoggedIn"><a [routerLink]="['/admin/login']">Login</a></li>
                 <li *ngIf="authService.isLoggedIn"><a (click)="logout()">Logout</a></li>
             </ul>

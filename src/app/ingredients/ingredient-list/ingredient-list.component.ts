@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy
 import { FormControl } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Subject, switchMap, takeUntil } from "rxjs";
+import { AuthService } from "../../auth/auth.service";
 import { QueryParamService } from "../../shared/query-param.service";
 import { Ingredient } from "../ingredient.model";
 import { IngredientService } from "../ingredient.service";
@@ -30,6 +31,7 @@ export class IngredientListComponent implements OnInit, OnDestroy {
     editedItem: Ingredient = {} as Ingredient;
     idToDelete!: number;
     filterText = new FormControl('');
+    isAdmin: any;
     
     itemsPerPageOptions = [10, 20, 30];
     
@@ -43,7 +45,8 @@ export class IngredientListComponent implements OnInit, OnDestroy {
     constructor(private ingredientService: IngredientService,
                 private router: Router,
                 private queryParamService: QueryParamService,
-                private cdr: ChangeDetectorRef) {
+                private cdr: ChangeDetectorRef,
+                private authService: AuthService) {
     }
     
     ngOnInit(): void {
@@ -55,6 +58,9 @@ export class IngredientListComponent implements OnInit, OnDestroy {
                 }
                 this.loadIngredientsSortedBy(this.defaultSortField, this.asc);
             });
+        if (this.authService.getUser().isAdmin) {
+            this.isAdmin = true;
+        }
     }
     
     

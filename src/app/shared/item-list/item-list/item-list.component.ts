@@ -17,7 +17,7 @@ export class ItemListComponent implements OnInit {
 	@Input() isEditMode: boolean = false;
 	@Input() editedItem: any = {};
     @Input() IDs: number [] = [];
-	
+    @Input() isAdmin: boolean = true;
 	@Output() sort = new EventEmitter<string>();
 	@Output() pageChanged = new EventEmitter<number>();
 	@Output() editItem = new EventEmitter<any>();

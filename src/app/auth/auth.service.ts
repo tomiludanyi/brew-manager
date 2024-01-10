@@ -3,11 +3,6 @@ import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
 import { User } from "./user.model";
 
-export interface AuthResponseData {
-    userFound: boolean;
-    token?: string;
-}
-
 @Injectable({ providedIn: 'root' })
 export class AuthService {
     
@@ -29,5 +24,9 @@ export class AuthService {
     
     setUser(user: User) {
         this.user.next(user);
+    }
+    
+    getUser() {
+        return this.user.value;
     }
 }
