@@ -1,18 +1,31 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from "@angular/router";
+import { map } from "rxjs";
 import { AuthService } from "./auth.service";
+import { take } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard {
     
-    constructor(private router: Router, private authService: AuthService) {
-    }
+    allowedPaths = [
+        'ingredient-list',
+        'ingredient-handler',
+    ];
+    
+    constructor(private router: Router, private authService: AuthService) {}
     
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (this.authService.getUser().isAdmin) {
-            return true;
-        } else {
-            return this.router.navigate(['/admin/login']);
-        }
+        return this.authService.isLoggedIn$.pipe(
+            take(1),
+            map(isLoggedIn => {
+                const isAllowedPath = this.allowedPaths.some(path => state.url.includes(path));
+                if ((isAllowedPath && isLoggedIn) || (isLoggedIn && this.authService.getUser()?.isAdmin)) {
+                    return true;
+                } else {
+                    this.router.navigate(['unauthorized']).then(r => r);
+                    return false;
+                }
+            })
+        );
     }
 }

@@ -1,0 +1,9 @@
+<div class="text" style="text-align: center">
+    <div *ngIf="isLoggedIn">
+        <h1>You have no permission to visit this page.</h1>
+        <h3>Please login with a different user.</h3>
+    </div>
+    <div *ngIf="!isLoggedIn">
+        <h1>Login please!</h1>
+    </div>
+</div>

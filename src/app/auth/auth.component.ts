@@ -19,11 +19,11 @@ export class AuthComponent {
         if (role === 'Admin') {
             this.user.isAdmin = true;
             this.router.navigate(['/brewery']).then(r => r);
-        } else {
+        } else if (role === 'Worker') {
             this.user.isAdmin = false;
-            this.router.navigate(['/recipe-list']).then(r => r);
+            this.router.navigate(['/ingredient-list']).then(r => r);
         }
+        this.authService.setUser(this.user);
         this.authService.login();
-        this.authService.setUser(this.user);        
     }
 }

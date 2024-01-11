@@ -7,19 +7,26 @@ import { User } from "./user.model";
 export class AuthService {
     
     user = new BehaviorSubject(new User(true));
-    isLoggedIn = false;
+    isLoggedInSubject = new BehaviorSubject<boolean>(false);
+    isLoggedIn$ = this.isLoggedInSubject.asObservable();
     
     constructor(private router: Router) {
     }
     
     login() {
-        this.isLoggedIn = true;
+        this.isLoggedInSubject.next(true);
     }
     
     logout() {
-        this.isLoggedIn = false;
-        this.router.navigate(['/admin/login']).then(r => r);
+        this.isLoggedInSubject.next(false);
+        const currentUser = this.user.value;
+        
+        if (currentUser) {
+            currentUser.isAdmin = false;
+            this.setUser(currentUser);
+        }
         localStorage.removeItem('userData');
+        this.router.navigate(['/admin/login']).then(r => r);
     }
     
     setUser(user: User) {
