@@ -1,11 +1,13 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from "@angular/router";
+import { BrewService } from "../../../brews/brew.service";
 
 @Component({
 	selector: 'app-item-list',
 	templateUrl: './item-list.component.html',
 	styleUrls: ['./item-list.component.scss']
 })
-export class ItemListComponent {
+export class ItemListComponent implements OnInit {
 	@Input() columns: { field: string; label: string; isEditable?: boolean }[] = [];
 	@Input() items: any[] = [];
 	@Input() currentPage: number = 1;
@@ -14,6 +16,7 @@ export class ItemListComponent {
 	@Input() asc: boolean = true;
 	@Input() isEditMode: boolean = false;
 	@Input() editedItem: any = {};
+    @Input() IDs: number [] = [];
 	
 	@Output() sort = new EventEmitter<string>();
 	@Output() pageChanged = new EventEmitter<number>();
@@ -22,8 +25,27 @@ export class ItemListComponent {
 	@Output() saveEditing = new EventEmitter<any>();
 	@Output() cancelEditing = new EventEmitter<void>();
     @Output() brew = new EventEmitter<any>();
-	
-	onSort(field: string) {
+    
+    isBrew = true;
+    isRedHighlight = false;
+    isBrewPage = false;
+    
+    constructor(private brewService: BrewService, private router: Router) {}
+    
+    ngOnInit(): void {
+        this.checkRoute();
+        this.brewService.isBrew$.subscribe((isVisible) => {
+            this.isBrew = isVisible;
+        });
+        this.brewService.isRedHighlightVisible$.subscribe((isVisible) => {
+            this.isRedHighlight = isVisible;
+        })
+        this.router.events.subscribe(() => {
+            this.checkRoute();
+        });
+    }
+    
+    onSort(field: string) {
 		this.sort.emit(field);
 	}
 	
@@ -45,5 +67,11 @@ export class ItemListComponent {
     
     onBrew(item: any) {
         this.brew.emit(item);
+    }
+    
+    checkRoute() {
+        if (this.router.url.includes('/brewery')) {
+            this.isBrewPage = true;
+        }
     }
 }

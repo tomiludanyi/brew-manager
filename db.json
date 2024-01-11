@@ -1478,21 +1478,103 @@
     "brews": [
         {
             "id": 1,
-            "recipeId": 1,
-            "startDate": "2023-10-15",
-            "status": "In Progress"
+            "recipeName": "IPA",
+            "startDate": "2024-02-01"
         },
         {
             "id": 2,
-            "recipeId": 2,
-            "startDate": "2023-10-16",
-            "status": "Completed"
+            "recipeName": "Stout",
+            "startDate": "2024-02-02"
         },
         {
             "id": 3,
-            "recipeId": 3,
-            "startDate": "2023-10-17",
-            "status": "In Progress"
+            "recipeName": "Wheat Beer",
+            "startDate": "2024-02-03"
+        },
+        {
+            "id": 4,
+            "recipeName": "Belgian Tripel",
+            "startDate": "2024-02-04"
+        },
+        {
+            "id": 5,
+            "recipeName": "American Pale Ale",
+            "startDate": "2024-02-05"
+        },
+        {
+            "id": 6,
+            "recipeName": "Porter",
+            "startDate": "2024-02-06"
+        },
+        {
+            "id": 7,
+            "recipeName": "Saison",
+            "startDate": "2024-02-07"
+        },
+        {
+            "id": 8,
+            "recipeName": "Barleywine",
+            "startDate": "2024-02-08"
+        },
+        {
+            "id": 9,
+            "recipeName": "Session IPA",
+            "startDate": "2024-02-09"
+        },
+        {
+            "id": 10,
+            "recipeName": "Mango Wheat",
+            "startDate": "2024-02-10"
+        },
+        {
+            "id": 11,
+            "recipeName": "Honey Blonde Ale",
+            "startDate": "2024-02-11"
+        },
+        {
+            "id": 12,
+            "recipeName": "Raspberry Wheat",
+            "startDate": "2024-02-12"
+        },
+        {
+            "id": 13,
+            "recipeName": "Coffee Porter",
+            "startDate": "2024-02-13"
+        },
+        {
+            "id": 14,
+            "recipeName": "Pumpkin Spice Ale",
+            "startDate": "2024-02-14"
+        },
+        {
+            "id": 15,
+            "recipeName": "Citra Pale Ale",
+            "startDate": "2024-02-15"
+        },
+        {
+            "id": 16,
+            "recipeName": "Belgian Dubbel",
+            "startDate": "2024-02-16"
+        },
+        {
+            "id": 17,
+            "recipeName": "Cherry Stout",
+            "startDate": "2024-02-17"
+        },
+        {
+            "id": 18,
+            "recipeName": "Lemon Basil Saison",
+            "startDate": "2024-02-18"
+        },
+        {
+            "id": 19,
+            "recipeName": "Dry-hopped Pale Ale",
+            "startDate": "2024-02-19"
+        },
+        {
+            "id": 20,
+            "recipeName": "Belgian Witbier",
+            "startDate": "2024-02-20"
         }
     ],
     "permissions": {

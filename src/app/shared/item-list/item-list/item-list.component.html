@@ -9,7 +9,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of items | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
+        <tr *ngFor="let item of items | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage; let i = index" [ngClass]="{'stock': isRedHighlight && IDs.includes(item.id)}">
             <td *ngFor="let column of columns">
                 <ng-container *ngIf="!column.isEditable || (editedItem && editedItem.id !== item.id)">
                     {{ item[column.field] }}
@@ -18,21 +18,13 @@
                     <input [(ngModel)]="editedItem[column.field]" style="text-align: center">
                 </ng-container>
             </td>
-            <td *ngIf="!isEditMode">
-                <button class="btn brew" (click)="onBrew(item)">Brew</button>
-            </td>
-            <td *ngIf="isEditMode && (item.id === editedItem.id)">
-                <button class="btn save" (click)="onSaveEditing(editedItem)">Save</button>
-            </td>
-            <td *ngIf="isEditMode && (item.id === editedItem.id)">
-                <button class="btn cancel" (click)="onCancelEditing()">Cancel</button>
-            </td>
-            <td *ngIf="!isEditMode || (item.id !== editedItem.id)">
-                <button class="btn edit" (click)="onEditItem(item)">Edit</button>
-            </td>
-            <td>
-                <button class="btn delete" (click)="onDeleteItem(item.id)">Delete</button>
-            </td>
+            <ng-container *ngIf="!isBrewPage">
+                <td><button class="btn brew" (click)="onBrew(item)" *ngIf="!isEditMode && isBrew">Brew</button></td>
+                <td><button class="btn save" (click)="onSaveEditing(editedItem)" *ngIf="isEditMode && (item.id === editedItem.id)">Save</button></td>
+                <td><button class="btn cancel" (click)="onCancelEditing()" *ngIf="isEditMode && (item.id === editedItem.id)">Cancel</button></td>
+                <td><button class="btn edit" (click)="onEditItem(item)" *ngIf="!isEditMode || (item.id !== editedItem.id)">Edit</button></td>
+                <td><button class="btn delete" (click)="onDeleteItem(item.id)">Delete</button></td>
+            </ng-container>
         </tr>
         </tbody>
     </table>
