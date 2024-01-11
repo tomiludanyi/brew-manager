@@ -1,60 +1,80 @@
-.brew-table {
-    width: 80%;
-    border-collapse: collapse;
-    margin: 0 auto 20px;
+h2, h4 {
+    text-align: center;
 }
 
+.brew-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.brew-header {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.brew-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brew-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.brew-table th, .brew-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.brew-row {
+    background-color: #f9f9f9;
+}
 
 .brew-cell {
-    padding: 8px;
     text-align: center;
-    border: 1px solid #000000;
-    font-size: 14px;
 }
 
 .readonly-text {
-    display: inline-block;
-    padding: 6px;
-    border: 1px solid #363636;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 14px;
+    font-weight: bold;
 }
 
 .stock {
-    background: red;
+    color: red;
 }
 
 .date {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-    gap: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .warning-text {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #d94444;
+    color: red;
+    margin-bottom: 20px;
 }
 
 .brew-button {
-    background-color: #4caf50;
-    color: white;
+    background-color: #3498db;
+    color: #fff;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 20px auto;
-    display: block;
 }
 
 .brew-button:hover {
-    background-color: #45a049;
+    background-color: #007bb5;
 }
 
 .brew-button:disabled {
-    opacity: 0.5;
+    background-color: #ddd;
     cursor: not-allowed;
 }

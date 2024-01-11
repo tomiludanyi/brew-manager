@@ -1,6 +1,13 @@
 <div class="page_wrapper">
     <app-header></app-header>
-    <div class="page">
-        <router-outlet></router-outlet>
+    <div class="page-container">
+        <div class="side-block left"></div>
+        <div class="page">
+            <router-outlet *ngIf="isRouteActive; else welcomeText"></router-outlet>
+            <ng-template #welcomeText>
+                <h1>Welcome to Tommy's brewery!</h1>
+            </ng-template>
+        </div>
+        <div class="side-block right"></div>
     </div>
 </div>

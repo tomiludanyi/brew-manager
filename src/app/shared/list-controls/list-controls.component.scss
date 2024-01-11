@@ -1,4 +1,27 @@
 .filter-items {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-items div {
+    margin-right: 10px;
+}
+
+.filter-items input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.filter-items label {
+    margin-right: 5px;
+}
+
+.filter-items select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }

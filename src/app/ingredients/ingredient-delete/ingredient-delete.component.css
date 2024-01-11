@@ -1,8 +1,37 @@
 .popup-container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px;
     text-align: center;
-    padding: 1rem;
-    color: #cee4ff;
-    border: 1px solid rgb(255, 93, 93);
-    border-radius: 50px;
-    background: #4d5a9d;
+}
+
+.popup-container h3 {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.popup-container p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.popup-container button {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.popup-container button:hover {
+    background-color: #2980b9;
+}
+
+.popup-container button:last-child {
+    margin-right: 0;
 }

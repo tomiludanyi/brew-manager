@@ -1,16 +1,68 @@
-input.ng-invalid.ng-touched,
-textarea.ng-invalid.ng-touched {
-    border: 1px solid red;
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .recipe-input {
     display: flex;
-    gap: 1rem;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
-.ingredient {
-    margin: 0 1rem 0.5rem 0;
+.recipe-input > div {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.select-ingredient {
+    width: calc(100% - 70px);
+}
+
+hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #007bb5;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
 }

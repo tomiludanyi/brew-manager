@@ -1,49 +1,73 @@
-.item-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-
-    table {
-        padding: 0 1rem;
-        width: 60%;
-        border-collapse: collapse;
-    }
-
-    thead {
-        border-bottom: 3px solid black;
-    }
-
-    td {
-        padding: 0.5rem;
-        text-align: center;
-        border-bottom: 1px solid black;
-    }
-    .edit {
-        background: #9ce1ff;
-    }
-
-    .delete {
-        background: #ff636b;
-    }
-
-    .save {
-        background: #a0ff6e;
-    }
-
-    .cancel {
-        background: #ffe967;
-    }
-    .brew {
-        background: #79685e;
-        color: #e1e1e1;
-    }
+.item-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.stock {
-    background: indianred;
+.item-list th {
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
 }
 
-.btn {
-    font-weight: bold;
+.item-list th:hover {
+    background-color: #ddd;
+}
+
+.item-list th span {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.item-list tbody tr {
+    border-bottom: 1px solid #7e7e7e;
+    text-align: center;
+}
+
+.item-list tbody .stock {
+    background-color: #ff7b7b;
+}
+
+.item-list .btn {
+    cursor: pointer;
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.item-list .btn.brew {
+    background-color: #a15827;
+    color: #fff;
+}
+
+.item-list .btn.edit {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.item-list .btn.save {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.item-list .btn.cancel {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.item-list .btn.delete {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.item-list input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.item-list .btn.edit,
+.item-list .btn.delete {
+    margin-right: 5px;
 }

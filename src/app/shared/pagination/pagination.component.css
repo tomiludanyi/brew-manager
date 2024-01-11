@@ -1,9 +1,36 @@
 .pages {
     display: flex;
-    gap: 2px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.active-page {
-    background-color: #9d6f32;
+.pages button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pages button:hover {
+    background-color: #ddd;
+}
+
+.pages button.active {
+    background-color: #3498db;
     color: #fff;
+    border: 1px solid #3498db;
+}
+
+.pages button:first-child,
+.pages button:last-child {
+    margin-right: 10px;
+}
+
+.pages button.active-page {
+    font-weight: bold;
 }

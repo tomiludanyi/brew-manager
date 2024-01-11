@@ -1,8 +1,4 @@
 <div class="recipes">
-    <app-recipe-edit [editedRecipe]="editedItem"
-                     [isEditMode]="isEditMode">
-    </app-recipe-edit>
-    <hr>
     <app-list-controls [filterText]="filterText"
                        [filterPlaceholder]="'Filter recipes'"
                        [itemsPerPageOptions]="itemsPerPageOptions"
@@ -33,11 +29,16 @@
                    (cancelEditing)="onCancelEditing()"
                    (brew)="onBrewRecipe($event)">
     </app-item-list>
-    <hr>
     <div class="pagination">
         <app-pagination [currentPage]="currentPage"
                         [totalPages]="Math.ceil(((filteredRecipes$ | async)?.length ?? 0) / itemsPerPage)"
                         (pageChanged)="onPageChanged($event)">
         </app-pagination>
+    </div>
+    <hr>
+    <div>
+        <app-recipe-edit [editedRecipe]="editedItem"
+                         [isEditMode]="isEditMode">
+        </app-recipe-edit>
     </div>
 </div>

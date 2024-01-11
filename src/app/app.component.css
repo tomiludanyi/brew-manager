@@ -1,13 +1,47 @@
-body, html {
+body {
     margin: 0;
     padding: 0;
+    font-family: 'Arial', sans-serif;
 }
 
 .page_wrapper {
-    background: #dabba6;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+    background-color: rgba(218, 187, 166, 0.57);
+}
+
+.app-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.page-container {
+    display: flex;
+}
+
+.side-block {
+    flex: 0.2;
+    height: 100%;
+}
+
+.side-block.left {
+    background-color: #383838;
+}
+
+.side-block.right {
+    background-color: #383838;
 }
 
 .page {
-    padding: 1rem;
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
 }

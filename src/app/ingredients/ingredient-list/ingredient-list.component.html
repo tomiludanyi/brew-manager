@@ -1,6 +1,4 @@
 <div>
-    <app-ingredient-edit></app-ingredient-edit>
-    <hr>
     <app-list-controls
             [filterText]="filterText"
             [filterPlaceholder]="'Filter ingredients'"
@@ -32,11 +30,14 @@
                    (saveEditing)="onSaveEditing($event)"
                    (cancelEditing)="onCancelEditing()">
     </app-item-list>
-    <hr>
     <div class="pagination">
         <app-pagination [currentPage]="currentPage"
                         [totalPages]="Math.ceil(((filteredIngredients$ | async)?.length ?? 0) / itemsPerPage)"
                         (pageChanged)="onPageChanged($event)">
         </app-pagination>
+    </div>
+    <hr>
+    <div>
+        <app-ingredient-edit></app-ingredient-edit>
     </div>
 </div>

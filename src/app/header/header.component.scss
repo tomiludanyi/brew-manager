@@ -1,61 +1,75 @@
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: #383838;
+    color: #dabba6;
+    padding: 10px 0;
+    margin: 0 14rem;
+}
+
 .header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid;
-    padding: 0.25rem 1rem;
-}
-
-.header-wrapper img {
-    width: 120px;
-}
-
-.header-wrapper nav {
-    display: flex;
-    justify-content: space-around;
-    width: 40%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .beers-image {
+    height: 70px;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
     -webkit-transition: all 2s ease;
-    
+
     &:hover {
         filter: grayscale(0%);
         -webkit-filter: grayscale(0%);
         transition: 1s ease;
-        
+
     }
 }
 
+nav {
+    flex: 1;
+}
+
 .navbar-items {
-    display: flex;
-    gap: 20px;
     list-style: none;
-    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
-    li {
-        a {
-            text-decoration: none;
-            cursor: pointer;
-            border: 1px solid rgb(42, 20, 20);
-            border-radius: 5px;
-            padding: 5px;
+.navbar-items li {
+    margin-right: 15px;
+}
 
+.navbar-items a {
+    text-decoration: none;
+    color: #dabba6;
+    font-weight: bold;
+    font-size: 16px;
+}
 
-            &:link {
-                color: red;
-            }
+.navbar-items a:hover {
+    color: white;
+}
 
-            &:hover {
-                color: hotpink
-            }
+.navbar-items li:last-child a {
+    background-color: #fff;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-            &:active {
-                color: blue;
-            }
-        }
-    }
-
+.navbar-items li:last-child a:hover {
+    background-color: #ddd;
 }
